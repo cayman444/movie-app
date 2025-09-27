@@ -1,4 +1,4 @@
-import { MainLayout } from '@/layouts/MainLayout';
+import { RootLayout } from '@/shared/layouts/RootLayout';
 import { SuspenseLoader } from '@/shared/ui/SuspenseLoader';
 import { lazy } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
@@ -14,7 +14,7 @@ export const ROUTES_PATHS = {
 
 export const router = createBrowserRouter([
   {
-    element: <MainLayout />,
+    element: <RootLayout />,
     children: [
       {
         index: true,

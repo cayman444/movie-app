@@ -1,10 +1,11 @@
 import { SuspenseLoader } from '@/shared/ui/SuspenseLoader';
+import { Header } from '@/widgets/Header';
 import { Outlet } from 'react-router-dom';
 
-export const MainLayout = () => {
+export const RootLayout = () => {
   return (
     <>
-      <header>header</header>
+      <Header />
       <main>
         <SuspenseLoader>
           <Outlet />
