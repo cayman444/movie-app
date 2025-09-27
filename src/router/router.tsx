@@ -1,0 +1,37 @@
+import { MainLayout } from '@/layouts/MainLayout';
+import { SuspenseLoader } from '@/shared/ui/SuspenseLoader';
+import { lazy } from 'react';
+import { createBrowserRouter } from 'react-router-dom';
+
+const Movies = lazy(() => import('@/pages/Movies'));
+const MovieDetails = lazy(() => import('@/pages/MovieDetails'));
+const NotFound = lazy(() => import('@/pages/NotFound'));
+
+export const ROUTES_PATHS = {
+  HOME: '/',
+  DETAILS: '/details/:id',
+} as const;
+
+export const router = createBrowserRouter([
+  {
+    element: <MainLayout />,
+    children: [
+      {
+        index: true,
+        element: <Movies />,
+      },
+      {
+        path: ROUTES_PATHS.DETAILS,
+        element: <MovieDetails />,
+      },
+    ],
+  },
+  {
+    path: '*',
+    element: (
+      <SuspenseLoader>
+        <NotFound />
+      </SuspenseLoader>
+    ),
+  },
+]);
