@@ -1,2 +1,2 @@
-export { default as filmsReducer } from './films-slice';
-export * from './films-slice';
+export { default as moviesReducer } from './movies-slice';
+export * from './movies-slice';

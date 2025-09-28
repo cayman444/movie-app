@@ -1,16 +1,9 @@
-import type { FilmGenre } from '@/shared/api/types';
+import type { CollectionMovie } from '@/entities/movie/types';
 import { Tag } from 'antd';
 import type { FC } from 'react';
 import { Link } from 'react-router-dom';
 
-interface MoviePopularProps {
-  kinopoiskId: number;
-  nameRu: string;
-  posterUrl: string;
-  genres: FilmGenre[];
-}
-
-export const MoviePopular: FC<MoviePopularProps> = ({
+export const MoviePopular: FC<CollectionMovie> = ({
   kinopoiskId,
   nameRu,
   posterUrl,
@@ -33,8 +26,8 @@ export const MoviePopular: FC<MoviePopularProps> = ({
           <Link to={`movie/${kinopoiskId}`}>{nameRu}</Link>
         </h4>
         <div className="flex gap-2 flex-wrap">
-          {genres.slice(0, 3).map(({ genre }, ind) => (
-            <Tag key={ind} color="#FF0000" style={{ margin: 0 }}>
+          {genres.map(({ genre }, ind) => (
+            <Tag key={ind} color="#FF0000" className="!m-0">
               {genre}
             </Tag>
           ))}

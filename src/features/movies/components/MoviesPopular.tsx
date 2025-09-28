@@ -1,12 +1,12 @@
 import { Container } from '@/app/layouts';
-import { useGetCollectionsFilmsQuery } from '@/shared/api/endpoints';
+import { useGetCollectionsMoviesQuery } from '@/shared/api/endpoints';
 import { ArrowRightOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 import { MoviePopular } from './MoviePopular';
 import { MoviesPopularSkeleton } from './MoviesPopularSkeleton';
 
 export const MoviesPopular = () => {
-  const { data, isLoading } = useGetCollectionsFilmsQuery({
+  const { data, isLoading } = useGetCollectionsMoviesQuery({
     type: 'TOP_POPULAR_MOVIES',
   });
 

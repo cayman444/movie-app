@@ -1,9 +1,10 @@
+import type { CollectionMovies } from '@/entities/movie/types';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import type { CollectionFilms, CollectionFilmsParams } from '../types';
+import type { CollectionMoviesParams } from '../types';
 
 const BASE_URL = 'https://kinopoiskapiunofficial.tech/api/';
 
-export const filmsApi = createApi({
+export const moviesApi = createApi({
   reducerPath: 'filmsApi',
   baseQuery: fetchBaseQuery({
     baseUrl: BASE_URL,
@@ -14,10 +15,13 @@ export const filmsApi = createApi({
     },
   }),
   endpoints: (builder) => ({
-    getCollectionsFilms: builder.query<CollectionFilms, CollectionFilmsParams>({
+    getCollectionsMovies: builder.query<
+      CollectionMovies,
+      CollectionMoviesParams
+    >({
       query: ({ type }) => `v2.2/films/collections?type=${type}`,
     }),
   }),
 });
 
-export const { useGetCollectionsFilmsQuery } = filmsApi;
+export const { useGetCollectionsMoviesQuery } = moviesApi;
