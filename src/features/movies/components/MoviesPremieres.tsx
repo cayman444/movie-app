@@ -2,10 +2,11 @@ import { Container } from '@/app/layouts';
 import { useGetPremieresMoviesQuery } from '@/shared/api/endpoints';
 import { ArrowRightOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
+import { MoviesPremieresSkeleton } from '../ui';
 import { MoviePremiere } from './MoviePremiere';
 
 export const MoviesPremieres = () => {
-  const { data: premieresMovies } = useGetPremieresMoviesQuery({
+  const { data: premieresMovies, isLoading } = useGetPremieresMoviesQuery({
     year: 2025,
     month: 'SEPTEMBER',
   });
@@ -15,9 +16,15 @@ export const MoviesPremieres = () => {
       <h2 className="text-2xl font-medium">Кинопремьеры</h2>
       <div className="flex items-center gap-8">
         <ul className="flex-1 grid gap-8 grid-cols-4">
-          {premieresMovies?.items.slice(14, 18).map((movie) => (
-            <MoviePremiere key={movie.kinopoiskId} {...movie} />
-          ))}
+          {isLoading ? (
+            <MoviesPremieresSkeleton />
+          ) : (
+            premieresMovies?.items
+              .slice(14, 18)
+              .map((movie) => (
+                <MoviePremiere key={movie.kinopoiskId} {...movie} />
+              ))
+          )}
         </ul>
         <Link
           to={'/premieres'}
