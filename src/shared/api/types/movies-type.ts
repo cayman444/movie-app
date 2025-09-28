@@ -36,3 +36,6 @@ export interface PremiereMoviesParams {
   year: number;
   month: PremieresMovieMonth;
 }
+export interface MovieParams {
+  id: number;
+}

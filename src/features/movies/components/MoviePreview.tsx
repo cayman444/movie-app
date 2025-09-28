@@ -1,7 +1,75 @@
+import { Container } from '@/app/layouts';
+import { useGetMovieQuery } from '@/shared/api/endpoints';
+import { formatMovieTime } from '@/shared/utils';
+import {
+  CalendarOutlined,
+  ClockCircleOutlined,
+  PlayCircleOutlined,
+  StarOutlined,
+} from '@ant-design/icons';
+import { Button, Tag } from 'antd';
+
 export const MoviePreview = () => {
+  const { data: movie } = useGetMovieQuery({ id: 505898 });
+
   return (
     <div className="relative h-[calc(100vh-88px)] mb-18">
       <span className="absolute inset-0 bg-[url(/preview-movie.jpg)] bg-no-repeat bg-cover bg-fixed" />
+      <Container className="flex flex-col h-full">
+        <div className="flex-1 flex items-end justify-center gap-10 z-1 mb-20">
+          <Button
+            color="red"
+            variant="solid"
+            iconPosition="end"
+            className="!p-6 !border-2 !text-xl !font-semibold"
+            icon={<PlayCircleOutlined style={{ fontSize: 24 }} />}
+          >
+            Смотреть сейчас
+          </Button>
+          <Button
+            danger
+            ghost
+            iconPosition="end"
+            icon={<ClockCircleOutlined style={{ fontSize: 24 }} />}
+            className="!p-6 !border-2 !text-xl !font-semibold !text-white"
+          >
+            Смотреть позже
+          </Button>
+        </div>
+        <div className="flex flex-col gap-6 z-1 justify-end -ml-20 pb-40 max-w-2xl">
+          <div className="flex flex-col gap-2">
+            <h1 className="text-4xl font-bold">{movie?.nameRu}</h1>
+            <div className="flex items-center justify-between gap-4">
+              <div className="flex items-center gap-2">
+                {movie?.genres.map(({ genre }) => (
+                  <Tag
+                    key={genre}
+                    color="#FF0000"
+                    className="!m-0 !font-semibold"
+                  >
+                    {genre}
+                  </Tag>
+                ))}
+              </div>
+              <div className="flex items-center gap-2">
+                <CalendarOutlined />
+                <div className="font-semibold">{movie?.year}</div>
+              </div>
+              <div className="flex items-center gap-2">
+                <ClockCircleOutlined />
+                <div className="font-semibold">
+                  {formatMovieTime(movie?.filmLength)}
+                </div>
+              </div>
+              <div className="flex items-center gap-2">
+                <StarOutlined />
+                <div className="font-semibold">{movie?.ratingKinopoisk}</div>
+              </div>
+            </div>
+          </div>
+          <p className="font-medium">{movie?.description}</p>
+        </div>
+      </Container>
     </div>
   );
 };

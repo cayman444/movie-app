@@ -1,4 +1,6 @@
-export const formatMovieTime = (minutes: number) => {
+export const formatMovieTime = (minutes?: number) => {
+  if (!minutes) return '';
+
   const hours = Math.floor(minutes / 60);
   const mins = minutes % 60;
 

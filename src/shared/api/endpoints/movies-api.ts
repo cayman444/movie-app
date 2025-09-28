@@ -1,6 +1,14 @@
-import type { CollectionMovies, PremiereMovies } from '@/entities/movie/types';
+import type {
+  CollectionMovies,
+  Movie,
+  PremiereMovies,
+} from '@/entities/movie/types';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import type { CollectionMoviesParams, PremiereMoviesParams } from '../types';
+import type {
+  CollectionMoviesParams,
+  MovieParams,
+  PremiereMoviesParams,
+} from '../types';
 
 const BASE_URL = 'https://kinopoiskapiunofficial.tech/api/';
 
@@ -25,8 +33,14 @@ export const moviesApi = createApi({
       query: ({ year, month }) =>
         `v2.2/films/premieres?year=${year}&month=${month}`,
     }),
+    getMovie: builder.query<Movie, MovieParams>({
+      query: ({ id }) => `v2.2/films/${id}`,
+    }),
   }),
 });
 
-export const { useGetCollectionsMoviesQuery, useGetPremieresMoviesQuery } =
-  moviesApi;
+export const {
+  useGetCollectionsMoviesQuery,
+  useGetPremieresMoviesQuery,
+  useGetMovieQuery,
+} = moviesApi;
