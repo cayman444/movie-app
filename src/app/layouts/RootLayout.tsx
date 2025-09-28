@@ -1,5 +1,5 @@
-import { SuspenseLoader } from '@/shared/ui/SuspenseLoader';
-import { Header } from '@/widgets/Header';
+import { SuspenseLoader } from '@/shared/ui';
+import { Header } from '@/widgets';
 import { Outlet } from 'react-router-dom';
 
 export const RootLayout = () => {

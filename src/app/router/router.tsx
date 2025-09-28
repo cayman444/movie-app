@@ -1,5 +1,5 @@
-import { RootLayout } from '@/app/layouts/RootLayout';
-import { SuspenseLoader } from '@/shared/ui/SuspenseLoader';
+import { RootLayout } from '@/app/layouts';
+import { SuspenseLoader } from '@/shared/ui';
 import { lazy } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 
