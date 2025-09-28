@@ -18,7 +18,7 @@ export const MoviePopular: FC<CollectionMovie> = ({
           className="absolute inset-0 w-full h-full object-cover rounded-lg"
         />
       </Link>
-      <div className="flex justify-between items-center gap-2 flex-wrap">
+      <div className="flex flex-col gap-2 flex-wrap">
         <h4 className="text-lg font-semibold line-clamp-2">
           <Link to={`movie/${kinopoiskId}`}>{nameRu}</Link>
         </h4>

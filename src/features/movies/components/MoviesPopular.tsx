@@ -16,12 +16,12 @@ export const MoviesPopular = () => {
         <h2 className="text-2xl font-bold">Популярные фильмы</h2>
         <Link
           to={'/popular'}
-          className="flex items-center gap-2 cursor-pointer"
+          className="group flex items-center gap-2 cursor-pointer"
         >
-          <div className="font-semibold text-2xl text-white/30">
+          <div className="font-semibold text-2xl text-neutral-600 transition-colors group-hover:text-neutral-500">
             Смотреть все
           </div>
-          <ArrowRightOutlined className="!text-white/30 !text-xl" />
+          <ArrowRightOutlined className="!text-neutral-600 !text-xl transition-colors group-hover:!text-neutral-500" />
         </Link>
       </div>
       <ul className="grid gap-8 grid-cols-3">
