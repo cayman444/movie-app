@@ -7,7 +7,7 @@ const themeConfig: ThemeConfig = {
   },
   components: {
     Spin: {
-      colorBgMask: 'text-white',
+      colorBgMask: '#ffffff',
       colorTextLightSolid: '#1677ff',
       colorWhite: '#1677ff',
     },
@@ -20,6 +20,10 @@ const themeConfig: ThemeConfig = {
       borderRadius: 24,
       paddingBlock: 12,
       paddingInline: 24,
+    },
+    Skeleton: {
+      gradientFromColor: 'oklch(43.9% 0 0)',
+      gradientToColor: 'oklch(55.6% 0 0)',
     },
   },
 };

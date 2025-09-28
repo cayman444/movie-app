@@ -1,10 +1,10 @@
-import { MovieMain } from '@/features/movies';
+import { MoviesPopular } from '@/features/movies';
 
 const Movies = () => {
   return (
-    <div>
-      <MovieMain />
-    </div>
+    <>
+      <MoviesPopular />
+    </>
   );
 };
 

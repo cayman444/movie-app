@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import type { PremieresFilms, PremieresFilmsParams } from '../types';
+import type { CollectionFilms, CollectionFilmsParams } from '../types';
 
 const BASE_URL = 'https://kinopoiskapiunofficial.tech/api/';
 
@@ -14,11 +14,10 @@ export const filmsApi = createApi({
     },
   }),
   endpoints: (builder) => ({
-    getPremieresFilms: builder.query<PremieresFilms, PremieresFilmsParams>({
-      query: ({ month, year }) =>
-        `v2.2/films/premieres?month=${month}&year=${year}`,
+    getCollectionsFilms: builder.query<CollectionFilms, CollectionFilmsParams>({
+      query: ({ type }) => `v2.2/films/collections?type=${type}`,
     }),
   }),
 });
 
-export const { useGetPremieresFilmsQuery } = filmsApi;
+export const { useGetCollectionsFilmsQuery } = filmsApi;

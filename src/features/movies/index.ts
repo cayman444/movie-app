@@ -1,1 +1,1 @@
-export { MovieMain } from './components/MovieMain';
+export { MoviesPopular } from './components/MoviesPopular';

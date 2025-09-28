@@ -6,11 +6,11 @@ export const RootLayout = () => {
   return (
     <>
       <Header />
-      <main>
-        <SuspenseLoader>
+      <SuspenseLoader>
+        <main className="bg-neutral-800 py-18">
           <Outlet />
-        </SuspenseLoader>
-      </main>
+        </main>
+      </SuspenseLoader>
       <footer>footer</footer>
     </>
   );
