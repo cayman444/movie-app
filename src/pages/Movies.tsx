@@ -1,14 +1,11 @@
-import { useGetPremieresFilmsQuery } from '@/shared/api/endpoints';
+import { MovieMain } from '@/features/movies';
 
 const Movies = () => {
-  const { data } = useGetPremieresFilmsQuery({
-    month: 'SEPTEMBER',
-    year: 2025,
-  });
-
-  console.log(data);
-
-  return <div>Movies</div>;
+  return (
+    <div>
+      <MovieMain />
+    </div>
+  );
 };
 
 export default Movies;
