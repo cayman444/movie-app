@@ -1,4 +1,4 @@
-import { Container } from '@/shared/layouts/Container';
+import { Container } from '@/app/layouts/Container';
 import { SearchOutlined, UserOutlined } from '@ant-design/icons';
 import { Input } from 'antd';
 

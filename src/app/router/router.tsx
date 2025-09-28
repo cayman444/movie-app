@@ -1,4 +1,4 @@
-import { RootLayout } from '@/shared/layouts/RootLayout';
+import { RootLayout } from '@/app/layouts/RootLayout';
 import { SuspenseLoader } from '@/shared/ui/SuspenseLoader';
 import { lazy } from 'react';
 import { createBrowserRouter } from 'react-router-dom';

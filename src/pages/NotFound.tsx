@@ -1,4 +1,4 @@
-import { ROUTES_PATHS } from '@/router';
+import { ROUTES_PATHS } from '@/app/router';
 import { Button, Flex, Result } from 'antd';
 import { useNavigate } from 'react-router-dom';
 
