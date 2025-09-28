@@ -7,7 +7,7 @@ export const RootLayout = () => {
     <>
       <Header />
       <SuspenseLoader>
-        <main className="bg-neutral-800 py-18 text-white">
+        <main className="bg-neutral-800 text-white pb-18">
           <Outlet />
         </main>
       </SuspenseLoader>
