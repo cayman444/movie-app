@@ -1,8 +1,9 @@
-import { MoviesPopular } from '@/features/movies';
+import { MoviesPopular, MoviesPremieres } from '@/features/movies/components';
 
 const Movies = () => {
   return (
     <>
+      <MoviesPremieres />
       <MoviesPopular />
     </>
   );

@@ -11,7 +11,7 @@ export const MoviesPopular = () => {
   });
 
   return (
-    <Container className="text-white">
+    <Container>
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-2xl font-bold">Популярные фильмы</h2>
         <Link

@@ -1,1 +1,2 @@
-export * from './collection-movie';
+export * from './collection';
+export * from './premiere';

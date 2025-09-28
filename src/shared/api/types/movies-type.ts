@@ -1,4 +1,4 @@
-export type CollectionMovieType =
+type CollectionMovieType =
   | 'TOP_POPULAR_ALL'
   | 'TOP_POPULAR_MOVIES'
   | 'TOP_250_TV_SHOWS'
@@ -14,7 +14,25 @@ export type CollectionMovieType =
   | 'KIDS_ANIMATION_THEME'
   | 'POPULAR_SERIES';
 
+type PremieresMovieMonth =
+  | 'JANUARY'
+  | 'FEBRUARY'
+  | 'MARCH'
+  | 'APRIL'
+  | 'MAY'
+  | 'JUNE'
+  | 'JULY'
+  | 'AUGUST'
+  | 'SEPTEMBER'
+  | 'OCTOBER'
+  | 'NOVEMBER'
+  | 'DECEMBER';
+
 export interface CollectionMoviesParams {
   type?: CollectionMovieType;
   page?: number;
+}
+export interface PremiereMoviesParams {
+  year: number;
+  month: PremieresMovieMonth;
 }

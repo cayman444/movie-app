@@ -1,4 +1,4 @@
-import type { MovieCountry, MovieGenre } from '@/shared/types';
+import type { MovieCountry, MovieGenre } from './movie';
 
 export interface CollectionMovies {
   total: number;
