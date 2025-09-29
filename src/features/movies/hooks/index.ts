@@ -1,0 +1,1 @@
+export { useCollectionMovies } from './useCollectionMovies';

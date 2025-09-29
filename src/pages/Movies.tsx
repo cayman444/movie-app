@@ -1,6 +1,6 @@
 import {
   MoviePreview,
-  MoviesPopular,
+  MoviesAllCollections,
   MoviesPremieres,
 } from '@/features/movies/components';
 
@@ -9,7 +9,7 @@ const Movies = () => {
     <>
       <MoviePreview />
       <MoviesPremieres />
-      <MoviesPopular />
+      <MoviesAllCollections />
     </>
   );
 };
