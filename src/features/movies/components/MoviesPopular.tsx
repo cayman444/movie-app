@@ -1,6 +1,7 @@
 import { Container } from '@/app/layouts';
 import { useGetCollectionsMoviesQuery } from '@/shared/api/endpoints';
 import { ArrowRightOutlined } from '@ant-design/icons';
+import { Carousel } from 'antd';
 import { Link } from 'react-router-dom';
 import { MoviesPopularSkeleton } from '../ui';
 import { MoviePopular } from './MoviePopular';
@@ -24,13 +25,22 @@ export const MoviesPopular = () => {
           <ArrowRightOutlined className="!text-neutral-600 !text-xl transition-colors group-hover:!text-neutral-500" />
         </Link>
       </div>
-      <ul className="grid gap-8 grid-cols-3">
+      <ul className="overflow-hidden">
         {isLoading ? (
           <MoviesPopularSkeleton />
         ) : (
-          data?.items
-            ?.slice(3, 6)
-            .map((film) => <MoviePopular key={film.kinopoiskId} {...film} />)
+          <Carousel
+            arrows
+            dots={false}
+            autoplay={{ dotDuration: true }}
+            autoplaySpeed={5000}
+            slidesToShow={3}
+            className="[&_.slick-list]:!-mx-4 [&_.slick-slide]:!px-4  [&_.slick-prev]:-left-6"
+          >
+            {data?.items?.map((film) => (
+              <MoviePopular key={film.kinopoiskId} {...film} />
+            ))}
+          </Carousel>
         )}
       </ul>
     </Container>

@@ -10,7 +10,7 @@ export const MoviePopular: FC<CollectionMovie> = ({
   genres,
 }) => {
   return (
-    <li className="flex flex-col gap-4 h-full">
+    <li className="flex flex-col gap-4 h-full !text-inherit">
       <Link to={`movie/${kinopoiskId}`} className="relative pt-[150%]">
         <img
           src={posterUrl}
@@ -20,7 +20,9 @@ export const MoviePopular: FC<CollectionMovie> = ({
       </Link>
       <div className="flex flex-col gap-2 flex-wrap">
         <h4 className="text-lg font-semibold line-clamp-2">
-          <Link to={`movie/${kinopoiskId}`}>{nameRu}</Link>
+          <Link to={`movie/${kinopoiskId}`} className="!text-white">
+            {nameRu}
+          </Link>
         </h4>
         <div className="flex gap-2 flex-wrap">
           {genres.map(({ genre }, ind) => (
