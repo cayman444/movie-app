@@ -1,22 +1,31 @@
 import { Container } from '@/app/layouts';
-import { useGetCollectionsMoviesQuery } from '@/shared/api/endpoints';
+import type { CollectionMovie } from '@/entities/movie/types';
 import { ArrowRightOutlined } from '@ant-design/icons';
 import { Carousel } from 'antd';
+import type { FC } from 'react';
 import { Link } from 'react-router-dom';
-import { MoviesPopularSkeleton } from '../ui';
-import { MoviePopular } from './MoviePopular';
+import { MoviesSkeleton } from '../ui';
+import { MovieCollection } from './MovieCollection';
 
-export const MoviesPopular = () => {
-  const { data, isLoading } = useGetCollectionsMoviesQuery({
-    type: 'TOP_POPULAR_MOVIES',
-  });
+interface MoviesCollection {
+  title: string;
+  link: string;
+  movies?: CollectionMovie[];
+  isLoading: boolean;
+}
 
+export const MoviesCollection: FC<MoviesCollection> = ({
+  movies,
+  isLoading,
+  link,
+  title,
+}) => {
   return (
     <Container>
       <div className="flex justify-between items-center mb-6">
-        <h2 className="text-2xl font-bold">Популярные фильмы</h2>
+        <h2 className="text-2xl font-bold">{title}</h2>
         <Link
-          to={'/popular'}
+          to={link}
           className="group flex items-center gap-2 cursor-pointer"
         >
           <div className="font-semibold text-2xl text-neutral-600 transition-colors group-hover:text-neutral-500">
@@ -27,7 +36,7 @@ export const MoviesPopular = () => {
       </div>
       <ul className="overflow-hidden">
         {isLoading ? (
-          <MoviesPopularSkeleton />
+          <MoviesSkeleton />
         ) : (
           <Carousel
             arrows
@@ -36,8 +45,8 @@ export const MoviesPopular = () => {
             autoplaySpeed={5000}
             slidesToShow={3}
           >
-            {data?.items?.map((film) => (
-              <MoviePopular key={film.kinopoiskId} {...film} />
+            {movies?.map((film) => (
+              <MovieCollection key={film.kinopoiskId} {...film} />
             ))}
           </Carousel>
         )}

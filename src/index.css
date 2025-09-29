@@ -5,6 +5,18 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
+.slick-list {
+  @apply !-mx-4;
+}
+
+.slick-slide {
+  @apply !px-4
+}
+
+.slick-prev {
+  @apply -left-6
+}
+
 .ant-carousel .slick-prev,
 .ant-carousel .slick-next {
   border-radius: 100%;
