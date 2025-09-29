@@ -27,7 +27,8 @@ export const moviesApi = createApi({
       CollectionMovies,
       CollectionMoviesParams
     >({
-      query: ({ type }) => `v2.2/films/collections?type=${type}`,
+      query: ({ type, page }) =>
+        `v2.2/films/collections?type=${type}&page=${page}`,
     }),
     getPremieresMovies: builder.query<PremiereMovies, PremiereMoviesParams>({
       query: ({ year, month }) =>

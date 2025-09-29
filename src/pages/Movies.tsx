@@ -1,8 +1,5 @@
-import {
-  MoviePreview,
-  MoviesAllCollections,
-  MoviesPremieres,
-} from '@/features/movies/components';
+import { MoviesAllCollections } from '@/features/movies-collections/components';
+import { MoviePreview, MoviesPremieres } from '@/features/movies/components';
 
 const Movies = () => {
   return (
