@@ -21,7 +21,7 @@ export const MoviesCollection: FC<MoviesCollection> = ({
   title,
 }) => {
   return (
-    <Container>
+    <Container className="w-full">
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-2xl font-bold">{title}</h2>
         <Link

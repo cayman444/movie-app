@@ -13,10 +13,6 @@ body {
   @apply !px-4
 }
 
-.slick-prev {
-  @apply -left-6
-}
-
 .ant-carousel .slick-prev,
 .ant-carousel .slick-next {
   border-radius: 100%;
