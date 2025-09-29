@@ -8,15 +8,18 @@ import {
   StarOutlined,
 } from '@ant-design/icons';
 import { Button, Tag } from 'antd';
+import { MoviePreviewSkeleton } from '../ui';
 
 export const MoviePreview = () => {
   const { data: movie } = useGetMovieQuery({ id: 505898 });
+
+  if (!movie) return <MoviePreviewSkeleton />;
 
   return (
     <div className="relative h-[calc(100vh-88px)] mb-18">
       <span className="absolute inset-0 bg-[url(/preview-movie.jpg)] bg-no-repeat bg-cover bg-fixed" />
       <Container className="flex flex-col h-full">
-        <div className="flex-1 flex items-end justify-center gap-10 z-1 mb-20">
+        <div className="flex-1 flex items-end justify-center gap-8 z-1 mb-20">
           <Button
             color="red"
             variant="solid"
