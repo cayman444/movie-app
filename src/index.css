@@ -4,3 +4,51 @@
 body {
   font-family: 'Poppins', sans-serif;
 }
+
+.ant-carousel .slick-prev,
+.ant-carousel .slick-next {
+  border-radius: 100%;
+  color: white;
+
+  @apply bg-neutral-700/90;
+  padding: 30px;
+  opacity: 1;
+  @apply transition-colors;
+
+  &:hover {
+    @apply bg-neutral-600;
+
+    &::after {
+      @apply text-white;
+    }
+  }
+
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    @apply text-white/50;
+    @apply transition-colors;
+    font-size: 20px;
+  }
+}
+
+.ant-carousel .slick-prev {
+  left: 10px;
+
+  &::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+}
+
+.ant-carousel .slick-next {
+  right: 10px;
+
+  &::after {
+    transform: translate(-50%, -50%) rotate(135deg);
+    left: 45%
+  }
+}

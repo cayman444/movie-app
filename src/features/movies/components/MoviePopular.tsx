@@ -10,7 +10,7 @@ export const MoviePopular: FC<CollectionMovie> = ({
   genres,
 }) => {
   return (
-    <li className="flex flex-col gap-4 h-full !text-inherit">
+    <li className="flex flex-col gap-4 h-full text-white">
       <Link to={`movie/${kinopoiskId}`} className="relative pt-[150%]">
         <img
           src={posterUrl}
