@@ -18,8 +18,8 @@ const themeConfig: ThemeConfig = {
       colorTextPlaceholder: 'oklch(70.8% 0 0)',
       controlOutlineWidth: 10,
       borderRadius: 24,
-      paddingBlock: 12,
-      paddingInline: 24,
+      paddingBlock: 8,
+      paddingInline: 18,
     },
     Skeleton: {
       gradientFromColor: 'oklch(43.9% 0 0)',

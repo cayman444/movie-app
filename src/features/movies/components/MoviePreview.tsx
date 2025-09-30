@@ -16,7 +16,7 @@ export const MoviePreview = () => {
   if (!movie) return <MoviePreviewSkeleton />;
 
   return (
-    <div className="relative h-[calc(100vh-88px)] mb-18">
+    <div className="relative h-screen mb-18">
       <span className="absolute inset-0 bg-[url(/preview-movie.jpg)] bg-no-repeat bg-cover bg-fixed" />
       <Container className="flex flex-col h-full">
         <div className="flex-1 flex items-end justify-center gap-8 z-1 mb-20">
