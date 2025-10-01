@@ -13,10 +13,10 @@ export const useCollectionMovies = () => {
       type: 'POPULAR_SERIES',
     });
 
-  const { data: popularAnimations, isLoading: popularAnimationsIsLoading } =
+  const { data: familyMovies, isLoading: familyMoviesIsLoading } =
     useGetCollectionsMoviesQuery({
       page: 1,
-      type: 'KIDS_ANIMATION_THEME',
+      type: 'FAMILY',
     });
 
   return {
@@ -24,7 +24,7 @@ export const useCollectionMovies = () => {
     popularMoviesIsLoading,
     popularSeries,
     popularSeriesIsLoading,
-    popularAnimations,
-    popularAnimationsIsLoading,
+    familyMovies,
+    familyMoviesIsLoading,
   };
 };

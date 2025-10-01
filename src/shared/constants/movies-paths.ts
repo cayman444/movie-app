@@ -8,7 +8,7 @@ export const MOVIES_PATHS = {
   BEST: { path: '/best', title: 'ТОП 250 лучших фильмов' },
   POPULAR_SERIALS: { path: '/popular-serials', title: 'Популярные сериалы' },
   PREMIERES: { path: '/premieres', title: 'Кинопремьеры' },
-  FAMILY_MOVIES: { path: '/family', title: 'Семейные' },
+  FAMILY_MOVIES: { path: '/family', title: 'Семейные фильмы' },
   ROMANTIC_MOVIES: { path: '/romantic', title: 'Романтика' },
   ZOMBIE_MOVIES: { path: '/zombie', title: 'Зомби' },
   CATASTROPHE_MOVIES: { path: 'catastrophe', title: 'Катастрофы' },

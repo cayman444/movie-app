@@ -1,3 +1,4 @@
+import { MOVIES_PATHS } from '@/shared/constants';
 import { useCollectionMovies } from '../hooks';
 import { MoviesCollection } from './MoviesCollection';
 
@@ -7,29 +8,29 @@ export const MoviesAllCollections = () => {
     popularMoviesIsLoading,
     popularSeries,
     popularSeriesIsLoading,
-    popularAnimations,
-    popularAnimationsIsLoading,
+    familyMovies,
+    familyMoviesIsLoading,
   } = useCollectionMovies();
 
   return (
     <div className="flex flex-col gap-18 mb-18">
       <MoviesCollection
-        title="Популярные фильмы"
-        link="/popular"
+        title={MOVIES_PATHS.POPULAR.title}
+        link={MOVIES_PATHS.POPULAR.path}
         movies={popularMovies?.items}
         isLoading={popularMoviesIsLoading}
       />
       <MoviesCollection
-        title="Популярные сериалы"
-        link="/series"
+        title={MOVIES_PATHS.POPULAR_SERIALS.title}
+        link={MOVIES_PATHS.POPULAR_SERIALS.path}
         movies={popularSeries?.items}
         isLoading={popularSeriesIsLoading}
       />
       <MoviesCollection
-        title="Популярные мультфильмы"
-        link="/animations"
-        movies={popularAnimations?.items}
-        isLoading={popularAnimationsIsLoading}
+        title={MOVIES_PATHS.FAMILY_MOVIES.title}
+        link={MOVIES_PATHS.FAMILY_MOVIES.path}
+        movies={familyMovies?.items}
+        isLoading={familyMoviesIsLoading}
       />
     </div>
   );
