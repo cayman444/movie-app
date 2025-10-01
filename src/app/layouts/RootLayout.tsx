@@ -7,9 +7,7 @@ export const RootLayout = () => {
     <>
       <Header />
       <SuspenseLoader>
-        <main className="pb-18">
-          <Outlet />
-        </main>
+        <Outlet />
       </SuspenseLoader>
       <footer>footer</footer>
     </>
