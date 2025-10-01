@@ -32,7 +32,12 @@ export const DropdownMenu = () => {
         overlayClassName="!pt-4 [&_.ant-dropdown-menu-item]:!px-4 [&_.ant-dropdown-menu-item]:!py-2"
         menu={{ items: HEADER_MENU }}
       >
-        <div className="flex items-center gap-2 cursor-pointer font-semibold">
+        <div
+          className={clsx(
+            'flex items-center gap-2 cursor-pointer font-semibold [&>*]:!transition-all',
+            isOpen && '[&>*]:!text-neutral-400'
+          )}
+        >
           <HomeOutlined style={{ fontSize: 18 }} />
           <h2>Главная</h2>
         </div>

@@ -29,6 +29,7 @@ const themeConfig: ThemeConfig = {
       colorBgElevated: 'oklch(26.9% 0 0)',
       colorText: '#ffffff',
       controlItemBgHover: 'oklch(37.1% 0 0)',
+      colorSplit: 'oklch(37.1% 0 0)',
       fontSize: 16,
     },
   },

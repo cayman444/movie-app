@@ -58,4 +58,17 @@ export const HEADER_MENU: MenuProps['items'] = [
     label: <Link to={'/comics'}>Комиксы</Link>,
     icon: <BookOutlined style={{ fontSize: 16 }} />,
   },
+  { type: 'divider' },
+  {
+    key: '10',
+    label: <Link to={'/movies'}>Фильмы</Link>,
+  },
+  {
+    key: '11',
+    label: <Link to={'/serials'}>Сериалы</Link>,
+  },
+  {
+    key: '12',
+    label: <Link to={'/animations'}>Мультфильмы</Link>,
+  },
 ];
