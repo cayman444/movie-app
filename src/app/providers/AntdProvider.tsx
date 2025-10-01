@@ -25,6 +25,12 @@ const themeConfig: ThemeConfig = {
       gradientFromColor: 'oklch(43.9% 0 0)',
       gradientToColor: 'oklch(55.6% 0 0)',
     },
+    Dropdown: {
+      colorBgElevated: 'oklch(26.9% 0 0)',
+      colorText: '#ffffff',
+      controlItemBgHover: 'oklch(37.1% 0 0)',
+      fontSize: 16,
+    },
   },
 };
 
