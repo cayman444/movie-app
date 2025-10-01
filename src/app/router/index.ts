@@ -1,1 +1,1 @@
-export { router, ROUTES_PATHS } from './router';
+export { router } from './router';

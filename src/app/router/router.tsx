@@ -1,4 +1,5 @@
 import { RootLayout } from '@/app/layouts';
+import { MOVIES_ROUTES } from '@/shared/constants';
 import { SuspenseLoader } from '@/shared/ui';
 import { lazy } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
@@ -6,11 +7,6 @@ import { createBrowserRouter } from 'react-router-dom';
 const Movies = lazy(() => import('@/pages/Movies'));
 const MovieDetails = lazy(() => import('@/pages/MovieDetails'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
-
-export const ROUTES_PATHS = {
-  HOME: '/',
-  DETAILS: '/details/:id',
-} as const;
 
 export const router = createBrowserRouter([
   {
@@ -21,7 +17,7 @@ export const router = createBrowserRouter([
         element: <Movies />,
       },
       {
-        path: ROUTES_PATHS.DETAILS,
+        path: MOVIES_ROUTES.DETAILS_MOVIE.path,
         element: <MovieDetails />,
       },
     ],

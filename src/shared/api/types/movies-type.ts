@@ -1,4 +1,4 @@
-type CollectionMovieType =
+export type CollectionMovieType =
   | 'TOP_POPULAR_ALL'
   | 'TOP_POPULAR_MOVIES'
   | 'TOP_250_TV_SHOWS'

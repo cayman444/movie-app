@@ -1,4 +1,4 @@
-import { MOVIES_PATHS } from '@/shared/constants';
+import { MOVIES_ROUTES } from '@/shared/constants';
 import {
   AlertOutlined,
   BookOutlined,
@@ -17,20 +17,20 @@ export const HEADER_MENU: MenuProps['items'] = [
   {
     key: '1',
     label: (
-      <Link to={MOVIES_PATHS.POPULAR.path}>{MOVIES_PATHS.POPULAR.title}</Link>
+      <Link to={MOVIES_ROUTES.POPULAR.path}>{MOVIES_ROUTES.POPULAR.title}</Link>
     ),
     icon: <StarOutlined style={{ fontSize: 16 }} />,
   },
   {
     key: '2',
-    label: <Link to={MOVIES_PATHS.BEST.path}>{MOVIES_PATHS.BEST.title}</Link>,
+    label: <Link to={MOVIES_ROUTES.BEST.path}>{MOVIES_ROUTES.BEST.title}</Link>,
     icon: <CrownOutlined style={{ fontSize: 16 }} />,
   },
   {
     key: '3',
     label: (
-      <Link to={MOVIES_PATHS.POPULAR_SERIALS.path}>
-        {MOVIES_PATHS.POPULAR_SERIALS.title}
+      <Link to={MOVIES_ROUTES.POPULAR_SERIALS.path}>
+        {MOVIES_ROUTES.POPULAR_SERIALS.title}
       </Link>
     ),
     icon: <LikeOutlined style={{ fontSize: 16 }} />,
@@ -38,8 +38,8 @@ export const HEADER_MENU: MenuProps['items'] = [
   {
     key: '4',
     label: (
-      <Link to={MOVIES_PATHS.PREMIERES.path}>
-        {MOVIES_PATHS.PREMIERES.title}
+      <Link to={MOVIES_ROUTES.PREMIERES.path}>
+        {MOVIES_ROUTES.PREMIERES.title}
       </Link>
     ),
     icon: <FireOutlined style={{ fontSize: 16 }} />,
@@ -47,8 +47,8 @@ export const HEADER_MENU: MenuProps['items'] = [
   {
     key: '5',
     label: (
-      <Link to={MOVIES_PATHS.FAMILY_MOVIES.path}>
-        {MOVIES_PATHS.FAMILY_MOVIES.title}
+      <Link to={MOVIES_ROUTES.FAMILY_MOVIES.path}>
+        {MOVIES_ROUTES.FAMILY_MOVIES.title}
       </Link>
     ),
     icon: <TeamOutlined style={{ fontSize: 16 }} />,
@@ -56,8 +56,8 @@ export const HEADER_MENU: MenuProps['items'] = [
   {
     key: '6',
     label: (
-      <Link to={MOVIES_PATHS.ROMANTIC_MOVIES.path}>
-        {MOVIES_PATHS.ROMANTIC_MOVIES.title}
+      <Link to={MOVIES_ROUTES.ROMANTIC_MOVIES.path}>
+        {MOVIES_ROUTES.ROMANTIC_MOVIES.title}
       </Link>
     ),
     icon: <HeartOutlined style={{ fontSize: 16 }} />,
@@ -65,8 +65,8 @@ export const HEADER_MENU: MenuProps['items'] = [
   {
     key: '7',
     label: (
-      <Link to={MOVIES_PATHS.ZOMBIE_MOVIES.path}>
-        {MOVIES_PATHS.ZOMBIE_MOVIES.title}
+      <Link to={MOVIES_ROUTES.ZOMBIE_MOVIES.path}>
+        {MOVIES_ROUTES.ZOMBIE_MOVIES.title}
       </Link>
     ),
     icon: <RobotOutlined style={{ fontSize: 16 }} />,
@@ -74,8 +74,8 @@ export const HEADER_MENU: MenuProps['items'] = [
   {
     key: '8',
     label: (
-      <Link to={MOVIES_PATHS.CATASTROPHE_MOVIES.path}>
-        {MOVIES_PATHS.CATASTROPHE_MOVIES.title}
+      <Link to={MOVIES_ROUTES.CATASTROPHE_MOVIES.path}>
+        {MOVIES_ROUTES.CATASTROPHE_MOVIES.title}
       </Link>
     ),
     icon: <AlertOutlined style={{ fontSize: 16 }} />,
@@ -83,8 +83,8 @@ export const HEADER_MENU: MenuProps['items'] = [
   {
     key: '9',
     label: (
-      <Link to={MOVIES_PATHS.COMICS_MOVIES.path}>
-        {MOVIES_PATHS.COMICS_MOVIES.title}
+      <Link to={MOVIES_ROUTES.COMICS_MOVIES.path}>
+        {MOVIES_ROUTES.COMICS_MOVIES.title}
       </Link>
     ),
     icon: <BookOutlined style={{ fontSize: 16 }} />,
@@ -93,20 +93,20 @@ export const HEADER_MENU: MenuProps['items'] = [
   {
     key: '10',
     label: (
-      <Link to={MOVIES_PATHS.MOVIES.path}>{MOVIES_PATHS.MOVIES.title}</Link>
+      <Link to={MOVIES_ROUTES.MOVIES.path}>{MOVIES_ROUTES.MOVIES.title}</Link>
     ),
   },
   {
     key: '11',
     label: (
-      <Link to={MOVIES_PATHS.SERIALS.path}>{MOVIES_PATHS.SERIALS.title}</Link>
+      <Link to={MOVIES_ROUTES.SERIALS.path}>{MOVIES_ROUTES.SERIALS.title}</Link>
     ),
   },
   {
     key: '12',
     label: (
-      <Link to={MOVIES_PATHS.ANIMATIONS.path}>
-        {MOVIES_PATHS.ANIMATIONS.title}
+      <Link to={MOVIES_ROUTES.ANIMATIONS.path}>
+        {MOVIES_ROUTES.ANIMATIONS.title}
       </Link>
     ),
   },

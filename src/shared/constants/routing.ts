@@ -1,4 +1,4 @@
-export const MOVIES_PATHS = {
+export const MOVIES_ROUTES = {
   HOME: { path: '/', title: '' },
   MOVIES: { path: '/movies', title: 'Фильмы' },
   SERIALS: { path: '/serials', title: 'Сериалы' },
