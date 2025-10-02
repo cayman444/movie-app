@@ -25,7 +25,7 @@ export const MovieCollection: FC<CollectionMovie> = ({
           </Link>
         </h4>
         <div className="flex gap-2 flex-wrap">
-          {genres.map(({ genre }, ind) => (
+          {genres.slice(0, 2).map(({ genre }, ind) => (
             <Tag key={ind} color="#FF0000" className="!m-0">
               {genre}
             </Tag>
