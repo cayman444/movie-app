@@ -32,6 +32,13 @@ const themeConfig: ThemeConfig = {
       colorSplit: 'oklch(37.1% 0 0)',
       fontSize: 16,
     },
+    Pagination: {
+      itemSize: 40,
+      itemActiveBg: 'oklch(37.1% 0 0)',
+      colorText: '#ffffff',
+      itemBg: 'oklch(26.9% 0 0)',
+      colorTextDisabled: 'oklch(37.1% 0 0)',
+    },
   },
 };
 
