@@ -3,7 +3,7 @@ export const MOVIES_ROUTES = {
   MOVIES: { path: '/movies', title: 'Фильмы' },
   SERIALS: { path: '/serials', title: 'Сериалы' },
   ANIMATIONS: { path: '/animations', title: 'Мультфильмы' },
-  DETAILS_MOVIE: { path: '/movies/:id', title: '' },
+  DETAILS_MOVIE: { path: '/movies/:id', title: 'Фильм' },
   POPULAR: { path: '/popular', title: 'Популярные фильмы' },
   BEST: { path: '/best', title: 'Лучшие фильмы' },
   POPULAR_SERIALS: { path: '/popular-serials', title: 'Популярные сериалы' },

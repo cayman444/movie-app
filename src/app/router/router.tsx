@@ -5,6 +5,7 @@ import { SuspenseLoader } from '@/shared/ui';
 import { lazy } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 
+const Home = lazy(() => import('@/pages/Home'));
 const Movies = lazy(() => import('@/pages/Movies'));
 const MoviesSelection = lazy(() => import('@/pages/MoviesSelection'));
 const MovieDetails = lazy(() => import('@/pages/MovieDetails'));
@@ -16,6 +17,10 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
+        element: <Home />,
+      },
+      {
+        path: MOVIES_ROUTES.MOVIES.path,
         element: <Movies />,
       },
       {

@@ -1,5 +1,3 @@
-import { MoviesAllCollections } from '@/features/movies-collections/components';
-import { MoviePreview, MoviesPremieres } from '@/features/movies/components';
 import { useEffect } from 'react';
 
 const Movies = () => {
@@ -7,13 +5,7 @@ const Movies = () => {
     window.scrollTo({ top: 0 });
   }, []);
 
-  return (
-    <main className="pb-18">
-      <MoviePreview />
-      <MoviesPremieres />
-      <MoviesAllCollections />
-    </main>
-  );
+  return <main className="pt-30 pb-18">movies</main>;
 };
 
 export default Movies;
