@@ -2,16 +2,25 @@ import type { CollectionMovie } from '@/entities/movie/types';
 import { Tag } from 'antd';
 import { type FC } from 'react';
 import { Link } from 'react-router-dom';
+import { getFilmType } from '../utils';
 
 export const MovieCollection: FC<CollectionMovie> = ({
   kinopoiskId,
   posterUrl,
   nameRu,
   genres,
+  type,
+  year,
 }) => {
   return (
-    <li className="flex flex-col gap-4 h-full text-white">
+    <li className=" flex flex-col gap-4 h-full text-white">
       <Link to={`/movie/${kinopoiskId}`} className="relative pt-[150%]">
+        <Tag className="!absolute !top-2 !left-2 z-1 !m-0" color="#000000b3">
+          {year}
+        </Tag>
+        <Tag className="!absolute !top-2 !right-2 z-1 !m-0" color="#000000b3">
+          {getFilmType(type)}
+        </Tag>
         <img
           src={posterUrl}
           alt={nameRu}
