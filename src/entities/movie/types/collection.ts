@@ -1,4 +1,4 @@
-import type { CollectionMovieType } from '@/shared/api/types';
+import type { CollectionMovieType, TypeMovies } from '@/shared/api/types';
 import type { MovieCountry, MovieGenre } from './movie';
 
 export interface CollectionMovies {
@@ -17,7 +17,7 @@ export interface CollectionMovie {
   ratingKinopoisk: number;
   ratingImbd: number;
   year: string;
-  type: string;
+  type: TypeMovies;
   posterUrl: string;
   posterUrlPreview: string;
 }

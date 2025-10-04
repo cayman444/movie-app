@@ -1,11 +1,13 @@
 import type {
   CollectionMovies,
-  Movie,
+  MovieDetails,
+  MovieList,
   PremiereMovies,
 } from '@/entities/movie/types';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import type {
   CollectionMoviesParams,
+  MovieDetailsParams,
   MovieParams,
   PremiereMoviesParams,
 } from '../types';
@@ -34,8 +36,11 @@ export const moviesApi = createApi({
       query: ({ year, month }) =>
         `v2.2/films/premieres?year=${year}&month=${month}`,
     }),
-    getMovie: builder.query<Movie, MovieParams>({
+    getMovie: builder.query<MovieDetails, MovieDetailsParams>({
       query: ({ id }) => `v2.2/films/${id}`,
+    }),
+    getMovies: builder.query<MovieList, MovieParams>({
+      query: () => `v2.2/films`,
     }),
   }),
 });
@@ -44,4 +49,5 @@ export const {
   useGetCollectionsMoviesQuery,
   useGetPremieresMoviesQuery,
   useGetMovieQuery,
+  useGetMoviesQuery,
 } = moviesApi;

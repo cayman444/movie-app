@@ -1,32 +1,9 @@
-export type CollectionMovieType =
-  | 'TOP_POPULAR_ALL'
-  | 'TOP_POPULAR_MOVIES'
-  | 'TOP_250_TV_SHOWS'
-  | 'TOP_250_MOVIES'
-  | 'VAMPIRE_THEME'
-  | 'COMICS_THEME'
-  | 'CLOSES_RELEASES'
-  | 'FAMILY'
-  | 'OSKAR_WINNERS_2021'
-  | 'LOVE_THEME'
-  | 'ZOMBIE_THEME'
-  | 'CATASTROPHE_THEME'
-  | 'KIDS_ANIMATION_THEME'
-  | 'POPULAR_SERIES';
-
-type PremieresMovieMonth =
-  | 'JANUARY'
-  | 'FEBRUARY'
-  | 'MARCH'
-  | 'APRIL'
-  | 'MAY'
-  | 'JUNE'
-  | 'JULY'
-  | 'AUGUST'
-  | 'SEPTEMBER'
-  | 'OCTOBER'
-  | 'NOVEMBER'
-  | 'DECEMBER';
+import type {
+  CollectionMovieType,
+  OrderMovies,
+  PremieresMovieMonth,
+  TypeMovies,
+} from './movies-filters';
 
 export interface CollectionMoviesParams {
   type?: CollectionMovieType;
@@ -36,6 +13,20 @@ export interface PremiereMoviesParams {
   year: number;
   month: PremieresMovieMonth;
 }
-export interface MovieParams {
+export interface MovieDetailsParams {
   id: number;
+}
+
+export interface MovieParams {
+  countries?: number;
+  genres?: number;
+  order?: OrderMovies;
+  type?: TypeMovies;
+  ratingFrom?: number;
+  ratingTo?: number;
+  yearFrom?: number;
+  yearTo?: number;
+  imdbId?: string;
+  keyword?: string;
+  page?: number;
 }

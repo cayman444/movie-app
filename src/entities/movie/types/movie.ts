@@ -1,3 +1,5 @@
+import type { CollectionMovie } from './collection';
+
 export interface MovieCountry {
   country: string;
 }
@@ -6,7 +8,17 @@ export interface MovieGenre {
   genre: string;
 }
 
-export interface Movie {
+export interface MovieList {
+  total: number;
+  totalPages: number;
+  items: Movie[];
+}
+
+export interface Movie extends CollectionMovie {
+  imdbId: string;
+}
+
+export interface MovieDetails {
   kinopoiskId: number;
   kinopoiskHDId: string;
   imdbId: string;

@@ -1,4 +1,6 @@
-export const getFilmType = (type: string) => {
+import type { TypeMovies } from '@/shared/api/types';
+
+export const getFilmType = (type: TypeMovies) => {
   switch (type) {
     case 'FILM':
       return 'ФИЛЬМ';
