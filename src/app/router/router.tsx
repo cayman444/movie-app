@@ -1,5 +1,6 @@
 import { RootLayout } from '@/app/layouts';
-import { MOVIES_LIST_COLLECTIONS, MOVIES_ROUTES } from '@/shared/constants';
+import { MOVIES_LIST_COLLECTIONS } from '@/entities/movie/constants';
+import { MOVIES_ROUTES } from '@/shared/constants';
 import { SuspenseLoader } from '@/shared/ui';
 import { lazy } from 'react';
 import { createBrowserRouter } from 'react-router-dom';

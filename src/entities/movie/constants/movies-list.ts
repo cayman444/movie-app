@@ -1,5 +1,5 @@
+import { MOVIES_ROUTES } from '@/shared/constants';
 import type { MoviesCollections } from '../types';
-import { MOVIES_ROUTES } from './routing';
 
 export const MOVIES_LIST_COLLECTIONS: MoviesCollections = [
   {

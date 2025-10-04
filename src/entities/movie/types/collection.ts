@@ -1,3 +1,4 @@
+import type { CollectionMovieType } from '@/shared/api/types';
 import type { MovieCountry, MovieGenre } from './movie';
 
 export interface CollectionMovies {
@@ -20,3 +21,11 @@ export interface CollectionMovie {
   posterUrl: string;
   posterUrlPreview: string;
 }
+
+export interface MoviesCollectionItem {
+  path: string;
+  title: string;
+  type: CollectionMovieType;
+}
+
+export type MoviesCollections = MoviesCollectionItem[];
