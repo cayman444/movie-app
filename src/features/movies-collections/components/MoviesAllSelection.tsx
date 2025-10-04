@@ -16,7 +16,7 @@ export const MoviesAllSelection: FC<MoviesSelection> = ({ title, type }) => {
 
   const onChangePage: PaginationProps['onChange'] = (page) => {
     setPage(page);
-    window.scrollTo({ top: 0 });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (

@@ -16,15 +16,15 @@ import { Link } from 'react-router-dom';
 export const HEADER_MENU: MenuProps['items'] = [
   {
     key: '1',
+    label: <Link to={MOVIES_ROUTES.BEST.path}>{MOVIES_ROUTES.BEST.title}</Link>,
+    icon: <CrownOutlined style={{ fontSize: 16 }} />,
+  },
+  {
+    key: '2',
     label: (
       <Link to={MOVIES_ROUTES.POPULAR.path}>{MOVIES_ROUTES.POPULAR.title}</Link>
     ),
     icon: <StarOutlined style={{ fontSize: 16 }} />,
-  },
-  {
-    key: '2',
-    label: <Link to={MOVIES_ROUTES.BEST.path}>{MOVIES_ROUTES.BEST.title}</Link>,
-    icon: <CrownOutlined style={{ fontSize: 16 }} />,
   },
   {
     key: '3',

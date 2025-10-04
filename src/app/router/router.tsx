@@ -23,7 +23,7 @@ export const router = createBrowserRouter([
       },
       ...MOVIES_LIST_COLLECTIONS.map(({ path, ...params }) => ({
         path,
-        element: <MoviesSelection {...params} />,
+        element: <MoviesSelection key={params.type} {...params} />,
       })),
     ],
   },

@@ -17,7 +17,7 @@ export const Header = () => {
             placeholder="Search movies..."
             suffix={<SearchOutlined style={{ fontSize: 18 }} />}
           />
-          <ul className="flex items-center gap-4 font-semibold [&>li]:cursor-pointer [&>li]:transition-colors [&>li]:hover:text-neutral-400 ">
+          <ul className="flex items-center gap-4 font-semibold [&>li]:cursor-pointer [&>li]:transition-colors [&>li]:hover:text-neutral-400">
             {HEADER_LINKS.map(({ key, link, text }) => (
               <li key={key}>
                 <Link to={link}>{text}</Link>
