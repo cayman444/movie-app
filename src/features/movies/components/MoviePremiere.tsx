@@ -15,7 +15,7 @@ export const MoviePremiere: FC<PremiereMovie> = ({
 }) => {
   return (
     <li className="flex gap-4 items-center">
-      <Link to={`/movie/${kinopoiskId}`} className="relative w-30 h-40">
+      <Link to={`/movies/${kinopoiskId}`} className="relative w-30 h-40">
         <img
           src={posterUrl}
           alt={nameRu}
@@ -23,7 +23,7 @@ export const MoviePremiere: FC<PremiereMovie> = ({
         />
       </Link>
       <Link
-        to={`/movie/${kinopoiskId}`}
+        to={`/movies/${kinopoiskId}`}
         className="flex flex-col gap-3 min-w-0 flex-1"
       >
         <div className="font-medium truncate">{nameRu}</div>

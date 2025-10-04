@@ -14,7 +14,7 @@ export const MovieCollection: FC<CollectionMovie> = ({
 }) => {
   return (
     <li className=" flex flex-col gap-4 h-full text-white">
-      <Link to={`/movie/${kinopoiskId}`} className="relative pt-[150%]">
+      <Link to={`/movies/${kinopoiskId}`} className="relative pt-[150%]">
         <Tag className="!absolute !top-2 !left-2 z-1 !m-0" color="#000000b3">
           {year}
         </Tag>
@@ -29,7 +29,7 @@ export const MovieCollection: FC<CollectionMovie> = ({
       </Link>
       <div className="flex flex-col gap-2 flex-wrap">
         <h4 className="text-lg font-semibold line-clamp-2">
-          <Link to={`/movie/${kinopoiskId}`} className="!text-white">
+          <Link to={`/movies/${kinopoiskId}`} className="!text-white">
             {nameRu}
           </Link>
         </h4>
