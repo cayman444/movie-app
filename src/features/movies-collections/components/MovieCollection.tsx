@@ -13,7 +13,7 @@ export const MovieCollection: FC<CollectionMovie> = ({
   year,
 }) => {
   return (
-    <li className=" flex flex-col gap-4 h-full text-white">
+    <li className="flex flex-col gap-4 h-full text-white">
       <Link to={`/movies/${kinopoiskId}`} className="relative pt-[150%]">
         <Tag className="!absolute !top-2 !left-2 z-1 !m-0" color="#000000b3">
           {year}

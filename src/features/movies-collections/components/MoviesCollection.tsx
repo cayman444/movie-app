@@ -34,7 +34,7 @@ export const MoviesCollection: FC<MoviesCollection> = ({
           <ArrowRightOutlined className="!text-neutral-600 !text-xl transition-colors group-hover:!text-neutral-500" />
         </Link>
       </div>
-      <ul className="overflow-hidden">
+      <ul>
         {isLoading ? (
           <MoviesSkeleton />
         ) : (
