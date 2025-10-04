@@ -11,6 +11,6 @@ export const MOVIES_ROUTES = {
   FAMILY_MOVIES: { path: '/family', title: 'Семейные фильмы' },
   ROMANTIC_MOVIES: { path: '/romantic', title: 'Романтика' },
   ZOMBIE_MOVIES: { path: '/zombie', title: 'Зомби' },
-  CATASTROPHE_MOVIES: { path: 'catastrophe', title: 'Катастрофы' },
+  CATASTROPHE_MOVIES: { path: '/catastrophe', title: 'Катастрофы' },
   COMICS_MOVIES: { path: '/comics', title: 'Комиксы' },
 } as const;

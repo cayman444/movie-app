@@ -39,6 +39,13 @@ const themeConfig: ThemeConfig = {
       itemBg: 'oklch(26.9% 0 0)',
       colorTextDisabled: 'oklch(37.1% 0 0)',
     },
+    Breadcrumb: {
+      linkColor: '#ffffff73',
+      separatorColor: '#ffffff73',
+      linkHoverColor: '#ffffffd9',
+      lastItemColor: '#ffffffd9',
+      colorBgTextHover: '#ffffff1f',
+    },
   },
 };
 

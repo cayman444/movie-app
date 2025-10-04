@@ -1,26 +1,20 @@
 import { Container } from '@/app/layouts';
-import { useGetCollectionsMoviesQuery } from '@/shared/api/endpoints';
 import { PAGE_SIZE } from '@/shared/constants';
-import { Pagination, type PaginationProps } from 'antd';
-import { type FC, useState } from 'react';
+import { BreadcrumbPaths } from '@/widgets/breadcrumbs';
+import { Pagination } from 'antd';
+import { type FC } from 'react';
+import { useSelectionMovies } from '../hooks';
 import type { MoviesSelection } from '../types';
 import { MoviesSelectionSkeleton } from '../ui';
 import { MovieCollection } from './MovieCollection';
 
 export const MoviesAllSelection: FC<MoviesSelection> = ({ title, type }) => {
-  const [page, setPage] = useState(1);
-  const { data: selectionMovies, isFetching } = useGetCollectionsMoviesQuery({
-    page,
-    type,
-  });
-
-  const onChangePage: PaginationProps['onChange'] = (page) => {
-    setPage(page);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+  const { selectionMovies, isFetching, page, onChangePage } =
+    useSelectionMovies(type);
 
   return (
     <Container>
+      <BreadcrumbPaths className="!mb-8" />
       <h1 className="text-2xl font-bold mb-6">{title}</h1>
       {isFetching ? (
         <MoviesSelectionSkeleton />
