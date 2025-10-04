@@ -1,11 +1,11 @@
 export const MOVIES_ROUTES = {
-  HOME: { path: '/', title: '' },
+  HOME: { path: '/', title: 'Главная' },
   MOVIES: { path: '/movies', title: 'Фильмы' },
   SERIALS: { path: '/serials', title: 'Сериалы' },
   ANIMATIONS: { path: '/animations', title: 'Мультфильмы' },
   DETAILS_MOVIE: { path: '/movies/:id', title: '' },
   POPULAR: { path: '/popular', title: 'Популярные фильмы' },
-  BEST: { path: '/best', title: 'ТОП 250 лучших фильмов' },
+  BEST: { path: '/best', title: 'Лучшие фильмы' },
   POPULAR_SERIALS: { path: '/popular-serials', title: 'Популярные сериалы' },
   PREMIERES: { path: '/premieres', title: 'Кинопремьеры' },
   FAMILY_MOVIES: { path: '/family', title: 'Семейные фильмы' },

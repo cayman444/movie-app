@@ -5,6 +5,7 @@ import {
   CrownOutlined,
   FireOutlined,
   HeartOutlined,
+  HomeOutlined,
   LikeOutlined,
   RobotOutlined,
   StarOutlined,
@@ -16,8 +17,8 @@ import { Link } from 'react-router-dom';
 export const HEADER_MENU: MenuProps['items'] = [
   {
     key: '1',
-    label: <Link to={MOVIES_ROUTES.BEST.path}>{MOVIES_ROUTES.BEST.title}</Link>,
-    icon: <CrownOutlined style={{ fontSize: 16 }} />,
+    label: <Link to={MOVIES_ROUTES.HOME.path}>{MOVIES_ROUTES.HOME.title}</Link>,
+    icon: <HomeOutlined style={{ fontSize: 16 }} />,
   },
   {
     key: '2',
@@ -28,6 +29,11 @@ export const HEADER_MENU: MenuProps['items'] = [
   },
   {
     key: '3',
+    label: <Link to={MOVIES_ROUTES.BEST.path}>{MOVIES_ROUTES.BEST.title}</Link>,
+    icon: <CrownOutlined style={{ fontSize: 16 }} />,
+  },
+  {
+    key: '4',
     label: (
       <Link to={MOVIES_ROUTES.POPULAR_SERIALS.path}>
         {MOVIES_ROUTES.POPULAR_SERIALS.title}
@@ -36,7 +42,7 @@ export const HEADER_MENU: MenuProps['items'] = [
     icon: <LikeOutlined style={{ fontSize: 16 }} />,
   },
   {
-    key: '4',
+    key: '5',
     label: (
       <Link to={MOVIES_ROUTES.PREMIERES.path}>
         {MOVIES_ROUTES.PREMIERES.title}
@@ -45,7 +51,7 @@ export const HEADER_MENU: MenuProps['items'] = [
     icon: <FireOutlined style={{ fontSize: 16 }} />,
   },
   {
-    key: '5',
+    key: '6',
     label: (
       <Link to={MOVIES_ROUTES.FAMILY_MOVIES.path}>
         {MOVIES_ROUTES.FAMILY_MOVIES.title}
@@ -54,7 +60,7 @@ export const HEADER_MENU: MenuProps['items'] = [
     icon: <TeamOutlined style={{ fontSize: 16 }} />,
   },
   {
-    key: '6',
+    key: '7',
     label: (
       <Link to={MOVIES_ROUTES.ROMANTIC_MOVIES.path}>
         {MOVIES_ROUTES.ROMANTIC_MOVIES.title}
@@ -63,7 +69,7 @@ export const HEADER_MENU: MenuProps['items'] = [
     icon: <HeartOutlined style={{ fontSize: 16 }} />,
   },
   {
-    key: '7',
+    key: '8',
     label: (
       <Link to={MOVIES_ROUTES.ZOMBIE_MOVIES.path}>
         {MOVIES_ROUTES.ZOMBIE_MOVIES.title}
@@ -72,7 +78,7 @@ export const HEADER_MENU: MenuProps['items'] = [
     icon: <RobotOutlined style={{ fontSize: 16 }} />,
   },
   {
-    key: '8',
+    key: '9',
     label: (
       <Link to={MOVIES_ROUTES.CATASTROPHE_MOVIES.path}>
         {MOVIES_ROUTES.CATASTROPHE_MOVIES.title}
@@ -81,7 +87,7 @@ export const HEADER_MENU: MenuProps['items'] = [
     icon: <AlertOutlined style={{ fontSize: 16 }} />,
   },
   {
-    key: '9',
+    key: '10',
     label: (
       <Link to={MOVIES_ROUTES.COMICS_MOVIES.path}>
         {MOVIES_ROUTES.COMICS_MOVIES.title}
@@ -91,19 +97,19 @@ export const HEADER_MENU: MenuProps['items'] = [
   },
   { type: 'divider' },
   {
-    key: '10',
+    key: '11',
     label: (
       <Link to={MOVIES_ROUTES.MOVIES.path}>{MOVIES_ROUTES.MOVIES.title}</Link>
     ),
   },
   {
-    key: '11',
+    key: '12',
     label: (
       <Link to={MOVIES_ROUTES.SERIALS.path}>{MOVIES_ROUTES.SERIALS.title}</Link>
     ),
   },
   {
-    key: '12',
+    key: '13',
     label: (
       <Link to={MOVIES_ROUTES.ANIMATIONS.path}>
         {MOVIES_ROUTES.ANIMATIONS.title}
