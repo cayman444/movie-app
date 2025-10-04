@@ -17,7 +17,7 @@ export const MoviesSelectionSkeleton = () => {
         ))}
       </div>
       <div className="flex justify-center">
-        <Skeleton.Node active className="!w-md !h-10" />
+        <Skeleton.Node active className="!w-xs !h-10" />
       </div>
     </>
   );

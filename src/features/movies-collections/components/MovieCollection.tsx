@@ -1,6 +1,6 @@
 import type { CollectionMovie } from '@/entities/movie/types';
 import { Tag } from 'antd';
-import type { FC } from 'react';
+import { type FC } from 'react';
 import { Link } from 'react-router-dom';
 
 export const MovieCollection: FC<CollectionMovie> = ({

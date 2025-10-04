@@ -1,5 +1,6 @@
 import { Container } from '@/app/layouts';
 import { useGetCollectionsMoviesQuery } from '@/shared/api/endpoints';
+import { PAGE_SIZE } from '@/shared/constants';
 import { Pagination, type PaginationProps } from 'antd';
 import { type FC, useState } from 'react';
 import type { MoviesSelection } from '../types';
@@ -8,19 +9,20 @@ import { MovieCollection } from './MovieCollection';
 
 export const MoviesAllSelection: FC<MoviesSelection> = ({ title, type }) => {
   const [page, setPage] = useState(1);
-  const { data: selectionMovies, isLoading } = useGetCollectionsMoviesQuery({
+  const { data: selectionMovies, isFetching } = useGetCollectionsMoviesQuery({
     page,
     type,
   });
 
   const onChangePage: PaginationProps['onChange'] = (page) => {
     setPage(page);
+    window.scrollTo({ top: 0 });
   };
 
   return (
     <Container>
       <h1 className="text-2xl font-bold mb-6">{title}</h1>
-      {isLoading ? (
+      {isFetching ? (
         <MoviesSelectionSkeleton />
       ) : (
         <>
@@ -35,7 +37,7 @@ export const MoviesAllSelection: FC<MoviesSelection> = ({ title, type }) => {
             current={page}
             onChange={onChangePage}
             total={selectionMovies?.total}
-            pageSize={selectionMovies?.items.length}
+            pageSize={PAGE_SIZE}
           />
         </>
       )}
