@@ -13,7 +13,7 @@ export const MoviesAllCollections = () => {
   } = useCollectionMovies();
 
   return (
-    <div className="flex flex-col gap-18 mb-18">
+    <div className="flex flex-col gap-12 mb-18">
       <MoviesCollection
         title={MOVIES_ROUTES.POPULAR.title}
         link={MOVIES_ROUTES.POPULAR.path}

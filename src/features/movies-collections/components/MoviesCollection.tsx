@@ -43,7 +43,7 @@ export const MoviesCollection: FC<MoviesCollection> = ({
             dots={false}
             autoplay={{ dotDuration: true }}
             autoplaySpeed={5000}
-            slidesToShow={3}
+            slidesToShow={5}
           >
             {movies?.map((film) => (
               <MovieCollection key={film.kinopoiskId} {...film} />

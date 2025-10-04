@@ -7,11 +7,11 @@ body {
 }
 
 .slick-list {
-  @apply !-mx-4;
+  @apply !-mx-2;
 }
 
 .slick-slide {
-  @apply !px-4
+  @apply !px-2
 }
 
 .ant-carousel .slick-prev,
