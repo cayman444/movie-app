@@ -8,6 +8,7 @@ export const MovieCollection: FC<CollectionMovie> = ({
   kinopoiskId,
   posterUrl,
   nameRu,
+  nameOriginal,
   genres,
   type,
   year,
@@ -15,22 +16,26 @@ export const MovieCollection: FC<CollectionMovie> = ({
   return (
     <li className="flex flex-col gap-4 h-full text-white">
       <Link to={`/movies/${kinopoiskId}`} className="relative pt-[150%]">
-        <Tag className="!absolute !top-2 !left-2 z-1 !m-0" color="#000000b3">
-          {year}
-        </Tag>
-        <Tag className="!absolute !top-2 !right-2 z-1 !m-0" color="#000000b3">
-          {getFilmType(type)}
-        </Tag>
+        {year && (
+          <Tag className="!absolute !top-2 !left-2 z-1 !m-0" color="#000000b3">
+            {year}
+          </Tag>
+        )}
+        {type && (
+          <Tag className="!absolute !top-2 !right-2 z-1 !m-0" color="#000000b3">
+            {getFilmType(type)}
+          </Tag>
+        )}
         <img
           src={posterUrl}
-          alt={nameRu}
+          alt={nameRu || nameOriginal}
           className="absolute inset-0 w-full h-full object-cover rounded-lg"
         />
       </Link>
       <div className="flex flex-col gap-2 flex-wrap">
         <h4 className="text-lg font-semibold line-clamp-2">
           <Link to={`/movies/${kinopoiskId}`} className="!text-white">
-            {nameRu}
+            {nameRu || nameOriginal}
           </Link>
         </h4>
         <div className="flex gap-2 flex-wrap">

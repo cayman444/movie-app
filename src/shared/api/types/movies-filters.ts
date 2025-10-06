@@ -35,4 +35,5 @@ export type TypeMovies =
   | 'TV_SHOW'
   | 'TV_SERIES'
   | 'MINI_SERIES'
+  | 'VIDEO'
   | 'ALL';

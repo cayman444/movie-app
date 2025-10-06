@@ -10,6 +10,8 @@ export const getFilmType = (type: TypeMovies) => {
       return 'СЕРИАЛ';
     case 'MINI_SERIES':
       return 'МИНИ-СЕРИАЛ';
+    case 'VIDEO':
+      return 'ВИДЕО';
     default:
       return '';
   }
