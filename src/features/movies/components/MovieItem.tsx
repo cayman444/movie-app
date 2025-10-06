@@ -4,7 +4,7 @@ import { type FC } from 'react';
 import { Link } from 'react-router-dom';
 import { getFilmType } from '../utils';
 
-export const MovieCollection: FC<CollectionMovie> = ({
+export const MovieItem: FC<CollectionMovie> = ({
   kinopoiskId,
   posterUrl,
   nameRu,

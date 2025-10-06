@@ -1,11 +1,11 @@
 import { Container } from '@/app/layouts';
 import type { CollectionMovie } from '@/entities/movie/types';
+import { MovieItem } from '@/features/movies/components';
 import { ArrowRightOutlined } from '@ant-design/icons';
 import { Carousel } from 'antd';
 import type { FC } from 'react';
 import { Link } from 'react-router-dom';
 import { MoviesSkeleton } from '../ui';
-import { MovieCollection } from './MovieCollection';
 
 interface MoviesCollection {
   title: string;
@@ -46,7 +46,7 @@ export const MoviesCollection: FC<MoviesCollection> = ({
             slidesToShow={5}
           >
             {movies?.map((film) => (
-              <MovieCollection key={film.kinopoiskId} {...film} />
+              <MovieItem key={film.kinopoiskId} {...film} />
             ))}
           </Carousel>
         )}
