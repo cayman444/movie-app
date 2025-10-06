@@ -1,10 +1,10 @@
-import type { CollectionMovie } from '@/entities/movie/types';
+import type { Movie } from '@/entities/movie/types';
 import { Tag } from 'antd';
 import { type FC } from 'react';
 import { Link } from 'react-router-dom';
 import { getFilmType } from '../utils';
 
-export const MovieItem: FC<CollectionMovie> = ({
+export const MovieItem: FC<Movie> = ({
   kinopoiskId,
   posterUrl,
   nameRu,

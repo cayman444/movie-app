@@ -1,4 +1,4 @@
-import type { CollectionMovie } from './collection';
+import type { TypeMovies } from '@/shared/api/types';
 
 export interface MovieCountry {
   country: string;
@@ -14,8 +14,19 @@ export interface MovieList {
   items: Movie[];
 }
 
-export interface Movie extends CollectionMovie {
-  imdbId: string;
+export interface Movie {
+  kinopoiskId: number;
+  nameRu: string;
+  nameEn: string;
+  nameOriginal: string;
+  countries: MovieCountry[];
+  genres: MovieGenre[];
+  ratingKinopoisk: number;
+  ratingImbd: number;
+  year: string;
+  type: TypeMovies;
+  posterUrl: string;
+  posterUrlPreview: string;
 }
 
 export interface MovieDetails {

@@ -1,5 +1,5 @@
 import { Container } from '@/app/layouts';
-import type { CollectionMovie } from '@/entities/movie/types';
+import type { Movie } from '@/entities/movie/types';
 import { MovieItem } from '@/features/movies/components';
 import { ArrowRightOutlined } from '@ant-design/icons';
 import { Carousel } from 'antd';
@@ -10,7 +10,7 @@ import { MoviesSkeleton } from '../ui';
 interface MoviesCollection {
   title: string;
   link: string;
-  movies?: CollectionMovie[];
+  movies?: Movie[];
   isLoading: boolean;
 }
 
