@@ -1,11 +1,11 @@
 import { useGetMoviesQuery } from '@/shared/api/endpoints';
-import { useAppSelector } from '@/shared/store/store-hooks';
+import { useAppDispatch, useAppSelector } from '@/shared/store/store-hooks';
 import type { PaginationProps } from 'antd';
-import { useState } from 'react';
+import { changeFilter } from '../model';
 
 export const useMovies = () => {
-  const [page, setPage] = useState(1);
-  const { countryId, year, order, type } = useAppSelector(
+  const dispatch = useAppDispatch();
+  const { countryId, year, order, type, page } = useAppSelector(
     (state) => state.filters.movies
   );
 
@@ -18,7 +18,7 @@ export const useMovies = () => {
   });
 
   const onChangePage: PaginationProps['onChange'] = (page) => {
-    setPage(page);
+    dispatch(changeFilter({ filter: 'page', type: 'movies', value: page }));
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 

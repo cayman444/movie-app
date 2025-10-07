@@ -35,6 +35,8 @@ export const filtersSlice = createSlice({
         (typeof value === 'number' || typeof value === 'undefined')
       ) {
         entity.year = value;
+      } else if (filter === 'page' && typeof value === 'number') {
+        entity.page = value;
       }
     },
   },
