@@ -13,8 +13,8 @@ export interface FilterParams {
 }
 
 interface Filters {
-  countries?: number;
-  genres?: number;
+  countryId?: number;
+  genreId?: number;
   order?: OrderMovies;
   type?: TypeMovies;
   ratingFrom?: number;

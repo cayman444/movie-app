@@ -4,7 +4,7 @@ import type { FilterParams, FiltersState } from './filters-types';
 
 const initialState: FiltersState = {
   movies: { page: 1, type: 'FILM' },
-  animations: { page: 1, genres: 33 },
+  animations: { page: 1, genreId: 33 },
   serials: { page: 1, type: 'TV_SHOW' },
 };
 
@@ -18,10 +18,13 @@ export const filtersSlice = createSlice({
     ) => {
       const entity = state[type];
 
-      if (filter === 'countries' && typeof value === 'number') {
-        entity.countries = value;
-      } else if (filter === 'genres' && typeof value === 'number') {
-        entity.genres = value;
+      if (
+        (filter === 'countryId' && typeof value === 'number') ||
+        typeof value === 'undefined'
+      ) {
+        entity.countryId = value;
+      } else if (filter === 'genreId' && typeof value === 'number') {
+        entity.genreId = value;
       } else if (filter === 'order' && isOrderMovies(value)) {
         entity.order = value;
       } else if (filter === 'year' && typeof value === 'number') {
