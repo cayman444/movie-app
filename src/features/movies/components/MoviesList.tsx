@@ -5,6 +5,7 @@ import { Pagination } from 'antd';
 import { useMovies } from '../hooks';
 import { MoviesListSkeleton } from '../ui';
 import { MovieItem } from './MovieItem';
+import { MoviesFilters } from './MoviesFilters';
 
 export const MoviesList = () => {
   const { movies, page, isFetching, onChangePage } = useMovies();
@@ -13,6 +14,7 @@ export const MoviesList = () => {
     <Container>
       <BreadcrumbPaths className="!mb-8" />
       <h1 className="text-2xl font-bold mb-6">{MOVIES_ROUTES.MOVIES.title}</h1>
+      <MoviesFilters className="mb-8" />
       {isFetching ? (
         <MoviesListSkeleton />
       ) : (

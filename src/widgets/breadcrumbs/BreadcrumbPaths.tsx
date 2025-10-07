@@ -2,10 +2,11 @@ import { MOVIES_ROUTES } from '@/shared/constants';
 import { HomeOutlined } from '@ant-design/icons';
 import { Breadcrumb } from 'antd';
 import type { ItemType } from 'antd/es/breadcrumb/Breadcrumb';
+import clsx from 'clsx';
 import type { ComponentProps, FC } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
-export const BreadcrumbPaths: FC<ComponentProps<'nav'>> = (props) => {
+export const BreadcrumbPaths: FC<ComponentProps<'nav'>> = ({ className }) => {
   const location = useLocation();
   const pathnames = location.pathname.split('/').filter(Boolean);
 
@@ -25,7 +26,7 @@ export const BreadcrumbPaths: FC<ComponentProps<'nav'>> = (props) => {
 
   return (
     <Breadcrumb
-      {...props}
+      className={clsx(className)}
       itemRender={itemRender}
       items={[
         {

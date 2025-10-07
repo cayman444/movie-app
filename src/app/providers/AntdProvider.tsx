@@ -46,6 +46,13 @@ const themeConfig: ThemeConfig = {
       lastItemColor: '#ffffffd9',
       colorBgTextHover: '#ffffff1f',
     },
+    Select: {
+      optionSelectedColor: 'red',
+      optionSelectedBg: 'red',
+      selectorBg: 'red',
+      multipleItemBg: 'green',
+      optionActiveBg: 'yellow',
+    },
   },
 };
 
