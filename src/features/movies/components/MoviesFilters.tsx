@@ -1,10 +1,9 @@
 import { useGetFiltersQuery } from '@/shared/api/endpoints';
 import { useAppDispatch, useAppSelector } from '@/shared/store/store-hooks';
-import { DownOutlined } from '@ant-design/icons';
-import { Select } from 'antd';
 import clsx from 'clsx';
 import type { ComponentProps, FC } from 'react';
 import { changeFilter } from '../model';
+import { MovieSelect } from '../ui';
 import {
   getCountryOptions,
   getGenreOptions,
@@ -27,42 +26,31 @@ export const MoviesFilters: FC<ComponentProps<'div'>> = ({ className }) => {
 
   return (
     <div className={clsx(className, 'flex gap-2')}>
-      <Select
-        suffixIcon={<DownOutlined style={{ color: '#ffffff73' }} />}
-        placeholder="Сортировка"
-        defaultValue="По оценкам"
-        allowClear
-        style={{ width: 200 }}
-        loading={isFetching}
+      <MovieSelect
         options={getOrderOptions()}
+        defaultValue={'По оценкам'}
+        placeholder="Сортировка"
+        isFetching={isFetching}
+        onChange={() => null}
       />
-      <Select
-        suffixIcon={<DownOutlined style={{ color: '#ffffff73' }} />}
-        placeholder="Страна"
-        onChange={handleChangeCountry}
-        defaultValue={countryId}
-        allowClear
-        style={{ width: 200 }}
-        loading={isFetching}
+      <MovieSelect
         options={getCountryOptions(filters)}
+        defaultValue={countryId}
+        placeholder="Страна"
+        isFetching={isFetching}
+        onChange={handleChangeCountry}
       />
-      <Select
-        suffixIcon={<DownOutlined style={{ color: '#ffffff73' }} />}
-        placeholder="Жанр"
-        allowClear
-        style={{ width: 200 }}
-        loading={isFetching}
+      <MovieSelect
         options={getGenreOptions(filters)}
+        placeholder="Жанр"
+        isFetching={isFetching}
       />
-      <Select
-        suffixIcon={<DownOutlined style={{ color: '#ffffff73' }} />}
-        placeholder="Год"
-        defaultValue={year}
-        onChange={handleChangeYear}
-        allowClear
-        style={{ width: 200 }}
-        loading={isFetching}
+      <MovieSelect
         options={getYearsOptions()}
+        defaultValue={year}
+        placeholder="Год"
+        isFetching={isFetching}
+        onChange={handleChangeYear}
       />
     </div>
   );
