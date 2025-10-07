@@ -17,7 +17,7 @@ export const DropdownMenu = () => {
       {createPortal(
         <div
           className={clsx(
-            'fixed inset-0 bg-neutral-900/70 z-1 transition-all duration-300',
+            'fixed inset-0 bg-neutral-900/70 z-2 transition-all duration-300',
             {
               'opacity-100 pointer-events-auto': isOpen,
               'opacity-0 pointer-events-none': !isOpen,

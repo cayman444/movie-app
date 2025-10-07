@@ -62,3 +62,15 @@ body {
     left: 45%
   }
 }
+
+.rc-virtual-list .rc-virtual-list-scrollbar-thumb {
+  background-color: rgb(255, 255, 255, 0.5) !important;
+}
+
+.ant-select-dropdown .ant-select-item {
+  margin-bottom: 4px !important;
+}
+
+.ant-select-dropdown .ant-select-item:last-child {
+  margin-bottom: 0 !important;
+}

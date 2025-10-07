@@ -7,7 +7,7 @@ import { HEADER_LINKS } from './constants';
 
 export const Header = () => {
   return (
-    <header className="fixed bg-neutral-900/80 text-white py-5 z-2 backdrop-blur-sm w-full">
+    <header className="fixed bg-neutral-900/80 text-white py-5 z-3 backdrop-blur-sm w-full">
       <Container>
         <div className="flex items-center justify-between gap-6">
           <DropdownMenu />

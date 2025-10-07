@@ -42,20 +42,25 @@ export const moviesApi = createApi({
       query: ({ id }) => `v2.2/films/${id}`,
     }),
     getMovies: builder.query<MovieList, MovieParams>({
-      query: ({ page }) => `v2.2/films?page=${page}`,
+      query: ({ page, order = 'NUM_VOTE' }) =>
+        `v2.2/films?page=${page}&order=${order}`,
     }),
     getFilters: builder.query<TransformFilters, object>({
       query: () => '/v2.2/films/filters',
       transformResponse: (response: Filters) => {
-        const countryTransform = response.countries.map(({ country }) => ({
-          value: country,
-          label: country,
-        }));
+        const countryTransform = response.countries
+          .filter((c) => c.country)
+          .map(({ country }) => ({
+            value: country,
+            label: country,
+          }));
 
-        const genreTransform = response.genres.map(({ genre }) => ({
-          value: genre,
-          label: genre,
-        }));
+        const genreTransform = response.genres
+          .filter((g) => g.genre)
+          .map(({ genre }) => ({
+            value: genre,
+            label: genre,
+          }));
 
         return { countries: countryTransform, genres: genreTransform };
       },
