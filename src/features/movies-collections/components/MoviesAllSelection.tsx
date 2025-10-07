@@ -26,6 +26,7 @@ export const MoviesAllSelection: FC<MoviesSelection> = ({ title, type }) => {
             ))}
           </ul>
           <Pagination
+            hideOnSinglePage
             align="center"
             showSizeChanger={false}
             current={page}

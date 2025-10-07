@@ -25,6 +25,7 @@ export const MoviesList = () => {
             ))}
           </ul>
           <Pagination
+            hideOnSinglePage
             align="center"
             showSizeChanger={false}
             current={page}
