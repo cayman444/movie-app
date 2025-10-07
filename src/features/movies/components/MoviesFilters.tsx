@@ -3,6 +3,7 @@ import { DownOutlined } from '@ant-design/icons';
 import { Select } from 'antd';
 import clsx from 'clsx';
 import type { ComponentProps, FC } from 'react';
+import { getMoviesYears } from '../utils';
 
 export const MoviesFilters: FC<ComponentProps<'div'>> = ({ className }) => {
   const { data: filters, isFetching } = useGetFiltersQuery({});
@@ -44,10 +45,7 @@ export const MoviesFilters: FC<ComponentProps<'div'>> = ({ className }) => {
         allowClear
         style={{ width: 200 }}
         loading={isFetching}
-        options={Array.from({ length: 60 }, (_, ind) => ({
-          label: new Date().getFullYear() - ind,
-          value: new Date().getFullYear() - ind,
-        }))}
+        options={getMoviesYears()}
       />
     </div>
   );

@@ -1,10 +1,10 @@
+import { filtersReducer } from '@/features/movies/model';
 import { configureStore } from '@reduxjs/toolkit';
 import { moviesApi } from '../api/endpoints';
-import { moviesReducer } from './slices';
 
 export const store = configureStore({
   reducer: {
-    movies: moviesReducer,
+    filters: filtersReducer,
     [moviesApi.reducerPath]: moviesApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
