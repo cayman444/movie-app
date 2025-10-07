@@ -5,15 +5,24 @@ import { Select } from 'antd';
 import clsx from 'clsx';
 import type { ComponentProps, FC } from 'react';
 import { changeFilter } from '../model';
-import { getMoviesYears } from '../utils';
+import {
+  getCountryOptions,
+  getGenreOptions,
+  getOrderOptions,
+  getYearsOptions,
+} from '../utils';
 
 export const MoviesFilters: FC<ComponentProps<'div'>> = ({ className }) => {
   const dispatch = useAppDispatch();
   const { data: filters, isFetching } = useGetFiltersQuery({});
-  const { countryId } = useAppSelector((state) => state.filters.movies);
+  const { countryId, year } = useAppSelector((state) => state.filters.movies);
 
   const handleChangeCountry = (value?: number) => {
     dispatch(changeFilter({ type: 'movies', filter: 'countryId', value }));
+  };
+
+  const handleChangeYear = (value?: number) => {
+    dispatch(changeFilter({ type: 'movies', filter: 'year', value }));
   };
 
   return (
@@ -25,11 +34,7 @@ export const MoviesFilters: FC<ComponentProps<'div'>> = ({ className }) => {
         allowClear
         style={{ width: 200 }}
         loading={isFetching}
-        options={[
-          { label: 'По оценкам', value: 'По оценкам' },
-          { label: 'По рейтингу', value: 'По рейтингу' },
-          { label: 'По году', value: 'По году' },
-        ]}
+        options={getOrderOptions()}
       />
       <Select
         suffixIcon={<DownOutlined style={{ color: '#ffffff73' }} />}
@@ -39,10 +44,7 @@ export const MoviesFilters: FC<ComponentProps<'div'>> = ({ className }) => {
         allowClear
         style={{ width: 200 }}
         loading={isFetching}
-        options={filters?.countries.map(({ country, id }) => ({
-          label: country,
-          value: id,
-        }))}
+        options={getCountryOptions(filters)}
       />
       <Select
         suffixIcon={<DownOutlined style={{ color: '#ffffff73' }} />}
@@ -50,18 +52,17 @@ export const MoviesFilters: FC<ComponentProps<'div'>> = ({ className }) => {
         allowClear
         style={{ width: 200 }}
         loading={isFetching}
-        options={filters?.genres.map((g) => ({
-          label: g.genre,
-          value: g.genre,
-        }))}
+        options={getGenreOptions(filters)}
       />
       <Select
         suffixIcon={<DownOutlined style={{ color: '#ffffff73' }} />}
         placeholder="Год"
+        defaultValue={year}
+        onChange={handleChangeYear}
         allowClear
         style={{ width: 200 }}
         loading={isFetching}
-        options={getMoviesYears()}
+        options={getYearsOptions()}
       />
     </div>
   );

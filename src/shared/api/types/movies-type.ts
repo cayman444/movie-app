@@ -18,14 +18,13 @@ export interface MovieDetailsParams {
 }
 
 export interface MovieParams {
-  countries?: number;
-  genres?: number;
+  countryId?: number;
+  genreId?: number;
   order?: OrderMovies;
   type?: TypeMovies;
   ratingFrom?: number;
   ratingTo?: number;
-  yearFrom?: number;
-  yearTo?: number;
+  year?: number;
   imdbId?: string;
   keyword?: string;
   page?: number;

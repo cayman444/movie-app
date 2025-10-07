@@ -19,15 +19,18 @@ export const filtersSlice = createSlice({
       const entity = state[type];
 
       if (
-        (filter === 'countryId' && typeof value === 'number') ||
-        typeof value === 'undefined'
+        filter === 'countryId' &&
+        (typeof value === 'number' || typeof value === 'undefined')
       ) {
         entity.countryId = value;
       } else if (filter === 'genreId' && typeof value === 'number') {
         entity.genreId = value;
       } else if (filter === 'order' && isOrderMovies(value)) {
         entity.order = value;
-      } else if (filter === 'year' && typeof value === 'number') {
+      } else if (
+        filter === 'year' &&
+        (typeof value === 'number' || typeof value === 'undefined')
+      ) {
         entity.year = value;
       }
     },

@@ -41,8 +41,8 @@ export const moviesApi = createApi({
       query: ({ id }) => `v2.2/films/${id}`,
     }),
     getMovies: builder.query<MovieList, MovieParams>({
-      query: ({ page, countryId, order = 'NUM_VOTE' }) =>
-        `v2.2/films?page=${page}&order=${order}&countries=${countryId || ''}`,
+      query: ({ page, countryId, year, order = 'NUM_VOTE' }) =>
+        `v2.2/films?page=${page}&order=${order}&countries=${countryId || ''}&yearFrom=${year || ''}&yearTo=${year || ''}`,
     }),
     getFilters: builder.query<Filters, object>({
       query: () => '/v2.2/films/filters',
