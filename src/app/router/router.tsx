@@ -1,5 +1,8 @@
 import { RootLayout } from '@/app/layouts';
-import { MOVIES_LIST_COLLECTIONS } from '@/entities/movie/constants';
+import {
+  MOVIES_LIST_BASE,
+  MOVIES_LIST_COLLECTIONS,
+} from '@/entities/movie/constants';
 import { MOVIES_ROUTES } from '@/shared/constants';
 import { SuspenseLoader } from '@/shared/ui';
 import { lazy } from 'react';
@@ -20,16 +23,16 @@ export const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: MOVIES_ROUTES.MOVIES.path,
-        element: <Movies />,
-      },
-      {
         path: MOVIES_ROUTES.DETAILS_MOVIE.path,
         element: <MovieDetails />,
       },
       ...MOVIES_LIST_COLLECTIONS.map(({ path, ...params }) => ({
         path,
         element: <MoviesSelection key={params.type} {...params} />,
+      })),
+      ...MOVIES_LIST_BASE.map(({ path, ...params }) => ({
+        path,
+        element: <Movies key={path} {...params} />,
       })),
     ],
   },

@@ -1,9 +1,9 @@
 import { Container } from '@/app/layouts';
+import { MOVIES_LIST_BASE } from '@/entities/movie/constants';
 import { SearchOutlined, UserOutlined } from '@ant-design/icons';
 import { Input } from 'antd';
 import { Link } from 'react-router-dom';
 import { DropdownMenu } from './components';
-import { HEADER_LINKS } from './constants';
 
 export const Header = () => {
   return (
@@ -18,9 +18,9 @@ export const Header = () => {
             suffix={<SearchOutlined style={{ fontSize: 18 }} />}
           />
           <ul className="flex items-center gap-4 font-semibold [&>li]:cursor-pointer [&>li]:transition-colors [&>li]:hover:text-neutral-400">
-            {HEADER_LINKS.map(({ key, link, text }) => (
-              <li key={key}>
-                <Link to={link}>{text}</Link>
+            {MOVIES_LIST_BASE.map(({ path, title }) => (
+              <li key={path}>
+                <Link to={path}>{title}</Link>
               </li>
             ))}
           </ul>

@@ -1,6 +1,21 @@
 import { MOVIES_ROUTES } from '@/shared/constants';
 import type { MoviesCollections } from '../types';
 
+export const MOVIES_LIST_BASE = [
+  {
+    title: MOVIES_ROUTES.MOVIES.title,
+    path: MOVIES_ROUTES.MOVIES.path,
+  },
+  {
+    title: MOVIES_ROUTES.SERIALS.title,
+    path: MOVIES_ROUTES.SERIALS.path,
+  },
+  {
+    title: MOVIES_ROUTES.ANIMATIONS.title,
+    path: MOVIES_ROUTES.ANIMATIONS.path,
+  },
+];
+
 export const MOVIES_LIST_COLLECTIONS: MoviesCollections = [
   {
     path: MOVIES_ROUTES.POPULAR.path,
