@@ -5,13 +5,14 @@ import { changeFilter } from '../model';
 
 export const useMovies = () => {
   const dispatch = useAppDispatch();
-  const { countryId, year, order, type, page } = useAppSelector(
+  const { countryId, genreId, year, order, type, page } = useAppSelector(
     (state) => state.filters.movies
   );
 
   const { data: movies, isFetching } = useGetMoviesQuery({
     page,
     countryId,
+    genreId,
     year,
     order,
     type,

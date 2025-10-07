@@ -14,12 +14,16 @@ import {
 export const MoviesFilters: FC<ComponentProps<'div'>> = ({ className }) => {
   const dispatch = useAppDispatch();
   const { data: filters, isFetching } = useGetFiltersQuery({});
-  const { countryId, year, order } = useAppSelector(
+  const { countryId, genreId, year, order } = useAppSelector(
     (state) => state.filters.movies
   );
 
   const handleChangeCountry = (value?: number) => {
     dispatch(changeFilter({ type: 'movies', filter: 'countryId', value }));
+  };
+
+  const handleChangeGenre = (value?: number) => {
+    dispatch(changeFilter({ type: 'movies', filter: 'genreId', value }));
   };
 
   const handleChangeYear = (value?: number) => {
@@ -48,8 +52,10 @@ export const MoviesFilters: FC<ComponentProps<'div'>> = ({ className }) => {
       />
       <MovieSelect
         options={getGenreOptions(filters)}
+        defaultValue={genreId}
         placeholder="Жанр"
         isFetching={isFetching}
+        onChange={handleChangeGenre}
       />
       <MovieSelect
         options={getYearsOptions()}

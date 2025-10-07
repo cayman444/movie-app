@@ -26,8 +26,8 @@ export const getCountryOptions = (filters?: Filters) => {
 export const getGenreOptions = (filters?: Filters) => {
   return filters?.genres
     .filter((g) => g)
-    .map((g) => ({
-      label: g.genre,
-      value: g.genre,
+    .map(({ genre, id }) => ({
+      label: genre,
+      value: id,
     }));
 };

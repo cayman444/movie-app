@@ -23,7 +23,10 @@ export const filtersSlice = createSlice({
         (typeof value === 'number' || typeof value === 'undefined')
       ) {
         entity.countryId = value;
-      } else if (filter === 'genreId' && typeof value === 'number') {
+      } else if (
+        filter === 'genreId' &&
+        (typeof value === 'number' || typeof value === 'undefined')
+      ) {
         entity.genreId = value;
       } else if (
         filter === 'order' &&
