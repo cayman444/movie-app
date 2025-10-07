@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 export const useMovies = () => {
   const [page, setPage] = useState(1);
-  const { countryId, year, order } = useAppSelector(
+  const { countryId, year, order, type } = useAppSelector(
     (state) => state.filters.movies
   );
 
@@ -14,6 +14,7 @@ export const useMovies = () => {
     countryId,
     year,
     order,
+    type,
   });
 
   const onChangePage: PaginationProps['onChange'] = (page) => {
