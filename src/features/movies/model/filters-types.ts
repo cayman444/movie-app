@@ -1,26 +1,13 @@
-import type { OrderMovies, TypeMovies } from '@/shared/api/types';
+import type { FiltersItem } from '@/entities/movie/types';
 
 export interface FiltersState {
-  movies: Filters;
-  serials: Filters;
-  animations: Filters;
+  movies: FiltersItem;
+  serials: FiltersItem;
+  animations: FiltersItem;
 }
 
 export interface FilterParams {
   type: keyof FiltersState;
-  filter: keyof Filters;
-  value: Filters[keyof Filters];
-}
-
-interface Filters {
-  countryId?: number;
-  genreId?: number;
-  order?: OrderMovies;
-  type?: TypeMovies;
-  ratingFrom?: number;
-  ratingTo?: number;
-  year?: number;
-  imdbId?: string;
-  keyword?: string;
-  page?: number;
+  filter: keyof FiltersItem;
+  value: FiltersItem[keyof FiltersItem];
 }

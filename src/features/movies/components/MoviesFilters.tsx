@@ -1,3 +1,4 @@
+import type { FiltersItem } from '@/entities/movie/types';
 import { useGetFiltersQuery } from '@/shared/api/endpoints';
 import { useAppDispatch, useAppSelector } from '@/shared/store/store-hooks';
 import clsx from 'clsx';
@@ -26,20 +27,8 @@ export const MoviesFilters: FC<MoviesFiltersProps> = ({
     (state) => state.filters[movieType]
   );
 
-  const handleChangeCountry = (value?: number) => {
-    dispatch(changeFilter({ type: movieType, filter: 'countryId', value }));
-  };
-
-  const handleChangeGenre = (value?: number) => {
-    dispatch(changeFilter({ type: movieType, filter: 'genreId', value }));
-  };
-
-  const handleChangeYear = (value?: number) => {
-    dispatch(changeFilter({ type: movieType, filter: 'year', value }));
-  };
-
-  const handleChangeOrder = (value?: string) => {
-    dispatch(changeFilter({ type: movieType, filter: 'order', value }));
+  const handleChange = (filter: keyof FiltersItem, value?: string | number) => {
+    dispatch(changeFilter({ type: movieType, filter, value }));
   };
 
   return (
@@ -49,14 +38,14 @@ export const MoviesFilters: FC<MoviesFiltersProps> = ({
         defaultValue={order}
         placeholder="Сортировка"
         isFetching={isFetching}
-        onChange={handleChangeOrder}
+        onChange={(value?: string) => handleChange('order', value)}
       />
       <MovieSelect
         options={getCountryOptions(filters)}
         defaultValue={countryId}
         placeholder="Страна"
         isFetching={isFetching}
-        onChange={handleChangeCountry}
+        onChange={(value?: number) => handleChange('countryId', value)}
       />
       {movieType !== 'animations' && (
         <MovieSelect
@@ -64,16 +53,15 @@ export const MoviesFilters: FC<MoviesFiltersProps> = ({
           defaultValue={genreId}
           placeholder="Жанр"
           isFetching={isFetching}
-          onChange={handleChangeGenre}
+          onChange={(value?: number) => handleChange('genreId', value)}
         />
       )}
-
       <MovieSelect
         options={getYearsOptions()}
         defaultValue={year}
         placeholder="Год"
         isFetching={isFetching}
-        onChange={handleChangeYear}
+        onChange={(value?: number) => handleChange('year', value)}
       />
     </div>
   );
