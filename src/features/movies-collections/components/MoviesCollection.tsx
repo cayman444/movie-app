@@ -5,7 +5,7 @@ import { ArrowRightOutlined } from '@ant-design/icons';
 import { Carousel } from 'antd';
 import type { FC } from 'react';
 import { Link } from 'react-router-dom';
-import { MoviesSkeleton } from '../ui';
+import { MoviesCollectionSkeleton } from '../ui';
 
 interface MoviesCollection {
   title: string;
@@ -36,7 +36,7 @@ export const MoviesCollection: FC<MoviesCollection> = ({
       </div>
       <ul>
         {isLoading ? (
-          <MoviesSkeleton />
+          <MoviesCollectionSkeleton />
         ) : (
           <Carousel
             arrows

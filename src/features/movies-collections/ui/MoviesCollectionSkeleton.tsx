@@ -1,6 +1,6 @@
 import { Skeleton } from 'antd';
 
-export const MoviesSkeleton = () => {
+export const MoviesCollectionSkeleton = () => {
   return (
     <div className="grid grid-cols-5 gap-4">
       {Array.from({ length: 5 }).map((_, index) => (

@@ -1,2 +1,1 @@
-export { MoviesSkeleton } from './MoviesSkeleton';
-export { MoviesSelectionSkeleton } from './MoviesSelectionSkeleton';
+export { MoviesCollectionSkeleton } from './MoviesCollectionSkeleton';

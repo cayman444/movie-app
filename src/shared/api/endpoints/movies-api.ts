@@ -40,7 +40,7 @@ export const moviesApi = createApi({
       query: ({ id }) => `v2.2/films/${id}`,
     }),
     getMovies: builder.query<MovieList, MovieParams>({
-      query: () => `v2.2/films`,
+      query: ({ page }) => `v2.2/films?page=${page}`,
     }),
   }),
 });

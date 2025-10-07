@@ -1,6 +1,6 @@
 import { Skeleton } from 'antd';
 
-export const MoviesSelectionSkeleton = () => {
+export const MoviesListSkeleton = () => {
   return (
     <>
       <div className="grid grid-cols-5 gap-x-4 gap-y-8 mb-12">
