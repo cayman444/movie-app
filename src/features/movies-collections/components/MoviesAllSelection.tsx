@@ -1,4 +1,5 @@
 import { Container } from '@/app/layouts';
+import type { MoviesSelection } from '@/entities/movie/types';
 import { MovieItem } from '@/features/movies/components';
 import { MoviesListSkeleton } from '@/features/movies/ui';
 import { PAGE_SIZE } from '@/shared/constants';
@@ -6,7 +7,6 @@ import { BreadcrumbPaths } from '@/widgets/breadcrumbs';
 import { Pagination } from 'antd';
 import { type FC } from 'react';
 import { useSelectionMovies } from '../hooks';
-import type { MoviesSelection } from '../types';
 
 export const MoviesAllSelection: FC<MoviesSelection> = ({ title, type }) => {
   const { selectionMovies, isFetching, page, onChangePage } =

@@ -2,11 +2,12 @@ import { useGetMoviesQuery } from '@/shared/api/endpoints';
 import { useAppDispatch, useAppSelector } from '@/shared/store/store-hooks';
 import type { PaginationProps } from 'antd';
 import { changeFilter } from '../model';
+import type { FiltersState } from '../model/filters-types';
 
-export const useMovies = () => {
+export const useMovies = (movieType: keyof FiltersState) => {
   const dispatch = useAppDispatch();
   const { countryId, genreId, year, order, type, page } = useAppSelector(
-    (state) => state.filters.movies
+    (state) => state.filters[movieType]
   );
 
   const { data: movies, isFetching } = useGetMoviesQuery({
@@ -19,7 +20,7 @@ export const useMovies = () => {
   });
 
   const onChangePage: PaginationProps['onChange'] = (page) => {
-    dispatch(changeFilter({ filter: 'page', type: 'movies', value: page }));
+    dispatch(changeFilter({ filter: 'page', type: movieType, value: page }));
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 

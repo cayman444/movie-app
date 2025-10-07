@@ -1,5 +1,5 @@
+import type { MoviesSelection } from '@/entities/movie/types';
 import { MoviesAllSelection } from '@/features/movies-collections/components';
-import type { MoviesSelection } from '@/features/movies-collections/types';
 import { type FC, useEffect } from 'react';
 
 const MoviesSelection: FC<MoviesSelection> = (params) => {

@@ -1,18 +1,21 @@
 import { MOVIES_ROUTES } from '@/shared/constants';
-import type { MoviesCollections } from '../types';
+import type { MoviesCollections, MoviesLinks } from '../types';
 
-export const MOVIES_LIST_BASE = [
+export const MOVIES_LIST_BASE: MoviesLinks = [
   {
     title: MOVIES_ROUTES.MOVIES.title,
     path: MOVIES_ROUTES.MOVIES.path,
+    movieType: 'movies',
   },
   {
     title: MOVIES_ROUTES.SERIALS.title,
     path: MOVIES_ROUTES.SERIALS.path,
+    movieType: 'serials',
   },
   {
     title: MOVIES_ROUTES.ANIMATIONS.title,
     path: MOVIES_ROUTES.ANIMATIONS.path,
+    movieType: 'animations',
   },
 ];
 

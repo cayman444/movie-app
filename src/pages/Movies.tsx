@@ -1,7 +1,8 @@
+import type { MovieLinkWithoutPath } from '@/entities/movie/types';
 import { MoviesList } from '@/features/movies/components';
 import { type FC, useEffect } from 'react';
 
-const Movies: FC = (params) => {
+const Movies: FC<MovieLinkWithoutPath> = (params) => {
   useEffect(() => {
     window.scrollTo({ top: 0 });
   }, []);

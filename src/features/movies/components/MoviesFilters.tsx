@@ -3,6 +3,7 @@ import { useAppDispatch, useAppSelector } from '@/shared/store/store-hooks';
 import clsx from 'clsx';
 import type { ComponentProps, FC } from 'react';
 import { changeFilter } from '../model';
+import type { FiltersState } from '../model/filters-types';
 import { MovieSelect } from '../ui';
 import {
   getCountryOptions,
@@ -11,27 +12,34 @@ import {
   getYearsOptions,
 } from '../utils';
 
-export const MoviesFilters: FC<ComponentProps<'div'>> = ({ className }) => {
+interface MoviesFiltersProps extends ComponentProps<'div'> {
+  movieType: keyof FiltersState;
+}
+
+export const MoviesFilters: FC<MoviesFiltersProps> = ({
+  className,
+  movieType,
+}) => {
   const dispatch = useAppDispatch();
   const { data: filters, isFetching } = useGetFiltersQuery({});
   const { countryId, genreId, year, order } = useAppSelector(
-    (state) => state.filters.movies
+    (state) => state.filters[movieType]
   );
 
   const handleChangeCountry = (value?: number) => {
-    dispatch(changeFilter({ type: 'movies', filter: 'countryId', value }));
+    dispatch(changeFilter({ type: movieType, filter: 'countryId', value }));
   };
 
   const handleChangeGenre = (value?: number) => {
-    dispatch(changeFilter({ type: 'movies', filter: 'genreId', value }));
+    dispatch(changeFilter({ type: movieType, filter: 'genreId', value }));
   };
 
   const handleChangeYear = (value?: number) => {
-    dispatch(changeFilter({ type: 'movies', filter: 'year', value }));
+    dispatch(changeFilter({ type: movieType, filter: 'year', value }));
   };
 
   const handleChangeOrder = (value?: string) => {
-    dispatch(changeFilter({ type: 'movies', filter: 'order', value }));
+    dispatch(changeFilter({ type: movieType, filter: 'order', value }));
   };
 
   return (
@@ -50,13 +58,16 @@ export const MoviesFilters: FC<ComponentProps<'div'>> = ({ className }) => {
         isFetching={isFetching}
         onChange={handleChangeCountry}
       />
-      <MovieSelect
-        options={getGenreOptions(filters)}
-        defaultValue={genreId}
-        placeholder="Жанр"
-        isFetching={isFetching}
-        onChange={handleChangeGenre}
-      />
+      {movieType !== 'animations' && (
+        <MovieSelect
+          options={getGenreOptions(filters)}
+          defaultValue={genreId}
+          placeholder="Жанр"
+          isFetching={isFetching}
+          onChange={handleChangeGenre}
+        />
+      )}
+
       <MovieSelect
         options={getYearsOptions()}
         defaultValue={year}

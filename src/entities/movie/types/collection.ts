@@ -13,4 +13,6 @@ export interface MoviesCollectionItem {
   type: CollectionMovieType;
 }
 
+export type MoviesSelection = Omit<MoviesCollectionItem, 'path'>;
+
 export type MoviesCollections = MoviesCollectionItem[];

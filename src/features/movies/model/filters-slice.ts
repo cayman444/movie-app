@@ -4,8 +4,8 @@ import type { FilterParams, FiltersState } from './filters-types';
 
 const initialState: FiltersState = {
   movies: { page: 1, type: 'FILM', order: 'NUM_VOTE' },
-  animations: { page: 1, genreId: 33, order: 'NUM_VOTE' },
-  serials: { page: 1, type: 'TV_SHOW', order: 'NUM_VOTE' },
+  animations: { page: 1, type: 'FILM', genreId: 18, order: 'NUM_VOTE' },
+  serials: { page: 1, type: 'TV_SERIES', order: 'NUM_VOTE' },
 };
 
 export const filtersSlice = createSlice({

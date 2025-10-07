@@ -1,3 +1,4 @@
+import type { FiltersState } from '@/features/movies/model/filters-types';
 import type { TypeMovies } from '@/shared/api/types';
 
 export interface MovieCountry {
@@ -13,6 +14,16 @@ export interface MovieList {
   totalPages: number;
   items: Movie[];
 }
+
+export interface MoviesLinkItem {
+  title: string;
+  path: string;
+  movieType: keyof FiltersState;
+}
+
+export type MovieLinkWithoutPath = Omit<MoviesLinkItem, 'path'>;
+
+export type MoviesLinks = MoviesLinkItem[];
 
 export interface Movie {
   kinopoiskId: number;
