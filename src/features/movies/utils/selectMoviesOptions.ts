@@ -1,4 +1,5 @@
 import type { Filters } from '@/entities/movie/types';
+import type { OrderMovies } from '@/shared/api/types';
 
 export const getYearsOptions = () => {
   return Array.from({ length: 60 }, (_, ind) => ({
@@ -7,11 +8,11 @@ export const getYearsOptions = () => {
   }));
 };
 
-export const getOrderOptions = () => {
+export const getOrderOptions = (): { label: string; value: OrderMovies }[] => {
   return [
-    { label: 'По оценкам', value: 'По оценкам' },
-    { label: 'По рейтингу', value: 'По рейтингу' },
-    { label: 'По году', value: 'По году' },
+    { label: 'По оценкам', value: 'NUM_VOTE' },
+    { label: 'По рейтингу', value: 'RATING' },
+    { label: 'По году', value: 'YEAR' },
   ];
 };
 

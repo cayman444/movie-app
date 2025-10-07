@@ -5,12 +5,15 @@ import { useState } from 'react';
 
 export const useMovies = () => {
   const [page, setPage] = useState(1);
-  const { countryId, year } = useAppSelector((state) => state.filters.movies);
+  const { countryId, year, order } = useAppSelector(
+    (state) => state.filters.movies
+  );
 
   const { data: movies, isFetching } = useGetMoviesQuery({
     page,
     countryId,
     year,
+    order,
   });
 
   const onChangePage: PaginationProps['onChange'] = (page) => {

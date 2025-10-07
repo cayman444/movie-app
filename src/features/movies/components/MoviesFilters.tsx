@@ -14,7 +14,9 @@ import {
 export const MoviesFilters: FC<ComponentProps<'div'>> = ({ className }) => {
   const dispatch = useAppDispatch();
   const { data: filters, isFetching } = useGetFiltersQuery({});
-  const { countryId, year } = useAppSelector((state) => state.filters.movies);
+  const { countryId, year, order } = useAppSelector(
+    (state) => state.filters.movies
+  );
 
   const handleChangeCountry = (value?: number) => {
     dispatch(changeFilter({ type: 'movies', filter: 'countryId', value }));
@@ -24,14 +26,18 @@ export const MoviesFilters: FC<ComponentProps<'div'>> = ({ className }) => {
     dispatch(changeFilter({ type: 'movies', filter: 'year', value }));
   };
 
+  const handleChangeOrder = (value?: string) => {
+    dispatch(changeFilter({ type: 'movies', filter: 'order', value }));
+  };
+
   return (
     <div className={clsx(className, 'flex gap-2')}>
       <MovieSelect
         options={getOrderOptions()}
-        defaultValue={'По оценкам'}
+        defaultValue={order}
         placeholder="Сортировка"
         isFetching={isFetching}
-        onChange={() => null}
+        onChange={handleChangeOrder}
       />
       <MovieSelect
         options={getCountryOptions(filters)}
