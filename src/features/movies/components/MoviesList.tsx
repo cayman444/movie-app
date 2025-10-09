@@ -21,6 +21,11 @@ export const MoviesList: FC<MovieLinkWithoutPath> = ({ title, movieType }) => {
         <MoviesListSkeleton />
       ) : (
         <>
+          {movies?.items.length === 0 && (
+            <h2 className="text-xl text-center mt-20">
+              По вашему запросу ничего не найдено
+            </h2>
+          )}
           <ul className="grid grid-cols-5 gap-x-4 gap-y-8 mb-12">
             {movies?.items.map((movie) => (
               <MovieItem key={movie.kinopoiskId} {...movie} />

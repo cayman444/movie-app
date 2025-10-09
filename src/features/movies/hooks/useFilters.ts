@@ -1,7 +1,7 @@
 import type { FiltersItem } from '@/entities/movie/types';
 import { useGetFiltersQuery } from '@/shared/api/endpoints';
 import { useAppDispatch, useAppSelector } from '@/shared/store/store-hooks';
-import type { ChangeEvent } from 'react';
+import { type ChangeEvent } from 'react';
 import { changeFilter } from '../model';
 import type { FiltersState } from '../model/filters-types';
 
@@ -23,6 +23,8 @@ export const useFilters = (movieType: keyof FiltersState) => {
     dispatch(
       changeFilter({ type: movieType, filter: 'search', value: e.target.value })
     );
+
+    dispatch(changeFilter({ type: movieType, filter: 'page', value: 1 }));
   };
 
   return {

@@ -1,4 +1,5 @@
 import { useGetMoviesQuery } from '@/shared/api/endpoints';
+import { useDebounce } from '@/shared/hooks';
 import { useAppDispatch, useAppSelector } from '@/shared/store/store-hooks';
 import type { PaginationProps } from 'antd';
 import { changeFilter } from '../model';
@@ -9,6 +10,8 @@ export const useMovies = (movieType: keyof FiltersState) => {
   const { countryId, genreId, year, order, type, page, search } =
     useAppSelector((state) => state.filters[movieType]);
 
+  const debounceSearch = useDebounce(search, 300);
+
   const { data: movies, isFetching } = useGetMoviesQuery({
     page,
     countryId,
@@ -16,7 +19,7 @@ export const useMovies = (movieType: keyof FiltersState) => {
     year,
     order,
     type,
-    search,
+    search: debounceSearch,
   });
 
   const onChangePage: PaginationProps['onChange'] = (page) => {

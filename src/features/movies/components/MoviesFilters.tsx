@@ -1,3 +1,4 @@
+import { SearchOutlined } from '@ant-design/icons';
 import { Input } from 'antd';
 import clsx from 'clsx';
 import type { ComponentProps, FC } from 'react';
@@ -34,7 +35,9 @@ export const MoviesFilters: FC<MoviesFiltersProps> = ({
   return (
     <div className={clsx(className, 'flex gap-2')}>
       <Input
-        size="middle"
+        name="search-movie-filter"
+        className={'max-w-100'}
+        suffix={<SearchOutlined style={{ fontSize: 18 }} />}
         placeholder="Поиск..."
         value={search}
         onChange={handleChangeInput}
