@@ -40,6 +40,8 @@ export const filtersSlice = createSlice({
         entity.year = value;
       } else if (filter === 'page' && typeof value === 'number') {
         entity.page = value;
+      } else if (filter === 'search' && typeof value === 'string') {
+        entity.search = value;
       }
     },
   },

@@ -6,9 +6,8 @@ import type { FiltersState } from '../model/filters-types';
 
 export const useMovies = (movieType: keyof FiltersState) => {
   const dispatch = useAppDispatch();
-  const { countryId, genreId, year, order, type, page } = useAppSelector(
-    (state) => state.filters[movieType]
-  );
+  const { countryId, genreId, year, order, type, page, search } =
+    useAppSelector((state) => state.filters[movieType]);
 
   const { data: movies, isFetching } = useGetMoviesQuery({
     page,
@@ -17,6 +16,7 @@ export const useMovies = (movieType: keyof FiltersState) => {
     year,
     order,
     type,
+    search,
   });
 
   const onChangePage: PaginationProps['onChange'] = (page) => {

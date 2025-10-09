@@ -1,3 +1,4 @@
+import { Input } from 'antd';
 import clsx from 'clsx';
 import type { ComponentProps, FC } from 'react';
 import { useFilters } from '../hooks';
@@ -18,24 +19,39 @@ export const MoviesFilters: FC<MoviesFiltersProps> = ({
   className,
   movieType,
 }) => {
-  const { filters, isFetching, countryId, genreId, order, year, handleChange } =
-    useFilters(movieType);
+  const {
+    filters,
+    isFetching,
+    countryId,
+    genreId,
+    order,
+    year,
+    search,
+    handleChangeSelect,
+    handleChangeInput,
+  } = useFilters(movieType);
 
   return (
     <div className={clsx(className, 'flex gap-2')}>
+      <Input
+        size="middle"
+        placeholder="Поиск..."
+        value={search}
+        onChange={handleChangeInput}
+      />
       <MovieSelect
         options={getOrderOptions()}
         defaultValue={order}
         placeholder="Сортировка"
         isFetching={isFetching}
-        onChange={(value?: string) => handleChange('order', value)}
+        onChange={(value?: string) => handleChangeSelect('order', value)}
       />
       <MovieSelect
         options={getCountryOptions(filters)}
         defaultValue={countryId}
         placeholder="Страна"
         isFetching={isFetching}
-        onChange={(value?: number) => handleChange('countryId', value)}
+        onChange={(value?: number) => handleChangeSelect('countryId', value)}
       />
       {movieType !== 'animations' && (
         <MovieSelect
@@ -43,7 +59,7 @@ export const MoviesFilters: FC<MoviesFiltersProps> = ({
           defaultValue={genreId}
           placeholder="Жанр"
           isFetching={isFetching}
-          onChange={(value?: number) => handleChange('genreId', value)}
+          onChange={(value?: number) => handleChangeSelect('genreId', value)}
         />
       )}
       <MovieSelect
@@ -51,7 +67,7 @@ export const MoviesFilters: FC<MoviesFiltersProps> = ({
         defaultValue={year}
         placeholder="Год"
         isFetching={isFetching}
-        onChange={(value?: number) => handleChange('year', value)}
+        onChange={(value?: number) => handleChangeSelect('year', value)}
       />
     </div>
   );

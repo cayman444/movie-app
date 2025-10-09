@@ -1,8 +1,6 @@
 import type {
   CollectionMovieType,
-  OrderMovies,
   PremieresMovieMonth,
-  TypeMovies,
 } from './movies-filters';
 
 export interface CollectionMoviesParams {
@@ -15,17 +13,4 @@ export interface PremiereMoviesParams {
 }
 export interface MovieDetailsParams {
   id: number;
-}
-
-export interface MovieParams {
-  countryId?: number;
-  genreId?: number;
-  order?: OrderMovies;
-  type?: TypeMovies;
-  ratingFrom?: number;
-  ratingTo?: number;
-  year?: number;
-  imdbId?: string;
-  keyword?: string;
-  page?: number;
 }

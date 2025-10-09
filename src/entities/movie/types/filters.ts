@@ -25,4 +25,5 @@ export interface FiltersItem {
   imdbId?: string;
   keyword?: string;
   page?: number;
+  search?: string;
 }

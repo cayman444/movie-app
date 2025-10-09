@@ -1,6 +1,7 @@
 import type {
   CollectionMovies,
   Filters,
+  FiltersItem,
   MovieDetails,
   MovieList,
   PremiereMovies,
@@ -9,7 +10,6 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import type {
   CollectionMoviesParams,
   MovieDetailsParams,
-  MovieParams,
   PremiereMoviesParams,
 } from '../types';
 
@@ -40,7 +40,7 @@ export const moviesApi = createApi({
     getMovie: builder.query<MovieDetails, MovieDetailsParams>({
       query: ({ id }) => `v2.2/films/${id}`,
     }),
-    getMovies: builder.query<MovieList, MovieParams>({
+    getMovies: builder.query<MovieList, FiltersItem>({
       query: ({
         page = '',
         countryId = '',
@@ -48,8 +48,9 @@ export const moviesApi = createApi({
         year = '',
         order = 'NUM_VOTE',
         type = '',
+        search = '',
       }) =>
-        `v2.2/films?type=${type}&page=${page}&order=${order}&countries=${countryId}&genres=${genreId}&yearFrom=${year}&yearTo=${year}`,
+        `v2.2/films?type=${type}&page=${page}&order=${order}&countries=${countryId}&genres=${genreId}&yearFrom=${year}&yearTo=${year}&keyword=${search}`,
     }),
     getFilters: builder.query<Filters, object>({
       query: () => '/v2.2/films/filters',
