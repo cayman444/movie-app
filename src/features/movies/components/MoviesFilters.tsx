@@ -1,9 +1,6 @@
-import type { FiltersItem } from '@/entities/movie/types';
-import { useGetFiltersQuery } from '@/shared/api/endpoints';
-import { useAppDispatch, useAppSelector } from '@/shared/store/store-hooks';
 import clsx from 'clsx';
 import type { ComponentProps, FC } from 'react';
-import { changeFilter } from '../model';
+import { useFilters } from '../hooks';
 import type { FiltersState } from '../model/filters-types';
 import { MovieSelect } from '../ui';
 import {
@@ -21,15 +18,8 @@ export const MoviesFilters: FC<MoviesFiltersProps> = ({
   className,
   movieType,
 }) => {
-  const dispatch = useAppDispatch();
-  const { data: filters, isFetching } = useGetFiltersQuery({});
-  const { countryId, genreId, year, order } = useAppSelector(
-    (state) => state.filters[movieType]
-  );
-
-  const handleChange = (filter: keyof FiltersItem, value?: string | number) => {
-    dispatch(changeFilter({ type: movieType, filter, value }));
-  };
+  const { filters, isFetching, countryId, genreId, order, year, handleChange } =
+    useFilters(movieType);
 
   return (
     <div className={clsx(className, 'flex gap-2')}>
