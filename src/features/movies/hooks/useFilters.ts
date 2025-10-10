@@ -23,8 +23,6 @@ export const useFilters = (movieType: keyof FiltersState) => {
     dispatch(
       changeFilter({ type: movieType, filter: 'search', value: e.target.value })
     );
-
-    dispatch(changeFilter({ type: movieType, filter: 'page', value: 1 }));
   };
 
   return {

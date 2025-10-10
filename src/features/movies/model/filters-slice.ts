@@ -42,6 +42,7 @@ export const filtersSlice = createSlice({
         entity.page = value;
       } else if (filter === 'search' && typeof value === 'string') {
         entity.search = value;
+        entity.page = 1;
       }
     },
   },
