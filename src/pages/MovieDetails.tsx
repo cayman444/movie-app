@@ -1,3 +1,4 @@
+import { Movie } from '@/features/movies/components';
 import { useEffect } from 'react';
 
 const MovieDetails = () => {
@@ -5,7 +6,11 @@ const MovieDetails = () => {
     window.scrollTo({ top: 0 });
   }, []);
 
-  return <main className="pt-30 pb-18">Details</main>;
+  return (
+    <main className="pt-38 pb-18">
+      <Movie />
+    </main>
+  );
 };
 
 export default MovieDetails;
