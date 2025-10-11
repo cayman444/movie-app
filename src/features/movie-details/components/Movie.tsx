@@ -1,8 +1,8 @@
 import { Container } from '@/app/layouts';
 import { BreadcrumbPaths } from '@/widgets/breadcrumbs';
-import { Tooltip, notification } from 'antd';
 import { useMovieDetails } from '../hooks';
 import { PlayerSkeleton } from '../ui';
+import { MovieLogo } from './MovieLogo';
 import { PlayersInfoSelect } from './PlayersInfoSelect';
 
 export const Movie = () => {
@@ -14,47 +14,10 @@ export const Movie = () => {
     onChangeSelectedPlayerIndex,
   } = useMovieDetails();
 
-  const [api, contextHolder] = notification.useNotification({
-    maxCount: 1,
-    duration: 1,
-    placement: 'bottom',
-    pauseOnHover: false,
-  });
-
-  const openNotification = () => {
-    api.open({
-      message: 'Скопировано',
-      type: 'info',
-      style: { width: 300 },
-    });
-  };
-
   return (
     <Container>
       <BreadcrumbPaths className="!mb-8" />
-      <div className="flex justify-center mb-10">
-        {contextHolder}
-        <Tooltip title="Скопировать" zIndex={1}>
-          {movieInfo?.logoUrl ? (
-            <img
-              onClick={openNotification}
-              src={movieInfo?.logoUrl}
-              alt="logo movie"
-              className="h-20 object-cover cursor-pointer transition-all 
-             drop-shadow-[0_0_15px_rgba(100,100,100,0.3)]
-             hover:drop-shadow-[0_0_20px_rgba(163,163,163,0.6)]"
-            />
-          ) : (
-            <h1
-              onClick={openNotification}
-              className="font-bold text-5xl cursor-pointer transition-all drop-shadow-[0_0_15px_rgba(100,100,100,0.3)]
-             hover:drop-shadow-[0_0_20px_rgba(163,163,163,0.6)]"
-            >
-              {movieInfo?.nameRu}
-            </h1>
-          )}
-        </Tooltip>
-      </div>
+      <MovieLogo logoUrl={movieInfo?.logoUrl} nameRu={movieInfo?.nameRu} />
       <PlayersInfoSelect
         playersInfo={playersInfo}
         playersInfoLoading={playersInfoLoading}
