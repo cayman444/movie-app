@@ -65,6 +65,13 @@ const themeConfig: ThemeConfig = {
       zIndexPopup: 1,
       optionPadding: '8px 18px',
     },
+    Notification: {
+      colorBgElevated: 'oklch(26.9% 0 0)',
+      colorText: '#ffffff',
+      colorTextHeading: '#ffffff',
+      colorIcon: '#ffffff',
+      colorIconHover: '#ffffff',
+    },
   },
 };
 
