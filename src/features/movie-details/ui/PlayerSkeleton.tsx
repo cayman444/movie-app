@@ -1,7 +1,13 @@
-import { Skeleton } from 'antd';
+import { Skeleton, Spin } from 'antd';
 
 export const PlayerSkeleton = () => {
   return (
-    <Skeleton.Node active className="!absolute !inset-0 !w-full !h-full" />
+    <>
+      <Spin
+        size="large"
+        className="!absolute z-1 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+      />
+      <Skeleton.Node active className="!absolute !inset-0 !w-full !h-full" />
+    </>
   );
 };
