@@ -5,6 +5,7 @@ import { DownOutlined } from '@ant-design/icons';
 import { Select } from 'antd';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { PlayerSkeleton, PlayersInfoSkeleton } from '../ui';
 
 export const Movie = () => {
   const { id } = useParams();
@@ -20,7 +21,7 @@ export const Movie = () => {
       <BreadcrumbPaths className="!mb-8" />
       <div className="flex items-center gap-2 mb-4 max-w-3xl mx-auto">
         <h2 className="font-medium">Плеер:</h2>
-        {playersInfo?.[0] ? (
+        {playersInfo ? (
           <Select
             suffixIcon={<DownOutlined style={{ color: '#ffffff73' }} />}
             defaultValue={playersInfo[selectedPlayerIndex].translate}
@@ -33,15 +34,19 @@ export const Movie = () => {
             }))}
           />
         ) : (
-          <div>ass</div>
+          <PlayersInfoSkeleton />
         )}
       </div>
       <div className="relative pt-[50%]">
-        <iframe
-          src={playersInfo?.[selectedPlayerIndex].iframe}
-          allowFullScreen
-          className="absolute inset-0 w-full h-full"
-        />
+        {playersInfo ? (
+          <iframe
+            src={playersInfo?.[selectedPlayerIndex].iframe}
+            allowFullScreen
+            className="absolute inset-0 w-full h-full"
+          />
+        ) : (
+          <PlayerSkeleton />
+        )}
       </div>
     </Container>
   );
