@@ -1,12 +1,16 @@
 import { Container } from '@/app/layouts';
 import { useGetPlayerQuery } from '@/shared/api/endpoints';
 import { BreadcrumbPaths } from '@/widgets/breadcrumbs';
+import { DownOutlined } from '@ant-design/icons';
+import { Select } from 'antd';
+import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 export const Movie = () => {
   const { id } = useParams();
   const movieId = id || '';
-  const { data: playersInfo } = useGetPlayerQuery(
+  const [selectedPlayerIndex, setSelectedPlayerIndex] = useState(0);
+  const { data: playersInfo, isFetching } = useGetPlayerQuery(
     { id: movieId },
     { skip: !movieId }
   );
@@ -14,11 +18,29 @@ export const Movie = () => {
   return (
     <Container>
       <BreadcrumbPaths className="!mb-8" />
-      <iframe
-        src={playersInfo?.[0].iframe}
-        allowFullScreen
-        className="w-full h-140"
-      ></iframe>
+      <div className="flex items-center gap-2 mb-4 max-w-3xl mx-auto">
+        <h2 className="font-medium">Плеер:</h2>
+        {playersInfo?.[0] && (
+          <Select
+            suffixIcon={<DownOutlined style={{ color: '#ffffff73' }} />}
+            defaultValue={playersInfo[selectedPlayerIndex].translate}
+            style={{ width: '100%' }}
+            loading={isFetching}
+            onChange={(value) => setSelectedPlayerIndex(+value)}
+            options={playersInfo.map(({ translate }, ind) => ({
+              label: translate,
+              value: ind,
+            }))}
+          />
+        )}
+      </div>
+      <div className="relative pt-[50%]">
+        <iframe
+          src={playersInfo?.[selectedPlayerIndex].iframe}
+          allowFullScreen
+          className="absolute inset-0 w-full h-full"
+        />
+      </div>
     </Container>
   );
 };
