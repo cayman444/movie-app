@@ -73,7 +73,7 @@ export interface MovieDetails {
   editorAnnotation: string;
   isTicketsAvailable: boolean;
   productionStatus: string;
-  type: string;
+  type: TypeMovies;
   ratingMpaa: string;
   ratingAgeLimits: string;
   countries: MovieCountry[];
