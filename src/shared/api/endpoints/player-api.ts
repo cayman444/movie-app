@@ -1,3 +1,4 @@
+import type { PlayersInfo } from '@/entities/player/types';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 const BASE_URL = 'https://api4.rhhhhhhh.live/';
@@ -8,11 +9,10 @@ export const playerApi = createApi({
     baseUrl: BASE_URL,
   }),
   endpoints: (builder) => ({
-    getPlayer: builder.query<unknown, unknown>({
-      query: () => {
+    getPlayer: builder.query<PlayersInfo, { id: string }>({
+      query: ({ id }) => {
         const formData = new FormData();
-        formData.append('kinopoisk', '277537');
-        formData.append('type', 'movie');
+        formData.append('kinopoisk', id);
 
         return {
           url: 'cache',
