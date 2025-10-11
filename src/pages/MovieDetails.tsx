@@ -1,4 +1,4 @@
-import { Movie } from '@/features/movies/components';
+import { Movie } from '@/features/movie-details/components';
 import { useEffect } from 'react';
 
 const MovieDetails = () => {
@@ -7,7 +7,7 @@ const MovieDetails = () => {
   }, []);
 
   return (
-    <main className="pt-38 pb-18">
+    <main className="pt-30 pb-18">
       <Movie />
     </main>
   );

@@ -20,7 +20,7 @@ export const Movie = () => {
       <BreadcrumbPaths className="!mb-8" />
       <div className="flex items-center gap-2 mb-4 max-w-3xl mx-auto">
         <h2 className="font-medium">Плеер:</h2>
-        {playersInfo?.[0] && (
+        {playersInfo?.[0] ? (
           <Select
             suffixIcon={<DownOutlined style={{ color: '#ffffff73' }} />}
             defaultValue={playersInfo[selectedPlayerIndex].translate}
@@ -32,6 +32,8 @@ export const Movie = () => {
               value: ind,
             }))}
           />
+        ) : (
+          <div>ass</div>
         )}
       </div>
       <div className="relative pt-[50%]">
