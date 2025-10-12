@@ -5,8 +5,7 @@ import { MovieInfo } from './MovieInfo';
 import { MovieLogo } from './MovieLogo';
 import { Player } from './Player';
 import { PlayersInfoSelect } from './PlayersInfoSelect';
-import { SequelsPrequels } from './SequelsPrequels';
-import { SimilarMovies } from './SimilarMovies';
+import { VisibleMovies } from './VisibleMovies';
 
 export const Movie = () => {
   const {
@@ -35,10 +34,14 @@ export const Movie = () => {
       />
       <MovieInfo movieInfo={movieInfo} className="mb-10" />
       {sequelsPrequels && (
-        <SequelsPrequels sequelsPrequels={sequelsPrequels} className="mb-10" />
+        <VisibleMovies
+          movies={sequelsPrequels}
+          title="Сиквелы и приквелы"
+          className="mb-10"
+        />
       )}
       {(similarMovies?.total ?? 0) > 0 && similarMovies && (
-        <SimilarMovies similarMovies={similarMovies.items} />
+        <VisibleMovies movies={similarMovies.items} title="Похожие" />
       )}
     </Container>
   );

@@ -1,6 +1,6 @@
 export interface SimilarMovies {
   total: number;
-  items: SimilarMoviesList;
+  items: VisibleMoviesList;
 }
 
 export interface VisibleMovie {
@@ -13,5 +13,4 @@ export interface VisibleMovie {
   relationType: string;
 }
 
-export type SimilarMoviesList = VisibleMovie[];
-export type SequelsPrequelsList = VisibleMovie[];
+export type VisibleMoviesList = VisibleMovie[];
