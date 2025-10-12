@@ -1,4 +1,8 @@
-import { useGetMovieQuery, useGetPlayerQuery } from '@/shared/api/endpoints';
+import {
+  useGetMovieQuery,
+  useGetPlayerQuery,
+  useGetSequelsPrequelsQuery,
+} from '@/shared/api/endpoints';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -12,6 +16,8 @@ export const useMovieDetails = () => {
     { id: +movieId },
     { skip: !movieId }
   );
+  const { data: sequelsPrequels, isFetching: sequelsPrequelsLoading } =
+    useGetSequelsPrequelsQuery({ id: +movieId }, { skip: !movieId });
 
   const onChangeSelectedPlayerIndex = (value: string) => {
     setSelectedPlayerIndex(+value);
@@ -21,8 +27,10 @@ export const useMovieDetails = () => {
     selectedPlayerIndex,
     playersInfo,
     movieInfo,
+    sequelsPrequels,
     playersInfoLoading,
     movieInfoLoading,
+    sequelsPrequelsLoading,
     onChangeSelectedPlayerIndex,
   };
 };

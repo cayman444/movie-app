@@ -5,13 +5,10 @@ import type {
   MovieDetails,
   MovieList,
   PremiereMovies,
+  SequelsPrequelsList,
 } from '@/entities/movie/types';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import type {
-  CollectionMoviesParams,
-  MovieDetailsParams,
-  PremiereMoviesParams,
-} from '../types';
+import type { CollectionMoviesParams, PremiereMoviesParams } from '../types';
 
 const BASE_URL = 'https://kinopoiskapiunofficial.tech/api/';
 
@@ -37,7 +34,7 @@ export const moviesApi = createApi({
       query: ({ year, month }) =>
         `v2.2/films/premieres?year=${year}&month=${month}`,
     }),
-    getMovie: builder.query<MovieDetails, MovieDetailsParams>({
+    getMovie: builder.query<MovieDetails, { id: number }>({
       query: ({ id }) => `v2.2/films/${id}`,
     }),
     getMovies: builder.query<MovieList, FiltersItem>({
@@ -55,6 +52,9 @@ export const moviesApi = createApi({
     getFilters: builder.query<Filters, object>({
       query: () => '/v2.2/films/filters',
     }),
+    getSequelsPrequels: builder.query<SequelsPrequelsList, { id: number }>({
+      query: ({ id }) => `/v2.1/films/${id}/sequels_and_prequels`,
+    }),
   }),
 });
 
@@ -64,4 +64,5 @@ export const {
   useGetMovieQuery,
   useGetMoviesQuery,
   useGetFiltersQuery,
+  useGetSequelsPrequelsQuery,
 } = moviesApi;

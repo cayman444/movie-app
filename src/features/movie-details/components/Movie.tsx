@@ -5,11 +5,13 @@ import { MovieInfo } from './MovieInfo';
 import { MovieLogo } from './MovieLogo';
 import { Player } from './Player';
 import { PlayersInfoSelect } from './PlayersInfoSelect';
+import { SequelsPrequels } from './SequelsPrequels';
 
 export const Movie = () => {
   const {
     playersInfo,
     movieInfo,
+    sequelsPrequels,
     playersInfoLoading,
     selectedPlayerIndex,
     onChangeSelectedPlayerIndex,
@@ -30,7 +32,7 @@ export const Movie = () => {
         selectedPlayerIndex={selectedPlayerIndex}
       />
       <MovieInfo movieInfo={movieInfo} className="mb-8" />
-      <h2 className="font-bold text-2xl">Сиквелы и приквелы</h2>
+      {sequelsPrequels && <SequelsPrequels sequelsPrequels={sequelsPrequels} />}
     </Container>
   );
 };

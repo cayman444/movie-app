@@ -11,6 +11,3 @@ export interface PremiereMoviesParams {
   year: number;
   month: PremieresMovieMonth;
 }
-export interface MovieDetailsParams {
-  id: number;
-}
