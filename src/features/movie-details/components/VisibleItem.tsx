@@ -1,8 +1,8 @@
-import type { SequelsPrequels } from '@/entities/movie/types';
+import type { VisibleMovie } from '@/entities/movie/types';
 import type { FC } from 'react';
 import { Link } from 'react-router-dom';
 
-export const SequelsPrequelItem: FC<SequelsPrequels> = ({
+export const VisibleItem: FC<VisibleMovie> = ({
   filmId,
   nameRu,
   posterUrl,

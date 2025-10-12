@@ -1,25 +1,21 @@
-import type { SequelsPrequelsList } from '@/entities/movie/types';
-import clsx from 'clsx';
-import { type ComponentProps, type FC } from 'react';
+import type { SimilarMoviesList } from '@/entities/movie/types';
+import type { FC } from 'react';
 import { useVisibleItems } from '../hooks';
 import { VisibleItemsButton } from '../ui';
 import { VisibleItem } from './VisibleItem';
 
-interface SequelsPrequelsParams extends ComponentProps<'div'> {
-  sequelsPrequels: SequelsPrequelsList;
+interface SimilarMoviesProps {
+  similarMovies: SimilarMoviesList;
 }
 
-export const SequelsPrequels: FC<SequelsPrequelsParams> = ({
-  sequelsPrequels,
-  className,
-}) => {
+export const SimilarMovies: FC<SimilarMoviesProps> = ({ similarMovies }) => {
   const { isVisibleAll, visibleItems, hiddenCount, handleChangeVisible } =
-    useVisibleItems(sequelsPrequels);
+    useVisibleItems(similarMovies);
 
   return (
-    <div className={clsx('flex flex-col gap-6', className)}>
+    <div className="flex flex-col gap-6">
       <div className="flex justify-between items-center">
-        <h2 className="font-bold text-2xl">Сиквелы и приквелы</h2>
+        <h2 className="font-bold text-2xl">Похожие</h2>
         {hiddenCount > 0 && (
           <VisibleItemsButton
             hiddenCount={hiddenCount}

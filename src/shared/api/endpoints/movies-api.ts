@@ -6,6 +6,7 @@ import type {
   MovieList,
   PremiereMovies,
   SequelsPrequelsList,
+  SimilarMovies,
 } from '@/entities/movie/types';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import type { CollectionMoviesParams, PremiereMoviesParams } from '../types';
@@ -55,6 +56,9 @@ export const moviesApi = createApi({
     getSequelsPrequels: builder.query<SequelsPrequelsList, { id: number }>({
       query: ({ id }) => `/v2.1/films/${id}/sequels_and_prequels`,
     }),
+    getSimilarMovies: builder.query<SimilarMovies, { id: number }>({
+      query: ({ id }) => `/v2.2/films/${id}/similars`,
+    }),
   }),
 });
 
@@ -65,4 +69,5 @@ export const {
   useGetMoviesQuery,
   useGetFiltersQuery,
   useGetSequelsPrequelsQuery,
+  useGetSimilarMoviesQuery,
 } = moviesApi;

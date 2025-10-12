@@ -2,6 +2,7 @@ import {
   useGetMovieQuery,
   useGetPlayerQuery,
   useGetSequelsPrequelsQuery,
+  useGetSimilarMoviesQuery,
 } from '@/shared/api/endpoints';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
@@ -19,6 +20,9 @@ export const useMovieDetails = () => {
   const { data: sequelsPrequels, isFetching: sequelsPrequelsLoading } =
     useGetSequelsPrequelsQuery({ id: +movieId }, { skip: !movieId });
 
+  const { data: similarMovies, isFetching: SimilarMoviesLoading } =
+    useGetSimilarMoviesQuery({ id: +movieId }, { skip: !movieId });
+
   const onChangeSelectedPlayerIndex = (value: string) => {
     setSelectedPlayerIndex(+value);
   };
@@ -28,9 +32,11 @@ export const useMovieDetails = () => {
     playersInfo,
     movieInfo,
     sequelsPrequels,
+    similarMovies,
     playersInfoLoading,
     movieInfoLoading,
     sequelsPrequelsLoading,
+    SimilarMoviesLoading,
     onChangeSelectedPlayerIndex,
   };
 };
