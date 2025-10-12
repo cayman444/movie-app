@@ -29,7 +29,8 @@ export const Movie = () => {
         playersInfo={playersInfo}
         selectedPlayerIndex={selectedPlayerIndex}
       />
-      <MovieInfo movieInfo={movieInfo} />
+      <MovieInfo movieInfo={movieInfo} className="mb-8" />
+      <h2 className="font-bold text-2xl">Сиквелы и приквелы</h2>
     </Container>
   );
 };
