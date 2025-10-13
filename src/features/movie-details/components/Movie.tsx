@@ -34,13 +34,13 @@ export const Movie = () => {
         playersInfo={playersInfo}
         selectedPlayerIndex={selectedPlayerIndex}
       />
-      <MovieInfo movieInfo={movieInfo} className="mb-10" />
+      <MovieInfo movieInfo={movieInfo} />
       <div ref={refSequelsPrequels}>
         {sequelsPrequels && (
           <VisibleMovies
             movies={sequelsPrequels}
             title="Сиквелы и приквелы"
-            className="mb-10"
+            className="mt-10 mb-10"
           />
         )}
       </div>

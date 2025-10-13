@@ -11,12 +11,12 @@ import { useParams } from 'react-router-dom';
 export const useMovieDetails = () => {
   const { id } = useParams();
   const { ref: refSequelsPrequels, inView: inViewSequelsPrequels } = useInView({
-    threshold: 0.5,
+    threshold: 0,
     triggerOnce: true,
   });
 
   const { ref: refSimilarMovies, inView: inViewSimilarMovies } = useInView({
-    threshold: 0.5,
+    threshold: 0,
     triggerOnce: true,
   });
 
@@ -24,7 +24,7 @@ export const useMovieDetails = () => {
 
   const [selectedPlayerIndex, setSelectedPlayerIndex] = useState(0);
 
-  const { data: playersInfo, isFetching: playersInfoLoading } =
+  const { currentData: playersInfo, isFetching: playersInfoLoading } =
     useGetPlayerQuery({ id: movieId }, { skip: !movieId });
 
   const { data: movieInfo, isFetching: movieInfoLoading } = useGetMovieQuery(
@@ -39,7 +39,7 @@ export const useMovieDetails = () => {
 
   const [
     fetchSimilarMovies,
-    { currentData: similarMovies, isFetching: similarMoviesLoading },
+    { data: similarMovies, isFetching: similarMoviesLoading },
   ] = useLazyGetSimilarMoviesQuery();
 
   const onChangeSelectedPlayerIndex = (value: string) => {
