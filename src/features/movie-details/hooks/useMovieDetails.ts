@@ -17,10 +17,10 @@ export const useMovieDetails = () => {
     { id: +movieId },
     { skip: !movieId }
   );
-  const { data: sequelsPrequels, isFetching: sequelsPrequelsLoading } =
+  const { currentData: sequelsPrequels, isFetching: sequelsPrequelsLoading } =
     useGetSequelsPrequelsQuery({ id: +movieId }, { skip: !movieId });
 
-  const { data: similarMovies, isFetching: SimilarMoviesLoading } =
+  const { currentData: similarMovies, isFetching: SimilarMoviesLoading } =
     useGetSimilarMoviesQuery({ id: +movieId }, { skip: !movieId });
 
   const onChangeSelectedPlayerIndex = (value: string) => {

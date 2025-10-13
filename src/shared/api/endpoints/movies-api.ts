@@ -56,8 +56,11 @@ export const moviesApi = createApi({
     getSequelsPrequels: builder.query<VisibleMoviesList, { id: number }>({
       query: ({ id }) => `/v2.1/films/${id}/sequels_and_prequels`,
     }),
-    getSimilarMovies: builder.query<SimilarMovies, { id: number }>({
+    getSimilarMovies: builder.query<SimilarMovies | null, { id: number }>({
       query: ({ id }) => `/v2.2/films/${id}/similars`,
+      transformResponse: (value: SimilarMovies) => {
+        return value.total ? value : null;
+      },
     }),
   }),
 });

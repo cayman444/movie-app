@@ -40,7 +40,7 @@ export const Movie = () => {
           className="mb-10"
         />
       )}
-      {(similarMovies?.total ?? 0) > 0 && similarMovies && (
+      {similarMovies && (
         <VisibleMovies movies={similarMovies.items} title="Похожие" />
       )}
     </Container>
