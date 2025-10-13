@@ -15,6 +15,8 @@ export const Movie = () => {
     similarMovies,
     playersInfoLoading,
     selectedPlayerIndex,
+    refSequelsPrequels,
+    refSimilarMovies,
     onChangeSelectedPlayerIndex,
   } = useMovieDetails();
 
@@ -33,16 +35,20 @@ export const Movie = () => {
         selectedPlayerIndex={selectedPlayerIndex}
       />
       <MovieInfo movieInfo={movieInfo} className="mb-10" />
-      {sequelsPrequels && (
-        <VisibleMovies
-          movies={sequelsPrequels}
-          title="Сиквелы и приквелы"
-          className="mb-10"
-        />
-      )}
-      {similarMovies && (
-        <VisibleMovies movies={similarMovies.items} title="Похожие" />
-      )}
+      <div ref={refSequelsPrequels}>
+        {sequelsPrequels && (
+          <VisibleMovies
+            movies={sequelsPrequels}
+            title="Сиквелы и приквелы"
+            className="mb-10"
+          />
+        )}
+      </div>
+      <div ref={refSimilarMovies}>
+        {similarMovies && (
+          <VisibleMovies movies={similarMovies.items} title="Похожие" />
+        )}
+      </div>
     </Container>
   );
 };

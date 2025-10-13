@@ -71,6 +71,6 @@ export const {
   useGetMovieQuery,
   useGetMoviesQuery,
   useGetFiltersQuery,
-  useGetSequelsPrequelsQuery,
-  useGetSimilarMoviesQuery,
+  useLazyGetSequelsPrequelsQuery,
+  useLazyGetSimilarMoviesQuery,
 } = moviesApi;

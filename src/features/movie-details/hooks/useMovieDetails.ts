@@ -1,27 +1,46 @@
 import {
   useGetMovieQuery,
   useGetPlayerQuery,
-  useGetSequelsPrequelsQuery,
-  useGetSimilarMoviesQuery,
+  useLazyGetSequelsPrequelsQuery,
+  useLazyGetSimilarMoviesQuery,
 } from '@/shared/api/endpoints';
 import { useEffect, useState } from 'react';
+import { useInView } from 'react-intersection-observer';
 import { useParams } from 'react-router-dom';
 
 export const useMovieDetails = () => {
   const { id } = useParams();
+  const { ref: refSequelsPrequels, inView: inViewSequelsPrequels } = useInView({
+    threshold: 0.5,
+    triggerOnce: true,
+  });
+
+  const { ref: refSimilarMovies, inView: inViewSimilarMovies } = useInView({
+    threshold: 0.5,
+    triggerOnce: true,
+  });
+
   const movieId = id || '';
+
   const [selectedPlayerIndex, setSelectedPlayerIndex] = useState(0);
+
   const { data: playersInfo, isFetching: playersInfoLoading } =
     useGetPlayerQuery({ id: movieId }, { skip: !movieId });
+
   const { data: movieInfo, isFetching: movieInfoLoading } = useGetMovieQuery(
     { id: +movieId },
     { skip: !movieId }
   );
-  const { currentData: sequelsPrequels, isFetching: sequelsPrequelsLoading } =
-    useGetSequelsPrequelsQuery({ id: +movieId }, { skip: !movieId });
 
-  const { data: similarMovies, isFetching: SimilarMoviesLoading } =
-    useGetSimilarMoviesQuery({ id: +movieId }, { skip: !movieId });
+  const [
+    fetchSequelsPrequels,
+    { currentData: sequelsPrequels, isFetching: sequelsPrequelsLoading },
+  ] = useLazyGetSequelsPrequelsQuery();
+
+  const [
+    fetchSimilarMovies,
+    { currentData: similarMovies, isFetching: similarMoviesLoading },
+  ] = useLazyGetSimilarMoviesQuery();
 
   const onChangeSelectedPlayerIndex = (value: string) => {
     setSelectedPlayerIndex(+value);
@@ -30,6 +49,18 @@ export const useMovieDetails = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [id]);
+
+  useEffect(() => {
+    if (inViewSequelsPrequels) {
+      fetchSequelsPrequels({ id: +movieId });
+    }
+  }, [fetchSequelsPrequels, inViewSequelsPrequels, movieId]);
+
+  useEffect(() => {
+    if (inViewSimilarMovies) {
+      fetchSimilarMovies({ id: +movieId });
+    }
+  }, [fetchSimilarMovies, inViewSimilarMovies, movieId]);
 
   return {
     selectedPlayerIndex,
@@ -40,7 +71,9 @@ export const useMovieDetails = () => {
     playersInfoLoading,
     movieInfoLoading,
     sequelsPrequelsLoading,
-    SimilarMoviesLoading,
+    similarMoviesLoading,
     onChangeSelectedPlayerIndex,
+    refSequelsPrequels,
+    refSimilarMovies,
   };
 };
