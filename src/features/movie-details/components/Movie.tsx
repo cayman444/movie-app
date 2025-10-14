@@ -1,6 +1,7 @@
 import { Container } from '@/app/layouts';
 import { BreadcrumbPaths } from '@/widgets/breadcrumbs';
 import { useMovieDetails } from '../hooks';
+import { VisibleMoviesSkeleton } from '../ui';
 import { MovieInfo } from './MovieInfo';
 import { MovieLogo } from './MovieLogo';
 import { Player } from './Player';
@@ -15,6 +16,8 @@ export const Movie = () => {
     similarMovies,
     playersInfoLoading,
     selectedPlayerIndex,
+    sequelsPrequelsLoading,
+    similarMoviesLoading,
     refSequelsPrequels,
     refSimilarMovies,
     onChangeSelectedPlayerIndex,
@@ -36,17 +39,29 @@ export const Movie = () => {
       />
       <MovieInfo movieInfo={movieInfo} />
       <div ref={refSequelsPrequels}>
-        {sequelsPrequels && (
-          <VisibleMovies
-            movies={sequelsPrequels}
-            title="Сиквелы и приквелы"
-            className="mt-10 mb-10"
-          />
+        {sequelsPrequelsLoading ? (
+          <VisibleMoviesSkeleton className="mt-10 mb-10" />
+        ) : (
+          sequelsPrequels && (
+            <VisibleMovies
+              movies={sequelsPrequels}
+              title="Сиквелы и приквелы"
+              className="mt-10 mb-10"
+            />
+          )
         )}
       </div>
       <div ref={refSimilarMovies}>
-        {similarMovies && (
-          <VisibleMovies movies={similarMovies.items} title="Похожие" />
+        {similarMoviesLoading ? (
+          <VisibleMoviesSkeleton className="mt-10" />
+        ) : (
+          similarMovies && (
+            <VisibleMovies
+              movies={similarMovies.items}
+              title="Похожие"
+              className="mt-10"
+            />
+          )
         )}
       </div>
     </Container>
