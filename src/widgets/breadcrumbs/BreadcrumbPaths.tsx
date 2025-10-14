@@ -4,15 +4,38 @@ import { Breadcrumb } from 'antd';
 import type { ItemType } from 'antd/es/breadcrumb/Breadcrumb';
 import clsx from 'clsx';
 import type { ComponentProps, FC } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useMatch } from 'react-router-dom';
 
-export const BreadcrumbPaths: FC<ComponentProps<'nav'>> = ({ className }) => {
+interface BreadcrumbPathsProps extends ComponentProps<'nav'> {
+  movieName?: string;
+}
+
+export const BreadcrumbPaths: FC<BreadcrumbPathsProps> = ({
+  movieName,
+  className,
+}) => {
   const location = useLocation();
-  const pathnames = location.pathname.split('/').filter(Boolean);
+  const matchMovieDetails = useMatch(MOVIES_ROUTES.DETAILS_MOVIE.path);
+  const { pathname, state } = location;
 
-  const breadcrumbItems = Object.values(MOVIES_ROUTES).filter(({ path }) =>
-    pathnames.includes(path.slice(1))
-  );
+  const breadcrumbItems: { path: string; title: string }[] = Object.values(
+    MOVIES_ROUTES
+  ).filter(({ path }) => {
+    if (path === '/') return false;
+
+    if (state && typeof state === 'string') {
+      return state === path;
+    }
+
+    return pathname === path;
+  });
+
+  if (matchMovieDetails && movieName) {
+    breadcrumbItems.push({
+      path: matchMovieDetails.pattern.path,
+      title: movieName,
+    });
+  }
 
   const itemRender = (route: ItemType, _: object, routes: ItemType[]) => {
     const isLast = route.href === routes.at(-1)?.href;

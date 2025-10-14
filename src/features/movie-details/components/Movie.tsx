@@ -25,7 +25,10 @@ export const Movie = () => {
 
   return (
     <Container>
-      <BreadcrumbPaths className="!mb-8" />
+      <BreadcrumbPaths
+        movieName={movieInfo?.nameRu || movieInfo?.nameEn}
+        className="!mb-8"
+      />
       <MovieLogo logoUrl={movieInfo?.logoUrl} nameRu={movieInfo?.nameRu} />
       <PlayersInfoSelect
         playersInfo={playersInfo}

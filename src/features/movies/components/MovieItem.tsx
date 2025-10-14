@@ -1,7 +1,7 @@
 import type { Movie } from '@/entities/movie/types';
 import { Tag } from 'antd';
 import { type FC } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { LazyMovieImg } from '../ui';
 import { getFilmType } from '../utils';
 
@@ -14,9 +14,15 @@ export const MovieItem: FC<Movie> = ({
   type,
   year,
 }) => {
+  const { pathname } = useLocation();
+
   return (
     <li className="flex flex-col gap-4 h-full text-white">
-      <Link to={`/movies/${kinopoiskId}`} className="relative pt-[150%]">
+      <Link
+        to={`/movies/${kinopoiskId}`}
+        state={pathname}
+        className="relative pt-[150%]"
+      >
         {year && (
           <Tag className="!absolute !top-2 !left-2 z-1 !m-0" color="#000000b3">
             {year}
