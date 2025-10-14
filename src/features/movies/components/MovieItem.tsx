@@ -2,6 +2,7 @@ import type { Movie } from '@/entities/movie/types';
 import { Tag } from 'antd';
 import { type FC } from 'react';
 import { Link } from 'react-router-dom';
+import { LazyMovieImg } from '../ui';
 import { getFilmType } from '../utils';
 
 export const MovieItem: FC<Movie> = ({
@@ -26,11 +27,7 @@ export const MovieItem: FC<Movie> = ({
             {getFilmType(type)}
           </Tag>
         )}
-        <img
-          src={posterUrl}
-          alt={nameRu || nameOriginal}
-          className="absolute inset-0 w-full h-full object-cover rounded-lg"
-        />
+        <LazyMovieImg src={posterUrl} alt={nameRu || nameOriginal} />
       </Link>
       <div className="flex flex-col gap-2 flex-wrap">
         <h4 className="text-lg font-semibold line-clamp-2">

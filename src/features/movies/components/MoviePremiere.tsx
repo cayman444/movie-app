@@ -4,6 +4,7 @@ import { ClockCircleOutlined } from '@ant-design/icons';
 import { Tag } from 'antd';
 import type { FC } from 'react';
 import { Link } from 'react-router-dom';
+import { LazyMovieImg } from '../ui';
 
 export const MoviePremiere: FC<PremiereMovie> = ({
   premiereRu,
@@ -16,11 +17,7 @@ export const MoviePremiere: FC<PremiereMovie> = ({
   return (
     <li className="flex gap-4 items-center">
       <Link to={`/movies/${kinopoiskId}`} className="relative w-30 h-40">
-        <img
-          src={posterUrl}
-          alt={nameRu}
-          className="w-full h-full object-cover rounded-lg"
-        />
+        <LazyMovieImg src={posterUrl} alt={nameRu} />
       </Link>
       <Link
         to={`/movies/${kinopoiskId}`}
