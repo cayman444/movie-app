@@ -1,18 +1,27 @@
 import type { MovieDetails } from '@/entities/movie/types';
+import { LazyMovieImg } from '@/features/movies/ui';
 import clsx from 'clsx';
 import type { ComponentProps, FC } from 'react';
+import { MovieInfoSkeleton } from '../ui';
 import { MovieDetailsList } from './MovieDetailsList';
 import { MovieMetadata } from './MovieMetadata';
 
 interface MovieInfoProps extends ComponentProps<'div'> {
   movieInfo?: MovieDetails;
+  isLoading: boolean;
 }
 
-export const MovieInfo: FC<MovieInfoProps> = ({ movieInfo, className }) => {
+export const MovieInfo: FC<MovieInfoProps> = ({
+  movieInfo,
+  isLoading,
+  className,
+}) => {
+  if (isLoading) return <MovieInfoSkeleton />;
+
   return (
     <div className={clsx(className, 'grid grid-cols-[20%_1fr] gap-8')}>
       <div className="relative pt-[150%] self-start">
-        <img
+        <LazyMovieImg
           src={movieInfo?.posterUrl}
           alt={movieInfo?.nameEn}
           className="absolute inset-0 w-full h-full rounded-lg"

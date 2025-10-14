@@ -45,7 +45,7 @@ export const Movie = () => {
         playersInfo={playersInfo}
         selectedPlayerIndex={selectedPlayerIndex}
       />
-      <MovieInfo movieInfo={movieInfo} />
+      <MovieInfo movieInfo={movieInfo} isLoading={movieInfoLoading} />
       <div ref={refSequelsPrequels}>
         {sequelsPrequelsLoading ? (
           <VisibleMoviesSkeleton className="mt-10 mb-10" />

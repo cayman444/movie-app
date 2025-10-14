@@ -7,7 +7,7 @@ export const VisibleMoviesSkeleton: FC<ComponentProps<'div'>> = ({
 }) => {
   return (
     <div className={clsx('flex flex-col gap-6', className)}>
-      <Skeleton.Node active className="!h-10 !w-40" />
+      <Skeleton.Node active className="!h-10 !w-50 !rounded-lg" />
       <div className="grid grid-cols-6 gap-4">
         {Array.from({ length: 6 }).map((_, index) => (
           <div key={index} className="flex flex-col gap-4 h-full">
