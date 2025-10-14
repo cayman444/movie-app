@@ -18,6 +18,7 @@ export const Movie = () => {
     selectedPlayerIndex,
     sequelsPrequelsLoading,
     similarMoviesLoading,
+    movieInfoLoading,
     refSequelsPrequels,
     refSimilarMovies,
     onChangeSelectedPlayerIndex,
@@ -29,7 +30,11 @@ export const Movie = () => {
         movieName={movieInfo?.nameRu || movieInfo?.nameEn}
         className="!mb-8"
       />
-      <MovieLogo logoUrl={movieInfo?.logoUrl} nameRu={movieInfo?.nameRu} />
+      <MovieLogo
+        isLoading={movieInfoLoading}
+        logoUrl={movieInfo?.logoUrl}
+        nameRu={movieInfo?.nameRu}
+      />
       <PlayersInfoSelect
         playersInfo={playersInfo}
         playersInfoLoading={playersInfoLoading}
