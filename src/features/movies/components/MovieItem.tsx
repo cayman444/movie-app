@@ -37,7 +37,11 @@ export const MovieItem: FC<Movie> = ({
       </Link>
       <div className="flex flex-col gap-2 flex-wrap">
         <h4 className="text-lg font-semibold line-clamp-2">
-          <Link to={`/movies/${kinopoiskId}`} className="!text-white">
+          <Link
+            to={`/movies/${kinopoiskId}`}
+            state={pathname}
+            className="!text-white"
+          >
             {nameRu || nameOriginal}
           </Link>
         </h4>

@@ -3,7 +3,7 @@ import { formatMovieTime } from '@/shared/utils';
 import { ClockCircleOutlined } from '@ant-design/icons';
 import { Tag } from 'antd';
 import type { FC } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { LazyMovieImg } from '../ui';
 
 export const MoviePremiere: FC<PremiereMovie> = ({
@@ -14,9 +14,15 @@ export const MoviePremiere: FC<PremiereMovie> = ({
   genres,
   kinopoiskId,
 }) => {
+  const { pathname } = useLocation();
+
   return (
     <li className="flex gap-4 items-center">
-      <Link to={`/movies/${kinopoiskId}`} className="relative w-30 h-40">
+      <Link
+        to={`/movies/${kinopoiskId}`}
+        state={pathname}
+        className="relative w-30 h-40"
+      >
         <LazyMovieImg src={posterUrl} alt={nameRu} />
       </Link>
       <Link
