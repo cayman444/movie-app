@@ -1,5 +1,5 @@
 import { useGetPlayerQuery } from '@/shared/api/endpoints';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 
 export const usePlayersInfo = (movieId: string) => {
   const [selectedPlayerIndex, setSelectedPlayerIndex] = useState(0);
@@ -11,10 +11,13 @@ export const usePlayersInfo = (movieId: string) => {
     setSelectedPlayerIndex(+value);
   };
 
-  return {
-    selectedPlayerIndex,
-    playersInfo,
-    playersInfoLoading,
-    onChangeSelectedPlayerIndex,
-  };
+  return useMemo(
+    () => ({
+      selectedPlayerIndex,
+      playersInfo,
+      playersInfoLoading,
+      onChangeSelectedPlayerIndex,
+    }),
+    [playersInfo, playersInfoLoading, selectedPlayerIndex]
+  );
 };

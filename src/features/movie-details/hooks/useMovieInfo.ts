@@ -22,11 +22,14 @@ export const useMovieInfo = (movieId: string) => {
     [staffInfo]
   );
 
-  return {
-    movieInfo,
-    actorsInfo,
-    directorsInfo,
-    movieInfoLoading,
-    staffInfoLoading,
-  };
+  return useMemo(
+    () => ({
+      movieInfo,
+      actorsInfo,
+      directorsInfo,
+      movieInfoLoading,
+      staffInfoLoading,
+    }),
+    [actorsInfo, directorsInfo, movieInfo, movieInfoLoading, staffInfoLoading]
+  );
 };

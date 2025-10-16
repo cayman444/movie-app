@@ -2,7 +2,7 @@ import {
   useLazyGetSequelsPrequelsQuery,
   useLazyGetSimilarMoviesQuery,
 } from '@/shared/api/endpoints';
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useInView } from 'react-intersection-observer';
 
 export const useRelatedMovies = (movieId: string) => {
@@ -38,12 +38,22 @@ export const useRelatedMovies = (movieId: string) => {
     }
   }, [fetchSimilarMovies, inViewSimilarMovies, movieId]);
 
-  return {
-    sequelsPrequels,
-    similarMovies,
-    refSequelsPrequels,
-    refSimilarMovies,
-    sequelsPrequelsLoading,
-    similarMoviesLoading,
-  };
+  return useMemo(
+    () => ({
+      sequelsPrequels,
+      similarMovies,
+      refSequelsPrequels,
+      refSimilarMovies,
+      sequelsPrequelsLoading,
+      similarMoviesLoading,
+    }),
+    [
+      refSequelsPrequels,
+      refSimilarMovies,
+      sequelsPrequels,
+      sequelsPrequelsLoading,
+      similarMovies,
+      similarMoviesLoading,
+    ]
+  );
 };
