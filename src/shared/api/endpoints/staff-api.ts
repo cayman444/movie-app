@@ -1,4 +1,4 @@
-import type { StaffInfoList } from '@/entities/staff/staff';
+import type { StaffInfoList } from '@/entities/staff/types/staff';
 import { BASE_URL } from '@/shared/constants';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 

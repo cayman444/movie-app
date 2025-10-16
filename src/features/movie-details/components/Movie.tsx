@@ -13,12 +13,14 @@ export const Movie = () => {
     movieInfo,
     sequelsPrequels,
     similarMovies,
-    staffInfo,
+    actorsInfo,
+    directorsInfo,
     playersInfoLoading,
     selectedPlayerIndex,
     sequelsPrequelsLoading,
     similarMoviesLoading,
     movieInfoLoading,
+    staffInfoLoading,
     refSequelsPrequels,
     refSimilarMovies,
     onChangeSelectedPlayerIndex,
@@ -48,8 +50,10 @@ export const Movie = () => {
       />
       <MovieInfo
         movieInfo={movieInfo}
-        staffInfo={staffInfo}
-        isLoading={movieInfoLoading}
+        actorsInfo={actorsInfo}
+        directorsInfo={directorsInfo}
+        movieInfoLoading={movieInfoLoading}
+        staffInfoLoading={staffInfoLoading}
       />
       <RelatedMovies
         movies={sequelsPrequels}

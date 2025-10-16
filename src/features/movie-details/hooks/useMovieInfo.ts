@@ -1,4 +1,5 @@
 import { useGetMovieQuery, useGetStaffQuery } from '@/shared/api/endpoints';
+import { useMemo } from 'react';
 
 export const useMovieInfo = (movieId: string) => {
   const { data: movieInfo, isFetching: movieInfoLoading } = useGetMovieQuery(
@@ -11,5 +12,21 @@ export const useMovieInfo = (movieId: string) => {
     { skip: !movieId }
   );
 
-  return { movieInfo, staffInfo, movieInfoLoading, staffInfoLoading };
+  const actorsInfo = useMemo(
+    () => staffInfo?.filter((staff) => staff.professionKey === 'ACTOR'),
+    [staffInfo]
+  );
+
+  const directorsInfo = useMemo(
+    () => staffInfo?.filter((staff) => staff.professionKey === 'DIRECTOR'),
+    [staffInfo]
+  );
+
+  return {
+    movieInfo,
+    actorsInfo,
+    directorsInfo,
+    movieInfoLoading,
+    staffInfoLoading,
+  };
 };

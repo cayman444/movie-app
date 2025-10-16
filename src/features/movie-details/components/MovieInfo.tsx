@@ -1,24 +1,29 @@
 import type { MovieDetails } from '@/entities/movie/types';
-import type { StaffInfoList } from '@/entities/staff/staff';
+import type { StaffInfoList } from '@/entities/staff/types';
 import { LazyMovieImg } from '@/features/movies/ui';
 import clsx from 'clsx';
-import type { ComponentProps, FC } from 'react';
+import { type ComponentProps, type FC } from 'react';
 import { MovieInfoSkeleton } from '../ui';
 import { MovieDetailsList } from './MovieDetailsList';
 import { MovieMetadata } from './MovieMetadata';
 
 interface MovieInfoProps extends ComponentProps<'div'> {
   movieInfo?: MovieDetails;
-  staffInfo?: StaffInfoList;
-  isLoading: boolean;
+  actorsInfo?: StaffInfoList;
+  directorsInfo?: StaffInfoList;
+  movieInfoLoading: boolean;
+  staffInfoLoading: boolean;
 }
 
 export const MovieInfo: FC<MovieInfoProps> = ({
   movieInfo,
-  isLoading,
+  actorsInfo,
+  directorsInfo,
+  movieInfoLoading,
+  staffInfoLoading,
   className,
 }) => {
-  if (isLoading) return <MovieInfoSkeleton />;
+  if (movieInfoLoading || staffInfoLoading) return <MovieInfoSkeleton />;
 
   return (
     <div className={clsx(className, 'grid grid-cols-[20%_1fr] gap-8')}>
@@ -46,6 +51,8 @@ export const MovieInfo: FC<MovieInfoProps> = ({
           slogan={movieInfo?.slogan}
           type={movieInfo?.type}
           year={movieInfo?.year}
+          actors={actorsInfo}
+          directors={directorsInfo}
         />
       </div>
     </div>

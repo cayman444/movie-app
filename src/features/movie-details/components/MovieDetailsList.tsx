@@ -1,8 +1,9 @@
 import type { MovieCountry, MovieGenre } from '@/entities/movie/types';
+import type { StaffInfoList } from '@/entities/staff/types';
 import { getFilmType } from '@/features/movies/utils';
 import type { TypeMovies } from '@/shared/api/types';
 import { Tag } from 'antd';
-import type { FC } from 'react';
+import { type FC, useMemo } from 'react';
 import { getAgeRating } from '../utils';
 
 interface MovieDetailsListProps {
@@ -13,6 +14,8 @@ interface MovieDetailsListProps {
   nameOriginal?: string;
   slogan?: string;
   ratingAgeLimits?: string;
+  actors?: StaffInfoList;
+  directors?: StaffInfoList;
 }
 
 export const MovieDetailsList: FC<MovieDetailsListProps> = ({
@@ -23,8 +26,17 @@ export const MovieDetailsList: FC<MovieDetailsListProps> = ({
   ratingAgeLimits,
   slogan,
   year,
+  actors,
+  directors,
 }) => {
   const movieType = getFilmType(type);
+
+  const actorsNames = useMemo(() => {
+    return actors
+      ?.slice(0, 3)
+      .map((actor) => actor.nameRu)
+      .join(', ');
+  }, [actors]);
 
   return (
     <ul className="flex flex-col gap-1 [&_h4]:font-bold">
@@ -58,6 +70,20 @@ export const MovieDetailsList: FC<MovieDetailsListProps> = ({
           <div>{slogan}</div>
         </li>
       )}
+      <li className="flex gap-2">
+        <h4>Режиссёр:</h4>
+        <a
+          target="_blank"
+          href={`https://www.kinopoisk.ru/name/${directors?.[0].staffId}`}
+          rel="noreferrer"
+        >
+          {directors?.[0].nameRu}
+        </a>
+      </li>
+      <li className="flex gap-2">
+        <h4>В главных ролях:</h4>
+        <div>{actorsNames}</div>
+      </li>
       <li className="flex items-center gap-2">
         <h4>Возраст:</h4>
         <Tag className="!m-0 !font-medium !text-lg !bg-transparent !text-white !border-neutral-600">
