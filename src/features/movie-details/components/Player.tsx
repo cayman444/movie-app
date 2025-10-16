@@ -5,22 +5,24 @@ import { PlayerSkeleton } from '../ui';
 interface PlayerProps {
   playersInfo?: PlayersInfo;
   selectedPlayerIndex: number;
+  isLoading: boolean;
 }
 
 export const Player: FC<PlayerProps> = ({
   playersInfo,
+  isLoading,
   selectedPlayerIndex,
 }) => {
   return (
     <div className="relative pt-[50%] mb-6">
-      {playersInfo ? (
+      {isLoading ? (
+        <PlayerSkeleton />
+      ) : (
         <iframe
           src={playersInfo?.[selectedPlayerIndex].iframe}
           allowFullScreen
           className="absolute inset-0 w-full h-full"
         />
-      ) : (
-        <PlayerSkeleton />
       )}
     </div>
   );

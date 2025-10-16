@@ -2,7 +2,7 @@ import { Skeleton } from 'antd';
 import clsx from 'clsx';
 import type { ComponentProps, FC } from 'react';
 
-export const VisibleMoviesSkeleton: FC<ComponentProps<'div'>> = ({
+export const RelatedMoviesSkeleton: FC<ComponentProps<'div'>> = ({
   className,
 }) => {
   return (

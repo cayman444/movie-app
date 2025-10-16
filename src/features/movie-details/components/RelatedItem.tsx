@@ -3,7 +3,7 @@ import { LazyMovieImg } from '@/features/movies/ui';
 import { type FC } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
-export const VisibleItem: FC<VisibleMovie> = ({
+export const RelatedItem: FC<VisibleMovie> = ({
   filmId,
   nameRu,
   posterUrl,

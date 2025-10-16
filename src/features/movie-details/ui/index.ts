@@ -1,5 +1,5 @@
 export { PlayersInfoSkeleton } from './PlayersInfoSkeleton';
 export { PlayerSkeleton } from './PlayerSkeleton';
-export { VisibleItemsButton } from './VisibleItemsButton';
-export { VisibleMoviesSkeleton } from './VisibleMoviesSkeleton';
+export { RelatedItemsButton } from './RelatedItemsButton';
+export { RelatedMoviesSkeleton } from './RelatedMoviesSkeleton';
 export { MovieInfoSkeleton } from './MovieInfoSkeleton';

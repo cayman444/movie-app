@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export const useVisibleItems = <T>(items: T[]) => {
+export const useRelatedItems = <T>(items: T[]) => {
   const [isVisibleAll, setIsVisibleAll] = useState(false);
 
   const visibleItems = isVisibleAll ? items : items.slice(0, 6);

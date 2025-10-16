@@ -1,12 +1,12 @@
 import type { FC } from 'react';
 
-interface VisibleItemsButtonProps {
+interface RelatedItemsButtonProps {
   handleChangeVisible: () => void;
   isVisibleAll: boolean;
   hiddenCount: number;
 }
 
-export const VisibleItemsButton: FC<VisibleItemsButtonProps> = ({
+export const RelatedItemsButton: FC<RelatedItemsButtonProps> = ({
   hiddenCount,
   isVisibleAll,
   handleChangeVisible,

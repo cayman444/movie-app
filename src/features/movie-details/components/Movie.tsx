@@ -1,12 +1,11 @@
 import { Container } from '@/app/layouts';
 import { BreadcrumbPaths } from '@/widgets/breadcrumbs';
 import { useMovieDetails } from '../hooks';
-import { VisibleMoviesSkeleton } from '../ui';
 import { MovieInfo } from './MovieInfo';
 import { MovieLogo } from './MovieLogo';
 import { Player } from './Player';
 import { PlayersInfoSelect } from './PlayersInfoSelect';
-import { VisibleMovies } from './VisibleMovies';
+import { RelatedMovies } from './RelatedMovies';
 
 export const Movie = () => {
   const {
@@ -44,6 +43,7 @@ export const Movie = () => {
       />
       <Player
         playersInfo={playersInfo}
+        isLoading={playersInfoLoading}
         selectedPlayerIndex={selectedPlayerIndex}
       />
       <MovieInfo
@@ -51,32 +51,20 @@ export const Movie = () => {
         staffInfo={staffInfo}
         isLoading={movieInfoLoading}
       />
-      <div ref={refSequelsPrequels}>
-        {sequelsPrequelsLoading ? (
-          <VisibleMoviesSkeleton className="mt-10 mb-10" />
-        ) : (
-          sequelsPrequels && (
-            <VisibleMovies
-              movies={sequelsPrequels}
-              title="Сиквелы и приквелы"
-              className="mt-10 mb-10"
-            />
-          )
-        )}
-      </div>
-      <div ref={refSimilarMovies}>
-        {similarMoviesLoading ? (
-          <VisibleMoviesSkeleton className="mt-10" />
-        ) : (
-          similarMovies && (
-            <VisibleMovies
-              movies={similarMovies.items}
-              title="Похожие"
-              className="mt-10"
-            />
-          )
-        )}
-      </div>
+      <RelatedMovies
+        movies={sequelsPrequels}
+        title="Сиквелы и приквелы"
+        isLoading={sequelsPrequelsLoading}
+        ref={refSequelsPrequels}
+        className="mt-10 mb-10"
+      />
+      <RelatedMovies
+        movies={similarMovies?.items}
+        title="Похожие"
+        isLoading={similarMoviesLoading}
+        ref={refSimilarMovies}
+        className="mt-10"
+      />
     </Container>
   );
 };
