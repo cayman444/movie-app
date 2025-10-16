@@ -4,6 +4,7 @@ import {
   useLazyGetSequelsPrequelsQuery,
   useLazyGetSimilarMoviesQuery,
 } from '@/shared/api/endpoints';
+import { useGetStaffQuery } from '@/shared/api/endpoints/staff-api';
 import { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { useParams } from 'react-router-dom';
@@ -46,6 +47,11 @@ export const useMovieDetails = () => {
     setSelectedPlayerIndex(+value);
   };
 
+  const { data: staffInfo } = useGetStaffQuery(
+    { id: +movieId },
+    { skip: !movieId }
+  );
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [id]);
@@ -68,6 +74,7 @@ export const useMovieDetails = () => {
     movieInfo,
     sequelsPrequels,
     similarMovies,
+    staffInfo,
     playersInfoLoading,
     movieInfoLoading,
     sequelsPrequelsLoading,

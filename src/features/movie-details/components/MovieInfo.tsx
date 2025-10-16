@@ -1,4 +1,5 @@
 import type { MovieDetails } from '@/entities/movie/types';
+import type { StaffInfoList } from '@/entities/staff/staff';
 import { LazyMovieImg } from '@/features/movies/ui';
 import clsx from 'clsx';
 import type { ComponentProps, FC } from 'react';
@@ -8,6 +9,7 @@ import { MovieMetadata } from './MovieMetadata';
 
 interface MovieInfoProps extends ComponentProps<'div'> {
   movieInfo?: MovieDetails;
+  staffInfo?: StaffInfoList;
   isLoading: boolean;
 }
 
