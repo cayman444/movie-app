@@ -1,5 +1,5 @@
 import type { PlayersInfo } from '@/entities/player/types';
-import type { FC } from 'react';
+import { memo } from 'react';
 import { PlayerSkeleton } from '../ui';
 
 interface PlayerProps {
@@ -8,11 +8,11 @@ interface PlayerProps {
   isLoading: boolean;
 }
 
-export const Player: FC<PlayerProps> = ({
+export const Player = memo(function Player({
   playersInfo,
   isLoading,
   selectedPlayerIndex,
-}) => {
+}: PlayerProps) {
   return (
     <div className="relative pt-[50%] mb-6">
       {isLoading ? (
@@ -26,4 +26,4 @@ export const Player: FC<PlayerProps> = ({
       )}
     </div>
   );
-};
+});

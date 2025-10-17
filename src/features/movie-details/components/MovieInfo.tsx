@@ -2,7 +2,7 @@ import type { MovieDetails } from '@/entities/movie/types';
 import type { StaffInfoList } from '@/entities/staff/types';
 import { LazyMovieImg } from '@/features/movies/ui';
 import clsx from 'clsx';
-import { type ComponentProps, type FC } from 'react';
+import { type ComponentProps, memo } from 'react';
 import { MovieInfoSkeleton } from '../ui';
 import { MovieDetailsList } from './MovieDetailsList';
 import { MovieMetadata } from './MovieMetadata';
@@ -15,14 +15,14 @@ interface MovieInfoProps extends ComponentProps<'div'> {
   staffInfoLoading: boolean;
 }
 
-export const MovieInfo: FC<MovieInfoProps> = ({
+export const MovieInfo = memo(function MovieInfo({
   movieInfo,
   actorsInfo,
   directorsInfo,
   movieInfoLoading,
   staffInfoLoading,
   className,
-}) => {
+}: MovieInfoProps) {
   if (movieInfoLoading || staffInfoLoading) return <MovieInfoSkeleton />;
 
   return (
@@ -57,4 +57,4 @@ export const MovieInfo: FC<MovieInfoProps> = ({
       </div>
     </div>
   );
-};
+});

@@ -1,6 +1,6 @@
 import type { VisibleMoviesList } from '@/entities/movie/types';
 import clsx from 'clsx';
-import type { ComponentProps, FC } from 'react';
+import { type ComponentProps, memo } from 'react';
 import { useRelatedItems } from '../hooks';
 import { RelatedItemsButton, RelatedMoviesSkeleton } from '../ui';
 import { RelatedItem } from './RelatedItem';
@@ -12,13 +12,13 @@ interface RelatedMoviesParams extends ComponentProps<'div'> {
   ref: (node?: Element | null) => void;
 }
 
-export const RelatedMovies: FC<RelatedMoviesParams> = ({
+export const RelatedMovies = memo(function RelatedMovies({
   movies,
   title,
   isLoading,
   className,
   ref,
-}) => {
+}: RelatedMoviesParams) {
   const { isVisibleAll, visibleItems, hiddenCount, handleChangeVisible } =
     useRelatedItems(movies ?? []);
 
@@ -49,4 +49,4 @@ export const RelatedMovies: FC<RelatedMoviesParams> = ({
       )}
     </div>
   );
-};
+});

@@ -1,5 +1,5 @@
 import { Skeleton, Tooltip, notification } from 'antd';
-import type { FC } from 'react';
+import { memo } from 'react';
 import { copyText } from '../utils';
 
 interface MovieLogoProps {
@@ -8,11 +8,11 @@ interface MovieLogoProps {
   isLoading: boolean;
 }
 
-export const MovieLogo: FC<MovieLogoProps> = ({
+export const MovieLogo = memo(function MovieLogo({
   logoUrl,
   nameRu,
   isLoading,
-}) => {
+}: MovieLogoProps) {
   const [api, contextHolder] = notification.useNotification({
     maxCount: 1,
     duration: 1,
@@ -61,4 +61,4 @@ export const MovieLogo: FC<MovieLogoProps> = ({
       )}
     </div>
   );
-};
+});

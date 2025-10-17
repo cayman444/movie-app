@@ -3,17 +3,17 @@ import { HomeOutlined } from '@ant-design/icons';
 import { Breadcrumb } from 'antd';
 import type { ItemType } from 'antd/es/breadcrumb/Breadcrumb';
 import clsx from 'clsx';
-import type { ComponentProps, FC } from 'react';
+import { type ComponentProps, memo } from 'react';
 import { Link, useLocation, useMatch } from 'react-router-dom';
 
 interface BreadcrumbPathsProps extends ComponentProps<'nav'> {
   movieName?: string;
 }
 
-export const BreadcrumbPaths: FC<BreadcrumbPathsProps> = ({
+export const BreadcrumbPaths = memo(function BreadcrumbPaths({
   movieName,
   className,
-}) => {
+}: BreadcrumbPathsProps) {
   const location = useLocation();
   const matchMovieDetails = useMatch(MOVIES_ROUTES.DETAILS_MOVIE.path);
   const { pathname, state } = location;
@@ -64,4 +64,4 @@ export const BreadcrumbPaths: FC<BreadcrumbPathsProps> = ({
       ]}
     />
   );
-};
+});

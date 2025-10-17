@@ -1,7 +1,7 @@
 import type { PlayersInfo } from '@/entities/player/types';
 import { DownOutlined } from '@ant-design/icons';
 import { Select } from 'antd';
-import { type FC } from 'react';
+import { memo } from 'react';
 import { PlayersInfoSkeleton } from '../ui';
 
 interface PlayersInfoProps {
@@ -11,12 +11,12 @@ interface PlayersInfoProps {
   onChange: (value: string) => void;
 }
 
-export const PlayersInfoSelect: FC<PlayersInfoProps> = ({
+export const PlayersInfoSelect = memo(function PlayersInfoSelect({
   playersInfo,
   playersInfoLoading,
   selectedPlayerIndex,
   onChange,
-}) => {
+}: PlayersInfoProps) {
   return (
     <div className="flex items-center gap-2 mb-4 max-w-3xl mx-auto">
       <h2 className="font-medium">Плеер:</h2>
@@ -37,4 +37,4 @@ export const PlayersInfoSelect: FC<PlayersInfoProps> = ({
       )}
     </div>
   );
-};
+});
