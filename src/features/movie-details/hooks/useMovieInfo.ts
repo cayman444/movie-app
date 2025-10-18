@@ -12,24 +12,13 @@ export const useMovieInfo = (movieId: string) => {
     { skip: !movieId }
   );
 
-  const actorsInfo = useMemo(
-    () => staffInfo?.filter((staff) => staff.professionKey === 'ACTOR'),
-    [staffInfo]
-  );
-
-  const directorsInfo = useMemo(
-    () => staffInfo?.filter((staff) => staff.professionKey === 'DIRECTOR'),
-    [staffInfo]
-  );
-
   return useMemo(
     () => ({
       movieInfo,
-      actorsInfo,
-      directorsInfo,
+      staffInfo,
       movieInfoLoading,
       staffInfoLoading,
     }),
-    [actorsInfo, directorsInfo, movieInfo, movieInfoLoading, staffInfoLoading]
+    [movieInfo, movieInfoLoading, staffInfo, staffInfoLoading]
   );
 };

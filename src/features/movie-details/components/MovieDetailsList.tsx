@@ -1,12 +1,13 @@
 import type { MovieCountry, MovieGenre } from '@/entities/movie/types';
 import type { StaffInfoList } from '@/entities/staff/types';
-import { getFilmType } from '@/features/movies/utils';
 import type { TypeMovies } from '@/shared/api/types';
 import { Tag } from 'antd';
-import { type FC, useMemo } from 'react';
-import { getAgeRating } from '../utils';
+import { type FC } from 'react';
+import { useMovieDetailsList } from '../hooks';
+import { MovieDetailsItem } from './MovieDetailsItem';
+import { MovieDetailsLink } from './MovieDetailsLink';
 
-interface MovieDetailsListProps {
+export interface MovieDetailsListProps {
   type?: TypeMovies;
   year?: number;
   countries?: MovieCountry[];
@@ -14,82 +15,51 @@ interface MovieDetailsListProps {
   nameOriginal?: string;
   slogan?: string;
   ratingAgeLimits?: string;
-  actors?: StaffInfoList;
-  directors?: StaffInfoList;
+  staffInfo?: StaffInfoList;
 }
 
-export const MovieDetailsList: FC<MovieDetailsListProps> = ({
-  type,
-  countries,
-  genres,
-  nameOriginal,
-  ratingAgeLimits,
-  slogan,
-  year,
-  actors,
-  directors,
-}) => {
-  const movieType = getFilmType(type);
-
-  const actorsNames = useMemo(() => {
-    return actors
-      ?.slice(0, 3)
-      .map((actor) => actor.nameRu)
-      .join(', ');
-  }, [actors]);
+export const MovieDetailsList: FC<MovieDetailsListProps> = (props) => {
+  const {
+    movieType,
+    year,
+    countries,
+    genres,
+    nameOriginal,
+    slogan,
+    ratingAgeLimits,
+    actors,
+    directors,
+  } = useMovieDetailsList(props);
 
   return (
-    <ul className="flex flex-col gap-1 [&_h4]:font-bold">
-      <li className="flex gap-2">
-        <h4>Тип: </h4>
-        <div>
-          {movieType.slice(0, 1).concat(movieType.slice(1).toLowerCase())}
-        </div>
-      </li>
-      <li className="flex gap-2">
-        <h4>Год выпуска: </h4>
-        <div>{year}</div>
-      </li>
-      <li className="flex gap-2">
-        <h4>Страна:</h4>
-        {countries?.map(({ country }) => country).join(', ')}
-      </li>
-      <li className="flex gap-2">
-        <h4>Жанры: </h4>
-        {genres?.map(({ genre }) => genre).join(', ')}
-      </li>
+    <ul className="flex flex-col gap-1">
+      <MovieDetailsItem title="Тип:">{movieType}</MovieDetailsItem>
+      <MovieDetailsItem title="Год выпуска:">{year}</MovieDetailsItem>
+      <MovieDetailsItem title="Страна:">{countries}</MovieDetailsItem>
+      <MovieDetailsItem title="Жанры:">{genres}</MovieDetailsItem>
       {nameOriginal && (
-        <li className="flex gap-2">
-          <h4>Оригинальное название: </h4>
-          <div>{nameOriginal}</div>
-        </li>
+        <MovieDetailsItem title="Оригинальное название:">
+          {nameOriginal}
+        </MovieDetailsItem>
       )}
-      {slogan && (
-        <li className="flex gap-2">
-          <h4>Слоган: </h4>
-          <div>{slogan}</div>
-        </li>
-      )}
-      <li className="flex gap-2">
-        <h4>Режиссёр:</h4>
-        <a
-          target="_blank"
-          href={`https://www.kinopoisk.ru/name/${directors?.[0].staffId}`}
-          rel="noreferrer"
-        >
-          {directors?.[0].nameRu}
-        </a>
-      </li>
-      <li className="flex gap-2">
-        <h4>В главных ролях:</h4>
-        <div>{actorsNames}</div>
-      </li>
-      <li className="flex items-center gap-2">
-        <h4>Возраст:</h4>
+      {slogan && <MovieDetailsItem title="Слоган:">{slogan}</MovieDetailsItem>}
+      <MovieDetailsLink
+        title="Режиссёр:"
+        href={`https://www.kinopoisk.ru/name/${directors?.[0].staffId}`}
+      >
+        {directors?.[0].nameRu}
+      </MovieDetailsLink>
+      <MovieDetailsLink
+        title="В главных ролях:"
+        href={`https://www.kinopoisk.ru/name/${actors?.[0].staffId}`}
+      >
+        {actors?.[0].nameRu}
+      </MovieDetailsLink>
+      <MovieDetailsItem title="Возраст:" className="items-center">
         <Tag className="!m-0 !font-medium !text-lg !bg-transparent !text-white !border-neutral-600">
-          {getAgeRating(ratingAgeLimits)}
+          {ratingAgeLimits}
         </Tag>
-      </li>
+      </MovieDetailsItem>
     </ul>
   );
 };

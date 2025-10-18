@@ -9,16 +9,14 @@ import { MovieMetadata } from './MovieMetadata';
 
 interface MovieInfoProps extends ComponentProps<'div'> {
   movieInfo?: MovieDetails;
-  actorsInfo?: StaffInfoList;
-  directorsInfo?: StaffInfoList;
+  staffInfo?: StaffInfoList;
   movieInfoLoading: boolean;
   staffInfoLoading: boolean;
 }
 
 export const MovieInfo = memo(function MovieInfo({
   movieInfo,
-  actorsInfo,
-  directorsInfo,
+  staffInfo,
   movieInfoLoading,
   staffInfoLoading,
   className,
@@ -51,8 +49,7 @@ export const MovieInfo = memo(function MovieInfo({
           slogan={movieInfo?.slogan}
           type={movieInfo?.type}
           year={movieInfo?.year}
-          actors={actorsInfo}
-          directors={directorsInfo}
+          staffInfo={staffInfo}
         />
       </div>
     </div>
