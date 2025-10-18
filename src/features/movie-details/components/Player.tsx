@@ -21,7 +21,7 @@ export const Player = memo(function Player({
         <iframe
           src={playersInfo?.[selectedPlayerIndex].iframe}
           allowFullScreen
-          className="absolute inset-0 w-full h-full"
+          className="absolute inset-0 w-full h-full rounded-lg"
         />
       )}
     </div>
