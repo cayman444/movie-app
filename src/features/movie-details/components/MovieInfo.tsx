@@ -32,7 +32,7 @@ export const MovieInfo = memo(function MovieInfo({
           className="absolute inset-0 w-full h-full rounded-lg"
         />
       </div>
-      <div>
+      <div className="max-w-3xl overflow-hidden">
         <h2 className="font-bold text-4xl mb-10">{movieInfo?.nameRu}</h2>
         <MovieMetadata
           genres={movieInfo?.genres}
@@ -50,6 +50,7 @@ export const MovieInfo = memo(function MovieInfo({
           type={movieInfo?.type}
           year={movieInfo?.year}
           staffInfo={staffInfo}
+          movieId={movieInfo?.kinopoiskId}
         />
       </div>
     </div>

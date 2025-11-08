@@ -5,7 +5,7 @@ import { Tag } from 'antd';
 import { type FC } from 'react';
 import { useMovieDetailsList } from '../hooks';
 import { MovieDetailsItem } from './MovieDetailsItem';
-import { MovieDetailsLink } from './MovieDetailsLink';
+import { MovieDetailsStaff } from './MovieDetailsStaff';
 
 export interface MovieDetailsListProps {
   type?: TypeMovies;
@@ -16,6 +16,7 @@ export interface MovieDetailsListProps {
   slogan?: string;
   ratingAgeLimits?: string;
   staffInfo?: StaffInfoList;
+  movieId?: number;
 }
 
 export const MovieDetailsList: FC<MovieDetailsListProps> = (props) => {
@@ -43,18 +44,18 @@ export const MovieDetailsList: FC<MovieDetailsListProps> = (props) => {
         </MovieDetailsItem>
       )}
       {slogan && <MovieDetailsItem title="Слоган:">{slogan}</MovieDetailsItem>}
-      <MovieDetailsLink
+      <MovieDetailsStaff
         title="Режиссёр:"
-        href={`https://www.kinopoisk.ru/name/${directors?.[0].staffId}`}
-      >
-        {directors?.[0].nameRu}
-      </MovieDetailsLink>
-      <MovieDetailsLink
+        profession="DIRECTOR"
+        staff={directors}
+        movieId={props.movieId}
+      />
+      <MovieDetailsStaff
         title="В главных ролях:"
-        href={`https://www.kinopoisk.ru/name/${actors?.[0].staffId}`}
-      >
-        {actors?.[0].nameRu}
-      </MovieDetailsLink>
+        profession="ACTOR"
+        staff={actors}
+        movieId={props.movieId}
+      />
       <MovieDetailsItem title="Возраст:" className="items-center">
         <Tag className="!m-0 !font-medium !text-lg !bg-transparent !text-white !border-neutral-600">
           {ratingAgeLimits}
