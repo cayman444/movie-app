@@ -39,6 +39,7 @@ export const MoviesList: FC<MovieLinkWithoutPath> = ({ title, movieType }) => {
             onChange={onChangePage}
             total={movies?.total}
             pageSize={PAGE_SIZE}
+            showTitle={false}
           />
         </>
       )}

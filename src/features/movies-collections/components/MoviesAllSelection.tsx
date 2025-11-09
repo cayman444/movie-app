@@ -33,6 +33,7 @@ export const MoviesAllSelection: FC<MoviesSelection> = ({ title, type }) => {
             onChange={onChangePage}
             total={selectionMovies?.total}
             pageSize={PAGE_SIZE}
+            showTitle={false}
           />
         </>
       )}
