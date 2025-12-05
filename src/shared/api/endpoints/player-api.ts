@@ -1,7 +1,7 @@
 import type { PlayersInfo } from '@/entities/player/types';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-const BASE_URL = 'https://api4.rhhhhhhh.live/';
+const BASE_URL = 'https://api4.rhserv.vu/';
 
 export const playerApi = createApi({
   reducerPath: 'playerApi',
