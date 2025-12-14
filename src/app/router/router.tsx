@@ -25,6 +25,9 @@ export const router = createBrowserRouter([
       {
         path: MOVIES_ROUTES.DETAILS_MOVIE.path,
         element: <MovieDetails />,
+        loader: () => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        },
       },
       ...MOVIES_LIST_COLLECTIONS.map(({ path, ...params }) => ({
         path,
