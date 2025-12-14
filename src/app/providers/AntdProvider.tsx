@@ -7,7 +7,7 @@ const themeConfig: ThemeConfig = {
   },
   components: {
     Spin: {
-      colorBgMask: '#ffffff',
+      colorBgMask: 'oklch(26.9% 0 0)',
       colorTextLightSolid: '#1677ff',
       colorWhite: '#1677ff',
     },
@@ -71,6 +71,10 @@ const themeConfig: ThemeConfig = {
       colorTextHeading: '#ffffff',
       colorIcon: '#ffffff',
       colorIconHover: '#ffffff',
+    },
+    Result: {
+      colorTextDescription: '#ffffff',
+      colorTextHeading: '#ffffff',
     },
   },
 };

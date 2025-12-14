@@ -21,7 +21,7 @@ export const MoviesPremieres = () => {
             <MoviesPremieresSkeleton />
           ) : (
             premieresMovies?.items
-              .slice(14, 18)
+              .slice(0, 4)
               .map((movie) => (
                 <MoviePremiere key={movie.kinopoiskId} {...movie} />
               ))

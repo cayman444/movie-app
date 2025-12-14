@@ -9,10 +9,10 @@ const NotFound = () => {
       <Result
         status="404"
         title="404"
-        subTitle="Sorry, the page you visited does not exist."
+        subTitle="Страница, которую вы посетили, не существует"
         extra={
           <Button type="primary" onClick={() => navigate('/')}>
-            Back Home
+            Вернуться на главную
           </Button>
         }
       />
