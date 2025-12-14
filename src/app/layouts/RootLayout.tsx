@@ -9,7 +9,6 @@ export const RootLayout = () => {
       <SuspenseLoader>
         <Outlet />
       </SuspenseLoader>
-      <footer>footer</footer>
     </>
   );
 };

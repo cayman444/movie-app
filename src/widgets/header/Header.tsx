@@ -14,7 +14,7 @@ export const Header = () => {
           <Input
             name="search-movie"
             className={'max-w-104'}
-            placeholder="Search movies..."
+            placeholder="Искать фильмы..."
             suffix={<SearchOutlined style={{ fontSize: 18 }} />}
           />
           <ul className="flex items-center gap-4 font-semibold [&>li]:cursor-pointer [&>li]:transition-colors [&>li]:hover:text-neutral-400">
