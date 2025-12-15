@@ -3,21 +3,32 @@ import { MovieSelect, MoviesListSkeleton } from '@/features/movies/ui';
 import { getYearsOptions } from '@/features/movies/utils';
 import { useGetPremieresMoviesQuery } from '@/shared/api/endpoints';
 import type { PremieresMovieMonth } from '@/shared/api/types';
+import { useAppDispatch, useAppSelector } from '@/shared/store/store-hooks';
 import { BreadcrumbPaths } from '@/widgets/breadcrumbs';
-import { useState } from 'react';
+import { setMonth, setYear } from '../model/premieres-slice';
 import { getPremieresMonthOptions } from '../utils';
 import { MoviePremiereDetails } from './MoviePremiereDetails';
 
 export const MoviesPremieresDetails = () => {
-  const [month, setMonth] = useState<PremieresMovieMonth | undefined>(
-    'DECEMBER'
-  );
-  const [year, setYear] = useState<number | undefined>(2025);
+  const { month, year } = useAppSelector((state) => state.premieres);
+  const dispatch = useAppDispatch();
 
   const { data, isFetching } = useGetPremieresMoviesQuery({
-    month: month ?? 'DECEMBER',
-    year: year ?? 2025,
+    month,
+    year,
   });
+
+  const handleChangeMonth = (value?: PremieresMovieMonth) => {
+    if (value) {
+      dispatch(setMonth(value));
+    }
+  };
+
+  const handleChangeYear = (value?: number) => {
+    if (value) {
+      dispatch(setYear(value));
+    }
+  };
 
   return (
     <Container>
@@ -30,7 +41,7 @@ export const MoviesPremieresDetails = () => {
           defaultValue={month}
           options={getPremieresMonthOptions()}
           allowClear={false}
-          onChange={(value) => setMonth(value)}
+          onChange={handleChangeMonth}
         />
         <MovieSelect
           isFetching={isFetching}
@@ -38,7 +49,7 @@ export const MoviesPremieresDetails = () => {
           defaultValue={year}
           options={getYearsOptions()}
           allowClear={false}
-          onChange={(value) => setYear(value)}
+          onChange={handleChangeYear}
         />
       </div>
       {isFetching ? (

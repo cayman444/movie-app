@@ -1,31 +1,26 @@
+import type { PremieresMovieMonth } from '@/shared/api/types';
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
+import type { PremieresState } from './premieres-types';
 
-interface CounterState {
-  value: number;
-}
-
-const initialState: CounterState = {
-  value: 0,
+const initialState: PremieresState = {
+  month: 'DECEMBER',
+  year: 2025,
 };
 
 export const premieresSlice = createSlice({
   name: 'premieres',
   initialState,
   reducers: {
-    increment: (state) => {
-      state.value += 1;
+    setMonth: (state, { payload }: PayloadAction<PremieresMovieMonth>) => {
+      state.month = payload;
     },
-    decrement: (state) => {
-      state.value -= 1;
-    },
-    incrementByAmount: (state, action: PayloadAction<number>) => {
-      state.value += action.payload;
+    setYear: (state, { payload }: PayloadAction<number>) => {
+      state.year = payload;
     },
   },
 });
 
-export const { increment, decrement, incrementByAmount } =
-  premieresSlice.actions;
+export const { setMonth, setYear } = premieresSlice.actions;
 
 export default premieresSlice.reducer;
