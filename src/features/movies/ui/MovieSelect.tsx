@@ -7,6 +7,7 @@ interface MovieSelectProps<T> {
   defaultValue?: T;
   isFetching: boolean;
   options?: { label: string | number; value: string | number }[];
+  allowClear?: boolean;
 }
 
 export const MovieSelect = <T,>({
@@ -14,6 +15,7 @@ export const MovieSelect = <T,>({
   defaultValue,
   placeholder,
   isFetching,
+  allowClear = true,
   onChange,
 }: MovieSelectProps<T>) => {
   return (
@@ -22,7 +24,7 @@ export const MovieSelect = <T,>({
       placeholder={placeholder}
       onChange={onChange}
       defaultValue={defaultValue}
-      allowClear
+      allowClear={allowClear}
       style={{ width: 200 }}
       loading={isFetching}
       options={options}
