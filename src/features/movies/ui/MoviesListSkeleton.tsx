@@ -1,6 +1,13 @@
 import { Skeleton } from 'antd';
+import type { FC } from 'react';
 
-export const MoviesListSkeleton = () => {
+interface MoviesListSkeletonProps {
+  hasPagination?: boolean;
+}
+
+export const MoviesListSkeleton: FC<MoviesListSkeletonProps> = ({
+  hasPagination = true,
+}) => {
   return (
     <>
       <div className="grid grid-cols-5 gap-x-4 gap-y-8 mb-12">
@@ -16,9 +23,11 @@ export const MoviesListSkeleton = () => {
           </div>
         ))}
       </div>
-      <div className="flex justify-center">
-        <Skeleton.Node active className="!w-xs !h-10" />
-      </div>
+      {hasPagination && (
+        <div className="flex justify-center">
+          <Skeleton.Node active className="!w-xs !h-10" />
+        </div>
+      )}
     </>
   );
 };
