@@ -12,6 +12,7 @@ const Home = lazy(() => import('@/pages/Home'));
 const Movies = lazy(() => import('@/pages/Movies'));
 const MoviesSelection = lazy(() => import('@/pages/MoviesSelection'));
 const MovieDetails = lazy(() => import('@/pages/MovieDetails'));
+const MoviePremiere = lazy(() => import('@/pages/MoviePremiere'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 export const router = createBrowserRouter([
@@ -25,6 +26,13 @@ export const router = createBrowserRouter([
       {
         path: MOVIES_ROUTES.DETAILS_MOVIE.path,
         element: <MovieDetails />,
+        loader: () => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        },
+      },
+      {
+        path: MOVIES_ROUTES.PREMIERES.path,
+        element: <MoviePremiere />,
         loader: () => {
           window.scrollTo({ top: 0, behavior: 'smooth' });
         },

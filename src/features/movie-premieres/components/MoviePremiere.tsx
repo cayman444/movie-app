@@ -1,10 +1,10 @@
 import type { PremiereMovie } from '@/entities/movie/types';
+import { LazyMovieImg } from '@/features/movies/ui';
 import { formatMovieTime } from '@/shared/utils';
 import { ClockCircleOutlined } from '@ant-design/icons';
 import { Tag } from 'antd';
 import type { FC } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { LazyMovieImg } from '../ui';
 
 export const MoviePremiere: FC<PremiereMovie> = ({
   premiereRu,

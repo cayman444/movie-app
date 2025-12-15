@@ -1,5 +1,6 @@
+import { MoviesPremieres } from '@/features/movie-premieres/components';
 import { MoviesAllCollections } from '@/features/movies-collections/components';
-import { MoviePreview, MoviesPremieres } from '@/features/movies/components';
+import { MoviePreview } from '@/features/movies/components';
 import { useEffect } from 'react';
 
 const Home = () => {

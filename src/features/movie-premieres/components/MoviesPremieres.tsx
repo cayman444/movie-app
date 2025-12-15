@@ -9,7 +9,7 @@ import { MoviePremiere } from './MoviePremiere';
 export const MoviesPremieres = () => {
   const { data: premieresMovies, isLoading } = useGetPremieresMoviesQuery({
     year: 2025,
-    month: 'SEPTEMBER',
+    month: 'DECEMBER',
   });
 
   return (
