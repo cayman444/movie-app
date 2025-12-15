@@ -1,7 +1,9 @@
+import { MoviesPremieresDetails } from '@/features/movie-premieres/components';
+
 const MoviePremiere = () => {
   return (
     <main className="pt-30 pb-18">
-      <div>premieres</div>
+      <MoviesPremieresDetails />
     </main>
   );
 };
