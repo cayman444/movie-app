@@ -1,9 +1,8 @@
 import { Container } from '@/app/layouts';
 import { MOVIES_LIST_BASE } from '@/entities/movie/constants';
-import { SearchOutlined, UserOutlined } from '@ant-design/icons';
-import { Input } from 'antd';
+import { UserOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
-import { DropdownMenu } from './components';
+import { DropdownMenu, DropdownMenuSearch } from './components';
 
 export const Header = () => {
   return (
@@ -11,12 +10,7 @@ export const Header = () => {
       <Container>
         <div className="flex items-center justify-between gap-6">
           <DropdownMenu />
-          <Input
-            name="search-movie"
-            className={'max-w-104'}
-            placeholder="Искать фильмы..."
-            suffix={<SearchOutlined style={{ fontSize: 18 }} />}
-          />
+          <DropdownMenuSearch />
           <ul className="flex items-center gap-4 font-semibold [&>li]:cursor-pointer [&>li]:transition-colors [&>li]:hover:text-neutral-400">
             {MOVIES_LIST_BASE.map(({ path, title }) => (
               <li key={path}>

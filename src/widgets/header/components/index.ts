@@ -1,1 +1,2 @@
-export { DropdownMenu } from './DropDownMenu';
+export { DropdownMenu } from './DropdownMenu';
+export { DropdownMenuSearch } from './DropdownMenuSearch';
