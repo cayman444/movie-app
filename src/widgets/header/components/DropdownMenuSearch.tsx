@@ -15,7 +15,7 @@ export const DropdownMenuSearch = () => {
         classNames={{
           popup: { root: '!z-10' },
         }}
-        className={'w-104'}
+        className={'w-104 min-w-32'}
         suffixIcon={<SearchOutlined style={{ fontSize: 18, color: 'white' }} />}
         placeholder="Искать фильмы..."
       />

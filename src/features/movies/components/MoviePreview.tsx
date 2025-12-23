@@ -17,9 +17,9 @@ export const MoviePreview = () => {
 
   return (
     <div className="relative h-screen mb-18">
-      <span className="absolute inset-0 bg-[url(/preview-movie.jpg)] bg-no-repeat bg-cover bg-fixed" />
-      <Container className="flex flex-col h-full">
-        <div className="flex-1 flex items-end justify-center gap-8 z-1 mb-20">
+      <span className="absolute inset-0 bg-[url(/preview-movie.jpg)] bg-no-repeat bg-cover bg-fixed bg-center" />
+      <Container className="flex flex-col h-full pt-20">
+        <div className="flex-1 flex items-end justify-center gap-4 z-1 mb-20 flex-wrap mt-20 md:mt-0 md:gap-8">
           <Button
             color="red"
             variant="solid"
@@ -39,11 +39,11 @@ export const MoviePreview = () => {
             Смотреть позже
           </Button>
         </div>
-        <div className="flex flex-col gap-6 z-1 justify-end -ml-20 pb-40 max-w-2xl">
+        <div className="flex flex-col gap-6 z-1 justify-end  pb-40 max-w-2xl min-[1400px]:-ml-20">
           <div className="flex flex-col gap-2">
             <h1 className="text-4xl font-bold">{movie?.nameRu}</h1>
-            <div className="flex items-center justify-between gap-4">
-              <div className="flex items-center gap-2">
+            <div className="flex items-center justify-between gap-4 flex-wrap">
+              <div className="flex items-center gap-2 flex-wrap">
                 {movie?.genres.map(({ genre }) => (
                   <Tag
                     key={genre}
@@ -54,19 +54,21 @@ export const MoviePreview = () => {
                   </Tag>
                 ))}
               </div>
-              <div className="flex items-center gap-2">
-                <CalendarOutlined />
-                <div className="font-semibold">{movie?.year}</div>
-              </div>
-              <div className="flex items-center gap-2">
-                <ClockCircleOutlined />
-                <div className="font-semibold">
-                  {formatMovieTime(movie?.filmLength)}
+              <div className="flex gap-4">
+                <div className="flex items-center gap-2">
+                  <CalendarOutlined />
+                  <div className="font-semibold">{movie?.year}</div>
                 </div>
-              </div>
-              <div className="flex items-center gap-2">
-                <StarOutlined />
-                <div className="font-semibold">{movie?.ratingKinopoisk}</div>
+                <div className="flex items-center gap-2">
+                  <ClockCircleOutlined />
+                  <div className="font-semibold">
+                    {formatMovieTime(movie?.filmLength)}
+                  </div>
+                </div>
+                <div className="flex items-center gap-2">
+                  <StarOutlined />
+                  <div className="font-semibold">{movie?.ratingKinopoisk}</div>
+                </div>
               </div>
             </div>
           </div>
