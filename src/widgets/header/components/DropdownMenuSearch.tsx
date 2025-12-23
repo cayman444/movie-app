@@ -16,7 +16,13 @@ export const DropdownMenuSearch = () => {
     const formattedData: AutoCompleteProps['options'] = data?.items.map(
       ({ nameRu, kinopoiskId }) => ({
         title: nameRu,
-        label: <Link to={`movies/${kinopoiskId}`}>{nameRu}</Link>,
+        value: nameRu ?? '',
+        label: (
+          <Link className="!block !text-inherit" to={`/movies/${kinopoiskId}`}>
+            {nameRu}
+          </Link>
+        ),
+        key: kinopoiskId,
       })
     );
 
@@ -33,8 +39,11 @@ export const DropdownMenuSearch = () => {
         options={options}
         value={search}
         onChange={onChange}
+        classNames={{
+          popup: { root: '!z-10' },
+        }}
         className={'w-104'}
-        suffixIcon={<SearchOutlined style={{ fontSize: 18 }} />}
+        suffixIcon={<SearchOutlined style={{ fontSize: 18, color: 'white' }} />}
         placeholder="Искать фильмы..."
       />
     </>
