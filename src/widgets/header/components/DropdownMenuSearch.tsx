@@ -3,9 +3,10 @@ import { useDebounce } from '@/shared/hooks';
 import { SearchOutlined } from '@ant-design/icons';
 import { AutoComplete, type AutoCompleteProps } from 'antd';
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export const DropdownMenuSearch = () => {
+  const navigate = useNavigate();
   const [search, setSearch] = useState('');
   const [options, setOptions] = useState<AutoCompleteProps['options']>([]);
   const debouncedSearch = useDebounce(search);
@@ -16,13 +17,8 @@ export const DropdownMenuSearch = () => {
     const formattedData: AutoCompleteProps['options'] = data?.items.map(
       ({ nameRu, kinopoiskId }) => ({
         title: nameRu,
-        value: nameRu ?? '',
-        label: (
-          <Link className="!block !text-inherit" to={`/movies/${kinopoiskId}`}>
-            {nameRu}
-          </Link>
-        ),
-        key: kinopoiskId,
+        label: nameRu,
+        value: kinopoiskId.toString(),
       })
     );
 
@@ -33,12 +29,18 @@ export const DropdownMenuSearch = () => {
     setSearch(data);
   };
 
+  const onSelect = (kinopoiskId: string) => {
+    navigate(`/movies/${kinopoiskId}`);
+    setSearch('');
+  };
+
   return (
     <>
       <AutoComplete
         options={options}
         value={search}
         onChange={onChange}
+        onSelect={onSelect}
         classNames={{
           popup: { root: '!z-10' },
         }}
