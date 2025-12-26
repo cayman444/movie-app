@@ -14,9 +14,13 @@ export const MoviesPremieres = () => {
 
   return (
     <Container className="flex flex-col gap-6 mb-18">
-      <h2 className="text-2xl font-medium">{MOVIES_ROUTES.PREMIERES.title}</h2>
+      <div>
+        <h2 className="text-2xl font-medium">
+          {MOVIES_ROUTES.PREMIERES.title}
+        </h2>
+      </div>
       <div className="flex items-center gap-8">
-        <ul className="flex-1 grid gap-8 grid-cols-4">
+        <ul className="flex-1 grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {isLoading ? (
             <MoviesPremieresSkeleton />
           ) : (
@@ -29,7 +33,7 @@ export const MoviesPremieres = () => {
         </ul>
         <Link
           to={MOVIES_ROUTES.PREMIERES.path}
-          className="flex items-center justify-center w-22 h-22 bg-neutral-700 rounded-full cursor-pointer hover:bg-neutral-600 transition-colors"
+          className="hidden items-center justify-center w-22 h-22 bg-neutral-700 rounded-full cursor-pointer hover:bg-neutral-600 transition-colors md:flex"
         >
           <ArrowRightOutlined
             style={{ fontSize: 32 }}
