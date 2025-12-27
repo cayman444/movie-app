@@ -20,7 +20,7 @@ export const MoviesAllSelection: FC<MoviesSelection> = ({ title, type }) => {
         <MoviesListSkeleton />
       ) : (
         <>
-          <ul className="grid grid-cols-5 gap-x-4 gap-y-8 mb-12">
+          <ul className="grid gap-x-4 gap-y-8 mb-12 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
             {selectionMovies?.items.map((params) => (
               <MovieItem key={params.kinopoiskId} {...params} />
             ))}
@@ -33,6 +33,7 @@ export const MoviesAllSelection: FC<MoviesSelection> = ({ title, type }) => {
             onChange={onChangePage}
             total={selectionMovies?.total}
             pageSize={PAGE_SIZE}
+            responsive={true}
             showTitle={false}
           />
         </>
