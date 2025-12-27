@@ -4,8 +4,8 @@ import { MovieItem } from '@/features/movies/components';
 import { ArrowRightOutlined } from '@ant-design/icons';
 import { Carousel } from 'antd';
 import { type FC } from 'react';
-import { useMediaQuery } from 'react-responsive';
 import { Link } from 'react-router-dom';
+import { useSlidesToShow } from '../hooks';
 import { MoviesCollectionSkeleton } from '../ui';
 
 interface MoviesCollection {
@@ -21,11 +21,7 @@ export const MoviesCollection: FC<MoviesCollection> = ({
   link,
   title,
 }) => {
-  const isLgSize = useMediaQuery({ query: '(width >= 1024px)' });
-  const isMdSize = useMediaQuery({ query: '(width >= 768px)' });
-  const isSmSize = useMediaQuery({ query: '(width >= 640px)' });
-
-  const slidesToShow = isLgSize ? 5 : isMdSize ? 3 : isSmSize ? 2 : 1;
+  const slidesToShow = useSlidesToShow();
 
   return (
     <Container className="w-full">
@@ -48,8 +44,8 @@ export const MoviesCollection: FC<MoviesCollection> = ({
           <Carousel
             arrows
             dots={false}
-            // autoplay={{ dotDuration: true }}
-            // autoplaySpeed={5000}
+            autoplay={{ dotDuration: true }}
+            autoplaySpeed={5000}
             slidesToShow={slidesToShow}
           >
             {movies?.map((film) => (
