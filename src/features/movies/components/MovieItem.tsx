@@ -36,7 +36,7 @@ export const MovieItem: FC<Movie> = ({
         <LazyMovieImg src={posterUrl} alt={nameRu || nameOriginal} />
       </Link>
       <div className="flex flex-col gap-2 flex-wrap">
-        <h4 className="text-lg font-semibold line-clamp-2">
+        <h4 className="text-lg font-semibold line-clamp-2 wrap-anywhere">
           <Link
             to={`/movies/${kinopoiskId}`}
             state={pathname}

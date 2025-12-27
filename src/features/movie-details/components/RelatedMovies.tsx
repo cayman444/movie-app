@@ -39,7 +39,7 @@ export const RelatedMovies = memo(function RelatedMovies({
                 />
               )}
             </div>
-            <ul className="grid grid-cols-6 gap-4">
+            <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6">
               {visibleItems.map((data) => (
                 <RelatedItem key={data.filmId} {...data} />
               ))}

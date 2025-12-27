@@ -15,12 +15,12 @@ export const RelatedItem: FC<VisibleMovie> = ({
       <Link
         to={`/movies/${filmId}`}
         state={state}
-        className="relative pt-[150%]"
+        className="relative pt-[420px] sm:pt-[150%]"
       >
         <LazyMovieImg src={posterUrl} alt={nameRu} />
       </Link>
       <div className="flex flex-col gap-2 flex-wrap">
-        <h4 className="text-lg font-semibold line-clamp-2">
+        <h4 className="text-lg font-semibold line-clamp-2 wrap-anywhere">
           <Link to={`/movies/${filmId}`} state={state} className="!text-white">
             {nameRu}
           </Link>

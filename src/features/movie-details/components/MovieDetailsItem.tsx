@@ -11,8 +11,8 @@ export const MovieDetailsItem: FC<MovieDetailsItemProps> = ({
   children,
 }) => {
   return (
-    <li className={clsx('flex gap-2 ', className)}>
-      <h4 className="font-bold">{title}</h4>
+    <li className={clsx('flex gap-x-2 flex-wrap', className)}>
+      <h4 className="font-bold whitespace-nowrap">{title}</h4>
       <div className="line-clamp-1">{children}</div>
     </li>
   );

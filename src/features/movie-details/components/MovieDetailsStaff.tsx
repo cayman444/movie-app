@@ -21,8 +21,8 @@ export const MovieDetailsStaff: FC<MovieDetailsStaffProps> = ({
     useMovieDetailsStaff(staff);
 
   return (
-    <li className={clsx('flex gap-2', className)}>
-      <h4 className="text-nowrap">{title}</h4>
+    <li className={clsx('flex gap-x-2 flex-wrap', className)}>
+      <h4 className="font-bold text-nowrap">{title}</h4>
       <ul className="flex gap-1 overflow-hidden">
         <div className="flex gap-1 overflow-hidden">
           {slicedStaff?.map(({ staffId, nameRu }, ind) => (

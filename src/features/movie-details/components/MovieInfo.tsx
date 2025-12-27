@@ -24,8 +24,13 @@ export const MovieInfo = memo(function MovieInfo({
   if (movieInfoLoading || staffInfoLoading) return <MovieInfoSkeleton />;
 
   return (
-    <div className={clsx(className, 'grid grid-cols-[20%_1fr] gap-8')}>
-      <div className="relative pt-[150%] self-start">
+    <div
+      className={clsx(
+        className,
+        'grid grid-cols-1 gap-8 md:grid-cols-[20%_1fr]'
+      )}
+    >
+      <div className="relative pt-[280px] w-[220px] self-start md:pt-[150%] md:w-full">
         <LazyMovieImg
           src={movieInfo?.posterUrl}
           alt={movieInfo?.nameEn}

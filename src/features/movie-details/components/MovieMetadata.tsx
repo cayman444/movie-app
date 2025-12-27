@@ -22,8 +22,8 @@ export const MovieMetadata: FC<MovieMetadataProps> = ({
   ratingKinopoisk,
 }) => {
   return (
-    <div className="flex items-center gap-4 font-medium mb-6">
-      <div className="flex items-center gap-2">
+    <div className="flex items-center gap-4 font-medium mb-6 flex-wrap">
+      <div className="flex items-center gap-2 flex-wrap">
         {genres?.map(({ genre }) => (
           <Tag
             key={genre}

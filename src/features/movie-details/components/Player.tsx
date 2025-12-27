@@ -14,7 +14,7 @@ export const Player = memo(function Player({
   selectedPlayerIndex,
 }: PlayerProps) {
   return (
-    <div className="relative pt-[50%] mb-6">
+    <div className="relative pt-[420px] mb-6 md:pt-[50%]">
       {isLoading ? (
         <PlayerSkeleton />
       ) : (
