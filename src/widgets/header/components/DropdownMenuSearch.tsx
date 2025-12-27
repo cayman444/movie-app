@@ -1,0 +1,25 @@
+import { SearchOutlined } from '@ant-design/icons';
+import { AutoComplete } from 'antd';
+import { useDropdownMenuSearch } from '../hooks';
+
+export const DropdownMenuSearch = () => {
+  const { search, options, onChange, onSelect } = useDropdownMenuSearch();
+
+  return (
+    <>
+      <AutoComplete
+        options={options}
+        value={search}
+        onChange={onChange}
+        onSelect={onSelect}
+        virtual={false}
+        classNames={{
+          popup: { root: '!z-10' },
+        }}
+        className={'w-104 min-w-32'}
+        suffixIcon={<SearchOutlined style={{ fontSize: 18, color: 'white' }} />}
+        placeholder="Искать фильмы..."
+      />
+    </>
+  );
+};

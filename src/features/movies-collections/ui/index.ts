@@ -1,0 +1,1 @@
+export { MoviesCollectionSkeleton } from './MoviesCollectionSkeleton';

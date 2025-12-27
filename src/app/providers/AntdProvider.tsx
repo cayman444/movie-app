@@ -1,0 +1,84 @@
+import { ConfigProvider, type ThemeConfig } from 'antd';
+import { type PropsWithChildren } from 'react';
+
+const themeConfig: ThemeConfig = {
+  token: {
+    fontFamily: 'Poppins, sans-serif',
+  },
+  components: {
+    Spin: {
+      colorBgMask: 'oklch(26.9% 0 0)',
+      colorTextLightSolid: '#1677ff',
+      colorWhite: '#1677ff',
+    },
+    Input: {
+      hoverBorderColor: 'transparent',
+      activeBorderColor: 'oklch(37.1% 0 0)',
+      activeShadow: 'transparent',
+      colorTextPlaceholder: 'oklch(70.8% 0 0)',
+      controlOutlineWidth: 10,
+      borderRadius: 24,
+      paddingBlock: 8,
+      paddingInline: 18,
+    },
+    Skeleton: {
+      gradientFromColor: 'oklch(43.9% 0 0)',
+      gradientToColor: 'oklch(55.6% 0 0)',
+    },
+    Dropdown: {
+      colorBgElevated: 'oklch(26.9% 0 0)',
+      colorText: '#ffffff',
+      controlItemBgHover: 'oklch(37.1% 0 0)',
+      colorSplit: 'oklch(37.1% 0 0)',
+      fontSize: 16,
+    },
+    Pagination: {
+      itemSize: 40,
+      itemActiveBg: 'oklch(37.1% 0 0)',
+      colorText: '#ffffff',
+      itemBg: 'oklch(26.9% 0 0)',
+      colorTextDisabled: 'oklch(37.1% 0 0)',
+    },
+    Breadcrumb: {
+      linkColor: '#ffffff73',
+      separatorColor: '#ffffff73',
+      linkHoverColor: '#ffffffd9',
+      lastItemColor: '#ffffffd9',
+      colorBgTextHover: '#ffffff1f',
+    },
+    Select: {
+      colorText: '#ffffff',
+      colorIcon: '#ffffff',
+      colorFillSecondary: '#ffffff',
+      colorTextPlaceholder: '#ffffff73',
+      colorBgElevated: 'oklch(26.9% 0 0)',
+      colorBgContainer: 'oklch(26.9% 0 0)',
+      colorBorder: 'oklch(37.1% 0 0)',
+      colorPrimary: 'oklch(37.1% 0 0)',
+      activeBorderColor: 'oklch(37.1% 0 0)',
+      hoverBorderColor: 'oklch(37.1% 0 0)',
+      optionSelectedBg: '#1668dc',
+      optionSelectedColor: '#ffffffd9',
+      optionActiveBg: 'oklch(37.1% 0 0)',
+      activeOutlineColor: 'transparent',
+      controlHeight: 40,
+      zIndexPopup: 1,
+      optionPadding: '8px 18px',
+    },
+    Notification: {
+      colorBgElevated: 'oklch(26.9% 0 0)',
+      colorText: '#ffffff',
+      colorTextHeading: '#ffffff',
+      colorIcon: '#ffffff',
+      colorIconHover: '#ffffff',
+    },
+    Result: {
+      colorTextDescription: '#ffffff',
+      colorTextHeading: '#ffffff',
+    },
+  },
+};
+
+export const AntdProvider = ({ children }: PropsWithChildren) => {
+  return <ConfigProvider theme={themeConfig}>{children}</ConfigProvider>;
+};

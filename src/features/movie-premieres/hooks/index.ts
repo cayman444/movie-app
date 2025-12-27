@@ -1,0 +1,1 @@
+export { useMoviesPremieresDetails } from './useMoviesPremieresDetails';
