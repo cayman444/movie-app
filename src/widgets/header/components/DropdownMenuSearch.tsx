@@ -12,6 +12,7 @@ export const DropdownMenuSearch = () => {
         value={search}
         onChange={onChange}
         onSelect={onSelect}
+        virtual={false}
         classNames={{
           popup: { root: '!z-10' },
         }}

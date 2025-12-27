@@ -14,9 +14,18 @@ export const useDropdownMenuSearch = () => {
 
   useEffect(() => {
     const formattedData: AutoCompleteProps['options'] = data?.items.map(
-      ({ nameRu, kinopoiskId }) => ({
+      ({ nameRu, kinopoiskId, posterUrl }) => ({
         title: nameRu,
-        label: nameRu,
+        label: (
+          <div className="flex gap-3 items-center min-w-0">
+            <img
+              className="w-12 h-16 object-cover rounded"
+              src={posterUrl}
+              alt={nameRu}
+            />
+            <div className="truncate">{nameRu}</div>
+          </div>
+        ),
         value: kinopoiskId.toString(),
       })
     );
