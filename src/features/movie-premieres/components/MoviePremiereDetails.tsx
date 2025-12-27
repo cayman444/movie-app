@@ -19,7 +19,7 @@ export const MoviePremiereDetails: FC<PremiereMovie> = ({
       <Link
         to={`/movies/${kinopoiskId}`}
         state={pathname}
-        className="relative pt-[150%]"
+        className="relative pt-[420px] sm:pt-[150%]"
       >
         {year && (
           <Tag className="!absolute !top-2 !left-2 z-1 !m-0" color="#000000b3">

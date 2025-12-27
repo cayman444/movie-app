@@ -20,7 +20,7 @@ export const MoviesPremieresFilters: FC<MoviesPremieresFiltersProps> = ({
   handleChangeYear,
 }) => {
   return (
-    <div className="flex gap-2 mb-8">
+    <div className="flex gap-2 mb-8 flex-wrap">
       <MovieSelect
         isFetching={isFetching}
         placeholder="Месяц"

@@ -17,7 +17,7 @@ export const MoviesPremieresDetails = () => {
       {isFetching ? (
         <MoviesListSkeleton hasPagination={false} />
       ) : (
-        <ul className="grid grid-cols-5 gap-x-4 gap-y-8">
+        <ul className="grid gap-x-4 gap-y-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
           {premieres?.items.map((movie) => (
             <MoviePremiereDetails key={movie.kinopoiskId} {...movie} />
           ))}
