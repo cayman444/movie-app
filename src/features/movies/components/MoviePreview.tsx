@@ -1,5 +1,4 @@
 import { Container } from '@/app/layouts';
-import { useGetMovieQuery } from '@/shared/api/endpoints';
 import { formatMovieTime } from '@/shared/utils';
 import {
   CalendarOutlined,
@@ -8,15 +7,18 @@ import {
   StarOutlined,
 } from '@ant-design/icons';
 import { Button, Tag } from 'antd';
+import { useMoviePreview } from '../hooks';
 import { MoviePreviewSkeleton } from '../ui';
 
 export const MoviePreview = () => {
-  const { data: movie } = useGetMovieQuery({ id: 505898 });
+  const { movie, contextHolder, navigate, openNotification } =
+    useMoviePreview();
 
   if (!movie) return <MoviePreviewSkeleton />;
 
   return (
     <div className="relative mb-18 sm:h-screen">
+      {contextHolder}
       <span className="absolute inset-0 bg-[url(/preview-movie.jpg)] bg-no-repeat bg-cover bg-fixed bg-center" />
       <Container className="flex flex-col h-full pt-20">
         <div className="flex-1 flex items-end justify-center gap-4 z-1 mb-20 flex-wrap mt-20 md:mt-0 md:gap-8">
@@ -25,6 +27,7 @@ export const MoviePreview = () => {
             variant="solid"
             iconPosition="end"
             className="!p-6 !border-2 !text-xl !font-semibold"
+            onClick={() => navigate('/movies/505898')}
             icon={<PlayCircleOutlined style={{ fontSize: 24 }} />}
           >
             Смотреть сейчас
@@ -32,6 +35,7 @@ export const MoviePreview = () => {
           <Button
             danger
             ghost
+            onClick={openNotification}
             iconPosition="end"
             icon={<ClockCircleOutlined style={{ fontSize: 24 }} />}
             className="!p-6 !border-2 !text-xl !font-semibold !text-white"
