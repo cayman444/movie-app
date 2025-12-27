@@ -3,7 +3,8 @@ import type { Movie } from '@/entities/movie/types';
 import { MovieItem } from '@/features/movies/components';
 import { ArrowRightOutlined } from '@ant-design/icons';
 import { Carousel } from 'antd';
-import type { FC } from 'react';
+import { type FC } from 'react';
+import { useMediaQuery } from 'react-responsive';
 import { Link } from 'react-router-dom';
 import { MoviesCollectionSkeleton } from '../ui';
 
@@ -20,9 +21,15 @@ export const MoviesCollection: FC<MoviesCollection> = ({
   link,
   title,
 }) => {
+  const isLgSize = useMediaQuery({ query: '(width >= 1024px)' });
+  const isMdSize = useMediaQuery({ query: '(width >= 768px)' });
+  const isSmSize = useMediaQuery({ query: '(width >= 640px)' });
+
+  const slidesToShow = isLgSize ? 5 : isMdSize ? 3 : isSmSize ? 2 : 1;
+
   return (
     <Container className="w-full">
-      <div className="flex justify-between items-center mb-6">
+      <div className="flex justify-between items-center mb-6 flex-wrap gap-2">
         <h2 className="text-2xl font-bold">{title}</h2>
         <Link
           to={link}
@@ -41,9 +48,9 @@ export const MoviesCollection: FC<MoviesCollection> = ({
           <Carousel
             arrows
             dots={false}
-            autoplay={{ dotDuration: true }}
-            autoplaySpeed={5000}
-            slidesToShow={5}
+            // autoplay={{ dotDuration: true }}
+            // autoplaySpeed={5000}
+            slidesToShow={slidesToShow}
           >
             {movies?.map((film) => (
               <MovieItem key={film.kinopoiskId} {...film} />
