@@ -33,7 +33,7 @@ export const MoviesFilters: FC<MoviesFiltersProps> = ({
   } = useFilters(movieType);
 
   return (
-    <div className={clsx(className, 'flex gap-2')}>
+    <div className={clsx(className, 'flex gap-x-2 gap-y-4 flex-wrap')}>
       <Input
         name="search-movie-filter"
         className={'max-w-100'}

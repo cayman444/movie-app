@@ -25,7 +25,7 @@ export const MovieSelect = <T,>({
       onChange={onChange}
       defaultValue={defaultValue}
       allowClear={allowClear}
-      style={{ width: 200 }}
+      style={{ width: 160 }}
       loading={isFetching}
       options={options}
     />

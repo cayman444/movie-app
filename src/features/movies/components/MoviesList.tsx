@@ -26,7 +26,7 @@ export const MoviesList: FC<MovieLinkWithoutPath> = ({ title, movieType }) => {
               По вашему запросу ничего не найдено
             </h2>
           )}
-          <ul className="grid grid-cols-5 gap-x-4 gap-y-8 mb-12">
+          <ul className="grid gap-x-4 gap-y-8 mb-12 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
             {movies?.items.map((movie) => (
               <MovieItem key={movie.kinopoiskId} {...movie} />
             ))}
@@ -39,6 +39,7 @@ export const MoviesList: FC<MovieLinkWithoutPath> = ({ title, movieType }) => {
             onChange={onChangePage}
             total={movies?.total}
             pageSize={PAGE_SIZE}
+            responsive={true}
             showTitle={false}
           />
         </>
